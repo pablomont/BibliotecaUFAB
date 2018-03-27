@@ -1,5 +1,5 @@
 package itemsAcervo;
 
-public class TrabalhoDeConclusao {
+public class TrabalhoDeConclusao implements ItemAcervo {
 
 }

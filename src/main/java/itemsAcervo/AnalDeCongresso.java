@@ -1,5 +1,5 @@
 package itemsAcervo;
 
-public class AnalDeCongresso {
+public class AnalDeCongresso implements ItemAcervo {
 
 }
