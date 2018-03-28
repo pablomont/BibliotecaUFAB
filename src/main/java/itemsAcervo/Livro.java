@@ -37,7 +37,7 @@ public class Livro implements ItemAcervo {
 	}
 	
 	//https://www.moreofless.co.uk/validate-isbn-13-java/
-	public boolean validateIsbn13(String isbn)
+	public boolean  validateIsbn13(String isbn)
     {
         if (isbn == null)
             return false;

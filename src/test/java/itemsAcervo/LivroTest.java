@@ -2,7 +2,6 @@ package itemsAcervo;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +24,6 @@ public class LivroTest {
 	@Test(expected =IllegalArgumentException.class)
 	public void testAddAutorExistente() {
 		livro.addAutor("Carl Sagan");
-		
 	}
 	
 	@Test(expected =IllegalArgumentException.class)
@@ -33,9 +31,15 @@ public class LivroTest {
 		livro.removeAutor("Pablo Monteiro");
 	}
 	
-	
+	@Test
 	public void validateIsbn() {
-		assertFalse(livro.validateIsbn13("123456"));	
+		assertFalse(livro.validateIsbn13("123456"));
+		assertTrue(livro.validateIsbn13("978-85-359-2988-1"));	
+	}
+	
+	@Test
+	public void testLivro() {
+		assertEquals(new Livro("978-85-359-2988-1","Cosmos"),livro);
 	}
 
 }
