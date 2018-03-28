@@ -1,4 +1,4 @@
-package biblioteca;
+package model;
 
 import java.util.InputMismatchException;
 

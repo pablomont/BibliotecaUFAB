@@ -1,4 +1,4 @@
-package itemsAcervo;
+package model;
 
 import java.util.List;
 

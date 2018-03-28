@@ -1,4 +1,4 @@
-package biblioteca;
+package modelTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,19 +7,24 @@ import org.junit.Before;
 
 import org.junit.Test;
 
-import biblioteca.Funcionario.NivelAcesso;
-import itemsAcervo.AnalDeCongresso;
-import itemsAcervo.AnalDeCongresso.TipoAnal;
-import itemsAcervo.ItemAcervo;
-import itemsAcervo.Jornal;
-import itemsAcervo.Livro;
-import itemsAcervo.MidiaEletronica;
-import itemsAcervo.MidiaEletronica.TipoMidia;
-import itemsAcervo.Revista;
-import itemsAcervo.TrabalhoDeConclusao;
-import itemsAcervo.TrabalhoDeConclusao.TipoTrabalho;
+import exception.AcessoNegadoException;
+import exception.ItemExistenteException;
+import exception.ItemInexistenteException;
+import model.AnalDeCongresso;
+import model.Biblioteca;
+import model.Funcionario;
+import model.ItemAcervo;
+import model.Jornal;
+import model.Livro;
+import model.MidiaEletronica;
+import model.Revista;
+import model.TrabalhoDeConclusao;
+import model.AnalDeCongresso.TipoAnal;
+import model.Funcionario.NivelAcesso;
+import model.MidiaEletronica.TipoMidia;
+import model.TrabalhoDeConclusao.TipoTrabalho;
 
-public class TestBibliotecaUS01 {
+public class BibliotecaTest {
 
 	Biblioteca biblioteca;
 	Funcionario admin;
@@ -30,7 +35,7 @@ public class TestBibliotecaUS01 {
 		admin = new Funcionario("Pablo",NivelAcesso.ADMIN,"10190673494");
 		operador = new Funcionario("Samuel",NivelAcesso.OPERADOR, "91203647506");
 		biblioteca = new Biblioteca(admin);
-		biblioteca.addFuncionario(operador);
+		biblioteca.addFuncionario(operador);	
 		
 		biblioteca.criarItem(new Livro("978-85-359-2988-1","Cosmos"));
 		biblioteca.criarItem(new MidiaEletronica(TipoMidia.DVD,"Telecurso 2000"));
@@ -46,6 +51,7 @@ public class TestBibliotecaUS01 {
 	public void testAdminCreateItem() throws AcessoNegadoException, ItemExistenteException{		
 		biblioteca.setUsuarioAtualDoSistema(admin);
 		biblioteca.criarItem(new Livro("972-66-010-4598-1","Uma Breve História do Tempo: do Big Bang aos Buracos Negros"));
+		
 		assertEquals(biblioteca.getItemsAcervo().size(),7);
 	}
 	

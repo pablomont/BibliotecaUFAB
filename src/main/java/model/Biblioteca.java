@@ -1,10 +1,12 @@
-package biblioteca;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import biblioteca.Funcionario.NivelAcesso;
-import itemsAcervo.ItemAcervo;
+import exception.AcessoNegadoException;
+import exception.ItemExistenteException;
+import exception.ItemInexistenteException;
+import model.Funcionario.NivelAcesso;
 
 public class Biblioteca {
 

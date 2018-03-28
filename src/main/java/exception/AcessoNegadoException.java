@@ -1,4 +1,4 @@
-package biblioteca;
+package exception;
 
 public class AcessoNegadoException extends Exception {
 

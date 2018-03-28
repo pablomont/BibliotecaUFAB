@@ -1,13 +1,14 @@
-package biblioteca;
+package modelTest;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import biblioteca.Funcionario.NivelAcesso;
+import model.Funcionario;
+import model.Funcionario.NivelAcesso;
 
-public class TestFuncioario {
+public class FuncioarioTest {
 
 	
 	Funcionario samuel;

@@ -1,4 +1,4 @@
-package itemsAcervo;
+package model;
 
 public class MidiaEletronica implements ItemAcervo {
 	
