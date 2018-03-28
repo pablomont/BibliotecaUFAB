@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import model.Funcionario;
 import model.Funcionario.NivelAcesso;
+import util.Cpf;
 
 public class FuncioarioTest {
 
@@ -29,14 +30,14 @@ public class FuncioarioTest {
 	
 	@Test
 	public void testCpfInvalido() {
-		assertFalse(Funcionario.isCPF("55555555555"));
-		assertFalse(Funcionario.isCPF("555aaa55522"));
-		assertFalse(Funcionario.isCPF("101906"));
+		assertFalse(Cpf.isCPF("55555555555"));
+		assertFalse(Cpf.isCPF("555aaa55522"));
+		assertFalse(Cpf.isCPF("101906"));
 	}
 	
 	@Test
 	public void testCpfValido() {
-		assertTrue(Funcionario.isCPF("56073421826"));	
+		assertTrue(Cpf.isCPF("56073421826"));	
 	}
 	
 

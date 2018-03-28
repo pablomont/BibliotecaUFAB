@@ -68,13 +68,13 @@ public class BibliotecaTest {
 	
 	@Test
 	public void testRemoveItem() throws AcessoNegadoException, ItemInexistenteException {
-		biblioteca.excluirItem(new Livro("978-85-359-2988-1","Cosmos"));
+		biblioteca.removeItem(new Livro("978-85-359-2988-1","Cosmos"));
 		assertEquals(biblioteca.getItemsAcervo().size(),5);
 	}
 	
 	@Test(expected = ItemInexistenteException.class)
 	public void testRemoveItemInexistente() throws AcessoNegadoException, ItemInexistenteException {
-		biblioteca.excluirItem(new Livro("973-80-309-2587-1","O Mundo assombrado pelos demônios"));
+		biblioteca.removeItem(new Livro("973-80-309-2587-1","O Mundo assombrado pelos demônios"));
 	}
 	
 	@Test
