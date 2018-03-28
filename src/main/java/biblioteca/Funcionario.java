@@ -10,6 +10,11 @@ public class Funcionario {
 	public Funcionario(NivelAcesso nivelAcesso) {
 		this.setnivelAcesso(nivelAcesso);
 	}
+	
+	public Funcionario(String nome, NivelAcesso nivelAcesso) {
+		this.setnivelAcesso(nivelAcesso);
+		setNome(nome);
+	}
 
 
 	public NivelAcesso getnivelAcesso() {
