@@ -34,9 +34,10 @@ public class BibliotecaTest {
 	public void setUp() throws Exception {
 		admin = new Funcionario("Pablo",NivelAcesso.ADMIN,"10190673494");
 		operador = new Funcionario("Samuel",NivelAcesso.OPERADOR, "91203647506");
-		biblioteca = new Biblioteca(admin);
+		biblioteca = new Biblioteca();
+		biblioteca.addFuncionario(admin);
 		biblioteca.addFuncionario(operador);	
-		
+		biblioteca.setUsuarioAtualDoSistema(admin);
 		biblioteca.criarItem(new Livro("978-85-359-2988-1","Cosmos"));
 		biblioteca.criarItem(new MidiaEletronica(TipoMidia.DVD,"Telecurso 2000"));
 		biblioteca.criarItem(new Revista("Enem Curiosidadea"));

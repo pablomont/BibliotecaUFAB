@@ -55,5 +55,12 @@ public class Curso {
 	public void setArea(String area) {
 		this.area = area;
 	}
+
+	@Override
+	public String toString() {
+		return "Curso [nome=" + nome + "]";
+	}
+	
+	
 		
 }

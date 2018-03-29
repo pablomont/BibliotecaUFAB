@@ -86,6 +86,10 @@ public class Revista implements ItemAcervo {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Revista [titulo=" + titulo + ", edicao=" + edicao + "]";
+	}
 	
 	
 	

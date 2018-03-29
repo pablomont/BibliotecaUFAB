@@ -1,11 +1,17 @@
 package model;
 
+
 import util.Cpf;
 
 public class Aluno {
 	private Curso curso;
 	private String nome;
 	private String cpf;
+
+	
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 
 	public Curso getCurso() {
 		return curso;

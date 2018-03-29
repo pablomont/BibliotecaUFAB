@@ -68,6 +68,11 @@ public class Jornal implements ItemAcervo {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Jornal [titulo=" + titulo + ", edicao=" + edicao + "]";
+	}
+
 	
 	
 	

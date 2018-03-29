@@ -59,6 +59,11 @@ public class MidiaEletronica implements ItemAcervo {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "MidiaEletronica [titulo=" + titulo + ", tipo=" + tipo + "]";
+	}
 	
 	
 	

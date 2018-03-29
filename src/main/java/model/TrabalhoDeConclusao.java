@@ -146,6 +146,11 @@ public class TrabalhoDeConclusao implements ItemAcervo {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "TrabalhoDeConclusao [titulo=" + titulo + ", anoDefesa=" + anoDefesa + "]";
+	}
+
 	
 
 	

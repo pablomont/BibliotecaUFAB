@@ -147,5 +147,10 @@ public class Livro implements ItemAcervo {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Livro [titulo=" + titulo + "]";
+	}
+
 
 }

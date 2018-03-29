@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnalDeCongresso implements ItemAcervo {
@@ -13,9 +14,20 @@ public class AnalDeCongresso implements ItemAcervo {
 	private String titulo;
 	private List<String> autores;
 	
+	
+	
+	public List<String> getAutores() {
+		return autores;
+	}
+
+	public void setAutores(List<String> autores) {
+		this.autores = autores;
+	}
+
 	public AnalDeCongresso(TipoAnal tipo, String titulo) {
 		setTipo(tipo);
 		setTitulo(titulo);
+		autores = new ArrayList<String>();
 	}
 	
 	public void addAutor(String autor) {
@@ -103,6 +115,11 @@ public class AnalDeCongresso implements ItemAcervo {
 		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "AnalDeCongresso [titulo=" + titulo + "]";
 	}
 	
 	

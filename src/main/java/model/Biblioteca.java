@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import exception.AcessoNegadoException;
 import exception.ItemExistenteException;
 import exception.ItemInexistenteException;
@@ -15,22 +18,26 @@ public class Biblioteca {
 	private List<Curso> cursos;
 	private Funcionario usuarioAtualDoSistema;
 	
-	public Biblioteca(Funcionario funcionario) {
+	private static final Logger logger = LogManager.getLogger(Biblioteca.class);
+	
+	public Biblioteca() {
 		itemsAcervo = new ArrayList<ItemAcervo>();
 		funcionarios = new ArrayList<Funcionario>();
 		cursos = new ArrayList<Curso>();
-		
-		setUsuarioAtualDoSistema(funcionario);
 	}
 	
 
 	public void criarItem(ItemAcervo item) throws AcessoNegadoException, ItemExistenteException{
+		
 		if(!usuarioAtualDoSistema.getnivelAcesso().equals(NivelAcesso.ADMIN))
 			throw new AcessoNegadoException("O nível de acesso deve ser ADMIN");
 		
 		
-		if(!itemsAcervo.contains(item)) 
-			itemsAcervo.add(item);	
+		if(!itemsAcervo.contains(item)) {
+			itemsAcervo.add(item);
+			logger.info("Adicionado "+item.toString()+"  no Método criarItem");
+		}
+			
 		else
 			throw new ItemExistenteException("O item já existe");
 		
@@ -44,6 +51,7 @@ public class Biblioteca {
 		if(itemsAcervo.contains(item)) {
 			int index = itemsAcervo.indexOf(item);
 			itemsAcervo.set(index, itemAlterado);
+			logger.info("Editado "+item.toString()+ "no Método editarItem");
 		}
 		else
 			throw new ItemInexistenteException("O item não existe");
@@ -56,6 +64,7 @@ public class Biblioteca {
 		
 		if(itemsAcervo.contains(item)) {
 			itemsAcervo.remove(item);
+			logger.info("Removido "+item.toString()+ "no Método removerItem");
 		}
 		
 		else
@@ -67,8 +76,11 @@ public class Biblioteca {
 	}
 	
 	public void addFuncionario(Funcionario funcionario) {
-		if(!funcionarios.contains(funcionario))
-		funcionarios.add(funcionario);
+		if(!funcionarios.contains(funcionario)) {
+			funcionarios.add(funcionario);
+			logger.info("Adicinado "+funcionario.toString()+ "no Método addFuncionario");
+			
+		}
 		
 		else
 			throw new IllegalArgumentException("O Funcionário já existe na biblioteca");
@@ -83,6 +95,7 @@ public class Biblioteca {
 		if(funcionarios.contains(funcionario)) {
 			int index = funcionarios.indexOf(funcionario);
 			funcionarios.set(index, funcionarioAlterado);
+			logger.info("Editado "+funcionario.toString()+ "no Método editFuncionario");
 		}
 		else
 			throw new IllegalArgumentException("O funcionário não existe");
@@ -96,6 +109,7 @@ public class Biblioteca {
 		
 		if(funcionarios.contains(funcionario)) {
 			funcionarios.remove(funcionario);
+			logger.info("Removido "+funcionario.toString()+ "no Método removeFuncionario");
 		}
 		
 		else
@@ -115,6 +129,7 @@ public class Biblioteca {
 			throw new IllegalArgumentException("O Funcionário não existe na biblioteca");
 		
 		this.usuarioAtualDoSistema = usuarioDoSistema;
+		logger.info("Alterado o usuarioAtualDoSitema por "+usuarioDoSistema.toString()+ "no Método setUsuarioAtualDoSistema");
 	}
 
 
@@ -128,8 +143,11 @@ public class Biblioteca {
 	}
 	
 	public void addCurso(Curso curso) {
-		if(!cursos.contains(curso)) 
+		if(!cursos.contains(curso)) {
 			cursos.add(curso);	
+			logger.info("Adicionado o curso "+ curso +" no método addCurso");
+		}
+			
 		else
 			throw new IllegalArgumentException("O curso já exsite");	
 	}
@@ -139,6 +157,7 @@ public class Biblioteca {
 		if(cursos.contains(curso)) {
 			int index = cursos.indexOf(curso);
 			cursos.set(index, cursoAlterado);
+			logger.info("Editado o curso "+ curso +" no método editCurso");
 		}
 		else
 			throw new IllegalArgumentException("O curso não existe");	
@@ -150,6 +169,7 @@ public class Biblioteca {
 		
 		if(cursos.contains(curso)) {
 			cursos.remove(curso);
+			logger.info("Removido o curso "+ curso +" no método removeCurso");
 		}
 		
 		else
