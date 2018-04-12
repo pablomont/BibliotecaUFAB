@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model.itemAcervo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model.itemAcervo;
 
 import java.util.List;
 
@@ -13,12 +13,6 @@ public class TrabalhoDeConclusao implements ItemAcervo {
 	private String local;
 	private TipoTrabalho tipo;
 	
-
-	public TrabalhoDeConclusao(String titulo, TipoTrabalho tipo) {
-		super();
-		setTitulo(titulo);
-		setTipo(tipo);
-	}
 
 	public void addAutor(String autor) {
 		if(!autores.contains(autor)) {

@@ -1,45 +1,22 @@
-package model;
+package uepb.web.ufab.model;
 
 import util.Cpf;
 
-public class Funcionario {
-
-	public enum NivelAcesso {ADMIN,OPERADOR}
-	private NivelAcesso nivelAcesso;
-	private String nome;
-	private String cpf;
+public class Pessoa {
 	
+	protected String name;
+	protected String cpf;
 	
-	public Funcionario(String nome, NivelAcesso nivelAcesso, String cpf) {
-		setNome(nome);
-		setCpf(cpf);
-		setnivelAcesso(nivelAcesso);
+	public String getName() {
+		return name;
 	}
 	
-	public NivelAcesso getnivelAcesso() {
-		return nivelAcesso;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-
-	public void setnivelAcesso(NivelAcesso nivelAcesso) {
-		this.nivelAcesso = nivelAcesso;
-	}
-
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-
 	public String getCpf() {
 		return cpf;
 	}
-
 	public void setCpf(String cpf) {
 		if(Cpf.isCPF(cpf))
 			this.cpf = cpf;
@@ -63,7 +40,7 @@ public class Funcionario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Funcionario other = (Funcionario) obj;
+		Pessoa other = (Pessoa) obj;
 		if (cpf == null) {
 			if (other.cpf != null)
 				return false;
@@ -74,8 +51,9 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "Funcionario [nome=" + nome + ", cpf=" + cpf + "]";
+		return "Pessoa [Nome=" + getName() + ", Cpf=" + getCpf() + "]";
 	}
+	
 	
 	
 	

@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model.itemAcervo;
 
 public class MidiaEletronica implements ItemAcervo {
 	
@@ -8,10 +8,7 @@ public class MidiaEletronica implements ItemAcervo {
 	private String dataGravacao;
 	
 	
-	public MidiaEletronica(TipoMidia tipo, String titulo) {
-		setTipo(tipo);
-		setTitulo(titulo);
-	}
+	
 	
 	public String getTitulo() {
 		return titulo;

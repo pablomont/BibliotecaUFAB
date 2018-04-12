@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model.itemAcervo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,18 +7,13 @@ public class Livro implements ItemAcervo {
 	
 	private String isbn;
 	private String titulo;
-	private List<String> autores;
+	private List<String> autores = new ArrayList<String>();
 	private String editora;
 	private int anoDePublicacao;
 	private int numPaginas;
 	private String area;
 	private String tema;
 	
-	public Livro(String isbn, String titulo) {
-		autores = new ArrayList<String>();
-		setTitulo(titulo);
-		setIsbn(isbn);
-	}
 
 	public void addAutor(String autor) {
 		if(!autores.contains(autor)) {

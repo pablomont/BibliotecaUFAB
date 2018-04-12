@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model.itemAcervo;
 
 
 public class Jornal implements ItemAcervo {
@@ -6,12 +6,7 @@ public class Jornal implements ItemAcervo {
 	private String titulo;
 	private String data;
 	private String edicao;
-	
-	
-	public Jornal(String titulo) {
-		setTitulo(titulo);
-	}
-	
+		
 	public String getTitulo() {
 		return titulo;
 	}

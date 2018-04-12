@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model;
 
 public class Curso {
 
@@ -8,9 +8,23 @@ public class Curso {
 	private String nome;
 	private String area;
 
-	public Curso(Tipo tipoCurso) {
-		setTipoCurso(tipoCurso);
+	public Curso() {
+		
 	}
+	
+	
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
 
 	public Tipo getTipoCurso() {
 		return tipoCurso;
@@ -58,7 +72,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [nome=" + nome + "]";
+		return "Curso [nome=" + getNome() + "]";
 	}
 	
 	

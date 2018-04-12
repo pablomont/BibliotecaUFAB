@@ -1,4 +1,4 @@
-package model;
+package uepb.web.ufab.model.itemAcervo;
 
 public class Revista implements ItemAcervo {
 	
@@ -8,10 +8,7 @@ public class Revista implements ItemAcervo {
 	private String edicao;
 	private int numPaginas;
 	
-	public Revista(String titulo) {
-		super();
-		setTitulo(titulo);
-	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
