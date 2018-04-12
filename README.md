@@ -1,13 +1,13 @@
 # BibliotecaUFAB
 
-##* Projeto de baixo nÌvel: 
- 		BibliotecaUfab/Diagramas/DiagramaUML_BibliotecaUFAB_Final.pdf
-##* CÛdigo java do sistema:  
-		src/main/java
-##* DocumentaÁ„o(Javadoc):
-		BibliotecaUfab/Doc
-##* CÛdigo de testes unit·rios do sistema(Junit):
-		src/test/java		
+##* Projeto de baixo n√≠vel: [aqui](https://github.com/pablomont/BibliotecaUFAB/blob/master/Diagramas/DiagramaUML_BibliotecaUFAB_Final.pdf) 
+ 		
+##* C√≥digo java do sistema:  [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/src/main/java)
+
+##* Documenta√ß√£o(Javadoc): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/doc)
+		
+##* C√≥digo de testes unit√°rios do sistema(Junit): [aqui](##)
+			
 		 
 				
  		
