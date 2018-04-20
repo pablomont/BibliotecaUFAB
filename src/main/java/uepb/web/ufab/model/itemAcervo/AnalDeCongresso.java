@@ -48,4 +48,9 @@ public class AnalDeCongresso extends ItemAcervo implements Serializable {
 		this.local = local;
 	}
 
+	public void addAutor(String autor) {
+		// TODO Auto-generated method stub
+		autores.add(autor);
+	}
+
 }
