@@ -3,8 +3,6 @@ package daoTest;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +33,7 @@ public class LivroTest {
 		
 		itemDaoImpl.addItemAcervo(livro);
 	}
-
-//	@Test
-//	public void testAddLivro() {
-//		itemDaoImpl.addItemAcervo(livro);
-//		assertEquals(1,itemDaoImpl.getAllItems().size());
-//	}
-		
+	
 //	@Test
 //	public void testUpdateLivro() {
 //		Livro livro2 = (Livro) itemDaoImpl.getItemById(livro.getId());
@@ -55,6 +47,4 @@ public class LivroTest {
 		itemDaoImpl.deleteItemAcervo(1);
 		assertEquals(0,itemDaoImpl.getAllItems().size());
 	}
-
-
 }
