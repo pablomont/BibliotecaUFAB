@@ -30,6 +30,11 @@ public class Revista extends ItemAcervo {
 	public void setNumPaginas(int numPaginas) {
 		this.numPaginas = numPaginas;
 	}
+	@Override
+	public void addAtributes(ItemAcervo itemAcervo) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

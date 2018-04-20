@@ -11,4 +11,5 @@ public interface ItemDao {
     void updateItemAcervo(ItemAcervo itemAcervo);
     void deleteItemAcervo(int id);
     boolean itemAcervoExists(String itemName);
+    
 }

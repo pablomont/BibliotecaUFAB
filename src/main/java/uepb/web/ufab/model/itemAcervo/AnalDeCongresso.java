@@ -47,4 +47,10 @@ public class AnalDeCongresso extends ItemAcervo {
 		this.local = local;
 	}
 
+	@Override
+	public void addAtributes(ItemAcervo itemAcervo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

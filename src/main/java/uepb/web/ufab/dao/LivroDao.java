@@ -3,15 +3,18 @@ package uepb.web.ufab.dao;
 import java.util.List;
 
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
+import uepb.web.ufab.model.itemAcervo.Livro;
+
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-
+@Configuration
 @Transactional
 @Repository
-public class ItemDaoImpl implements ItemDao{
+public class LivroDao implements ItemDao{
 
 	
 	@Autowired
@@ -19,27 +22,30 @@ public class ItemDaoImpl implements ItemDao{
 	
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
-		String hql = "FROM ItemAcervo as i ORDER BY i.id";
+		String hql = "FROM Livro as i ORDER BY i.id";
 		return (List<ItemAcervo>) hibernateTemplate.find(hql);
 	}
 
 	public ItemAcervo getItemById(int id) {
-		return hibernateTemplate.get(ItemAcervo.class, id);
+		return hibernateTemplate.get(Livro.class, id);
 	}
+
 
 	public void addItemAcervo(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 	}
 
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
-//		ItemAcervo i = getItemById(itemAcervo.getId());
+		ItemAcervo item = getItemById(itemAcervo.getId());
+		item.addAtributes(itemAcervo);
+		//item.clone(itemAcervo);
+		//item.addAtritubes(itemAcervo);
 //		i.setUsername(person.getUsername());
 //		i.setPassword(person.getPassword());
 //		i.setAge(person.getAge());
 //		i.setGender(person.getGender());
 //		i.setCity(person.getCity());
-//		hibernateTemplate.update(i);
-		
+		hibernateTemplate.update(itemAcervo);
 	}
 
 	public void deleteItemAcervo(int id) {
@@ -48,7 +54,7 @@ public class ItemDaoImpl implements ItemDao{
 
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM ItemAcervo as i WHERE i.nomeItem = ?";
+		String hql = "FROM Livro as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

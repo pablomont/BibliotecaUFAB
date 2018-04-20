@@ -17,6 +17,11 @@ public class Jornal extends ItemAcervo {
 	public void setEdicao(String edicao) {
 		this.edicao = edicao;
 	}
+	@Override
+	public void addAtributes(ItemAcervo itemAcervo) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 	

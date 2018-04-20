@@ -1,27 +1,18 @@
 package uepb.web.ufab.model.itemAcervo;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
-@Entity 
-@Table(name= "ItemAcervo")
-public class ItemAcervo implements Serializable {
+@MappedSuperclass
+public abstract class ItemAcervo{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
@@ -57,5 +48,6 @@ public class ItemAcervo implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-		
+	
+	public abstract void addAtributes(ItemAcervo itemAcervo);
 }
