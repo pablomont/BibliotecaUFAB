@@ -1,9 +1,10 @@
 package uepb.web.ufab.model.itemAcervo;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class AnalDeCongresso extends ItemAcervo {
+public class AnalDeCongresso extends ItemAcervo implements Serializable {
 	
 	
 	/**
@@ -45,12 +46,6 @@ public class AnalDeCongresso extends ItemAcervo {
 
 	public void setLocal(String local) {
 		this.local = local;
-	}
-
-	@Override
-	public void addAtributes(ItemAcervo itemAcervo) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

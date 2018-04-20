@@ -1,6 +1,8 @@
 package uepb.web.ufab.model.itemAcervo;
 
-public class MidiaEletronica extends ItemAcervo {
+import java.io.Serializable;
+
+public class MidiaEletronica extends ItemAcervo implements Serializable {
 	
 	/**
 	 * 
@@ -15,11 +17,6 @@ public class MidiaEletronica extends ItemAcervo {
 	}
 	public void setTipo(TipoMidia tipo) {
 		this.tipo = tipo;
-	}
-	@Override
-	public void addAtributes(ItemAcervo itemAcervo) {
-		// TODO Auto-generated method stub
-		
 	}
 
 

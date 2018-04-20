@@ -3,8 +3,6 @@ package uepb.web.ufab.model.itemAcervo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.UnaryOperator;
-
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -115,18 +113,7 @@ public class Livro extends ItemAcervo implements Serializable{
 				+ ", area=" + area + ", tema=" + tema + "]";
 	}
 
-	@Override
-	public void addAtributes(ItemAcervo itemAcervo) {
-		Livro livro = (Livro)itemAcervo;
-		this.area = livro.area;
-		this.autores = livro.autores;
-		this.date = livro.date;
-		this.editora = livro.editora;
-		this.isbn = livro.isbn;
-		this.nomeItem = livro.nomeItem;
-		this.tema = livro.area;
-		
-	}
+	
 
 	
 	
