@@ -15,20 +15,35 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import exception.para;
+
 @Configuration 
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
 public class DBConfig {
-	
+	/**
+	* <h1>DBConfig</h1>
+	* DBConfig configura o banco de dados ligado ao sistema
+	* @author  Samuel Rufino e Pablo Monteiro
+	* @version 1.0
+	* @since   2018-04-20
+	*/	
 	@Autowired
     private Environment env;
 	
 	@Bean
+	/** Inicia o template do Hibernate
+	 *  @return template especifico do hibernate definido por sessionFactory  
+	 */
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
 	}
 	
 	@Bean
+	/** Criação do SessionFactory alocando DataSource, PackagesToScan e HibernateProperties
+	 * 	@exception IOException
+	 *  @return SessionFactory   
+	 */
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();
 		lsfb.setDataSource(getDataSource());
@@ -41,6 +56,10 @@ public class DBConfig {
 		}
 		return lsfb.getObject();
 	}
+	
+	/** Criação do DataSource alocando DriverClassName, Url, Username e Password da database 
+	 *  @return dataSource   
+	 */
 	@Bean
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
@@ -52,11 +71,17 @@ public class DBConfig {
 	    return dataSource;
 	}
 	
+	/** Criação do HibernateTransactionManager usando sessionFactory 
+	 *  @return HibernateTransactionManager   
+	 */
 	@Bean
 	public HibernateTransactionManager hibTransMan(){
 		return new HibernateTransactionManager(sessionFactory());
 	}
 	
+	/** Criação das propriedades do hibernate
+	 *  @return properties   
+	 */
     private Properties hibernateProperties() {
          Properties properties = new Properties();
          properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
