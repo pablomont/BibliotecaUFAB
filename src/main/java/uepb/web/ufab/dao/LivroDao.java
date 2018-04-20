@@ -36,16 +36,23 @@ public class LivroDao implements ItemDao{
 	}
 
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
-		ItemAcervo item = getItemById(itemAcervo.getId());
-		item.addAtributes(itemAcervo);
-		//item.clone(itemAcervo);
-		//item.addAtritubes(itemAcervo);
+		Livro item = (Livro) getItemById(itemAcervo.getId());
+		Livro itemAlterado = (Livro)itemAcervo;
+		
+		
+		item.setNomeItem(itemAlterado.getNomeItem());
+		item.setArea(itemAlterado.getArea());
+		item.setDate(itemAlterado.getDate());
+		item.setEditora(item.getEditora());
+		item.setIsbn(itemAlterado.getEditora());
+		item.setNumPaginas(itemAlterado.getNumPaginas());
+		item.setTema(itemAlterado.getTema());
 //		i.setUsername(person.getUsername());
 //		i.setPassword(person.getPassword());
 //		i.setAge(person.getAge());
 //		i.setGender(person.getGender());
 //		i.setCity(person.getCity());
-		hibernateTemplate.update(itemAcervo);
+		hibernateTemplate.update(item);
 	}
 
 	public void deleteItemAcervo(int id) {
@@ -54,7 +61,7 @@ public class LivroDao implements ItemDao{
 
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM Livro as i WHERE i.nomeItem = ?";
+		String hql = "FROM LIVRO as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

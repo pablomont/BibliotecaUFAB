@@ -48,5 +48,5 @@ public abstract class ItemAcervo{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
+
 }

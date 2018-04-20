@@ -1,6 +1,8 @@
 package uepb.web.ufab.model.itemAcervo;
 
-public class Revista extends ItemAcervo {
+import java.io.Serializable;
+
+public class Revista extends ItemAcervo implements Serializable{
 	
 
 	/**
@@ -29,11 +31,6 @@ public class Revista extends ItemAcervo {
 	}
 	public void setNumPaginas(int numPaginas) {
 		this.numPaginas = numPaginas;
-	}
-	@Override
-	public void addAtributes(ItemAcervo itemAcervo) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 

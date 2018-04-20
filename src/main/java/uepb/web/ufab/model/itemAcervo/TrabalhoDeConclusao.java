@@ -1,8 +1,9 @@
 package uepb.web.ufab.model.itemAcervo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TrabalhoDeConclusao extends ItemAcervo {
+public class TrabalhoDeConclusao extends ItemAcervo implements Serializable{
 	
 	/**
 	 * 
@@ -40,12 +41,5 @@ public class TrabalhoDeConclusao extends ItemAcervo {
 	public void setTipo(TipoTrabalho tipo) {
 		this.tipo = tipo;
 	}
-	public void addAutor(String autor) {
-		autores.add(autor);
-	}
-	public void addOrientador(String orientador) {
-		autores.add(orientador);
-	}
-
 	
 }
