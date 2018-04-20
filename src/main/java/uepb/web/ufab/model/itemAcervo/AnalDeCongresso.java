@@ -47,10 +47,8 @@ public class AnalDeCongresso extends ItemAcervo {
 		this.local = local;
 	}
 
-	@Override
-	public void addAtributes(ItemAcervo itemAcervo) {
-		// TODO Auto-generated method stub
-		
+	public void addAutor(String autor) {
+		autores.add(autor);
 	}
 
 }

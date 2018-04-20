@@ -49,5 +49,4 @@ public abstract class ItemAcervo{
 		this.date = date;
 	}
 	
-	public abstract void addAtributes(ItemAcervo itemAcervo);
 }

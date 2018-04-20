@@ -14,7 +14,6 @@ import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.LivroDao;
 import uepb.web.ufab.model.itemAcervo.Livro;
 
-
 @ContextConfiguration(classes = { DBConfig.class , LivroDao.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class LivroTest {

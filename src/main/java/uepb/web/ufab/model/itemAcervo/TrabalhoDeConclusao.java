@@ -40,10 +40,11 @@ public class TrabalhoDeConclusao extends ItemAcervo {
 	public void setTipo(TipoTrabalho tipo) {
 		this.tipo = tipo;
 	}
-	@Override
-	public void addAtributes(ItemAcervo itemAcervo) {
-		// TODO Auto-generated method stub
-		
+	public void addAutor(String autor) {
+		autores.add(autor);
+	}
+	public void addOrientador(String orientador) {
+		autores.add(orientador);
 	}
 
 	
