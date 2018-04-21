@@ -15,26 +15,43 @@ import uepb.web.ufab.model.itemAcervo.Revista;
 @Configuration
 @Transactional
 @Repository
+	/**
+	* <h1>RevistaDao</h1>
+	* RevistaDao é um dos itens do acervo
+	*
+	* @author  Samuel Rufino e Pablo Monteiro
+	* @version 1.0
+	* @since   2018-04-20
+	*/
 public class RevistaDao implements ItemDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	
+	/** Busca todos itens do acervo do tipo Revista
+	 *  @return Lista de acervo passado pelo
+	 *  @param hql 
+	 */
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
 		String hql = "FROM Revista as i ORDER BY i.id";
 		return (List<ItemAcervo>) hibernateTemplate.find(hql);
 	}
-
+	/** @return retorna o item do acervo atraves do
+	 *  @param id
+	 */
 	public ItemAcervo getItemById(int id) {
 		return hibernateTemplate.get(Revista.class, id);
 	}
-
+	/** Adiciona um Revista atraves do
+	 *  @param itemAcervo
+	 */
 
 	public void addItemAcervo(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 	}
-
+	/** Altera as caracteristicas do itemAcervo
+	 *  @param itemAlterado 
+	 */
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
 		Revista item = (Revista) getItemById(itemAcervo.getId());
 		Revista itemAlterado = (Revista)itemAcervo;
@@ -47,11 +64,16 @@ public class RevistaDao implements ItemDao {
 		item.setNomeItem(itemAlterado.getNomeItem());
 		hibernateTemplate.update(item);
 	}
-
+	/** Deleta o ItemAcervo atraves do ID
+	 */
 	public void deleteItemAcervo(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
-
+	/** Verifica a existencia do item no acervo atraves do
+	 * @param itemName
+	 * @param hql
+	 * @return true or false
+	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
 		String hql = "FROM REVISTA as i WHERE i.nomeItem = ?";
