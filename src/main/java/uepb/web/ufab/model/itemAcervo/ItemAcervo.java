@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity 
-@Table(name= "person")
+@Table(name= "ItemAcervo")
 public class ItemAcervo implements Serializable {
 
 	/**

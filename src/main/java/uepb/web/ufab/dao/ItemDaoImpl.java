@@ -18,7 +18,7 @@ public class ItemDaoImpl implements ItemDao{
 	private HibernateTemplate  hibernateTemplate;
 	
 	@SuppressWarnings("unchecked")
-	public List<ItemAcervo> getAllItemss() {
+	public List<ItemAcervo> getAllItems() {
 		String hql = "FROM ItemAcervo as i ORDER BY i.id";
 		return (List<ItemAcervo>) hibernateTemplate.find(hql);
 	}
@@ -29,7 +29,6 @@ public class ItemDaoImpl implements ItemDao{
 
 	public void addItemAcervo(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
-		
 	}
 
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
@@ -45,13 +44,13 @@ public class ItemDaoImpl implements ItemDao{
 
 	public void deleteItemAcervo(int id) {
 		hibernateTemplate.delete(getItemById(id));
-		
 	}
 
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM ItemAcervo as i WHERE i.itemName = ?";
+		String hql = "FROM ItemAcervo as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}
+	
 }

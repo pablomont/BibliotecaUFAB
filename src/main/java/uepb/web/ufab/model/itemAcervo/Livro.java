@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Livro extends ItemAcervo {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String isbn;
 	private List<String> autores = new ArrayList<String>();

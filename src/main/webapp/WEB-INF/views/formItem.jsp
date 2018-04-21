@@ -13,28 +13,24 @@
 	
 	
 	<body>
-		<form:form method="post" modelAttribute="alunoForm" action="alunos">
-			Nome: <br>
-			<form:input path="name" type="text"/> <br>
-			CPF: <br>
-			<form:input path="cpf" type="text"/> <br>
-			
-			<form:errors path="name" /> <br>
+		<form:form method="post" modelAttribute="itemForm" action="items">
+			Nome do item: <br>
+			<form:input path="nomeItem" type="text"/> <br>
 			<input type="submit" value="Salvar">	
 		</form:form>
 		
 		<table >
               <tr>
                   <th>Nome</th>
-                  <th>CPF</th>
+                  <th>ID</th>
               </tr>
-			<c:forEach var="aluno" items="${alunos}">
+			<c:forEach var="item" items="${items}">
  				<tr>
 					<td>
-						${aluno.name}
+						${item.nomeItem}
 					</td>
 					<td>
-						${aluno.cpf}
+						${item.id}
 					</td>
  				</tr>
 			</c:forEach>

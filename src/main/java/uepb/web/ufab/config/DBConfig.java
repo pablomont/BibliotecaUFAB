@@ -44,6 +44,7 @@ public class DBConfig {
 	@Bean
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
+	    
 	    dataSource.setDriverClassName(env.getProperty("database.driver"));
 	    dataSource.setUrl(env.getProperty("database.url"));
 	    dataSource.setUsername(env.getProperty("database.root"));
