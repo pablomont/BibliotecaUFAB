@@ -30,15 +30,15 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	}
 
 	
-	public void updateItemAcervo(ItemAcervo itemAcervo) {
+	public void updateItem(ItemAcervo itemAcervo) {
 		itemDao.updateItemAcervo(itemAcervo);
 	}
 
-	public void deleteItemAcervo(int id) {
+	public void deleteItem(int id) {
 		itemDao.deleteItemAcervo(id);
 	}
 
-	public synchronized boolean addItemAcervo(ItemAcervo itemAcervo) {
+	public synchronized boolean addItem(ItemAcervo itemAcervo) {
 		if (itemDao.itemAcervoExists(itemAcervo.getNomeItem())){
 	         return false;
        } else {

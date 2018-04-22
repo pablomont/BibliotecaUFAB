@@ -1,7 +1,10 @@
-package itemAcervoTest;
+package updateItemAcervoTest;
+
+
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +19,7 @@ import uepb.web.ufab.service.ItemServiceImpl;
 
 @ContextConfiguration(classes = { DBConfig.class ,LivroDao.class,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class LivroTest{
+public class LivroUpdateTest{
 	
 	@Autowired private ItemServiceImpl itemServiceImpl;
 	private Livro livro;
@@ -33,22 +36,20 @@ public class LivroTest{
 		livro.setIsbn("123456789");
 		
 		//Adiciona um livro
-		itemServiceImpl.addItemAcervo(livro);
+		itemServiceImpl.addItem(livro);
 
 	}
-	
 	
 	@Test
 	public void updateLivro(){
 		livro.setNomeItem("COSMOS UMA ODISSEIA NO ESPAÇO");
-		itemServiceImpl.updateItemAcervo(livro);
+		itemServiceImpl.updateItem(livro);
 		assertEquals(itemServiceImpl.getItemById(livro.getId()).getNomeItem(),"COSMOS UMA ODISSEIA NO ESPAÇO");
 	}
+
 	
-	@Test
+	@After
 	public void testRemoveLivro() {
-		itemServiceImpl.deleteItemAcervo(livro.getId());
-		assertEquals(0,itemServiceImpl.getAllItems().size());
+		itemServiceImpl.deleteItem(livro.getId());
 	}
-	
 }

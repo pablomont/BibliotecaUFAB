@@ -1,4 +1,4 @@
-package itemAcervoTest;
+package createDeleteItemAcervoTest;
 
 import static org.junit.Assert.*;
 
@@ -28,12 +28,12 @@ public class MidiaEletronicaTest {
 		midiaEletronica.setTipo(MidiaEletronica.TipoMidia.CD);
 		midiaEletronica.setNomeItem("Roberto Carlos");
 		
-		itemServiceImpl.addItemAcervo(midiaEletronica);
+		itemServiceImpl.addItem(midiaEletronica);
 	}
 	
 	@Test
 	public void testDeleteEletronica() {
-		itemServiceImpl.deleteItemAcervo(midiaEletronica.getId());
+		itemServiceImpl.deleteItem(midiaEletronica.getId());
 		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}
 

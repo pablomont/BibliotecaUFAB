@@ -1,4 +1,4 @@
-package itemAcervoTest;
+package createDeleteItemAcervoTest;
 
 import static org.junit.Assert.*;
 
@@ -29,12 +29,12 @@ public class RevistaTest {
 			revista.setNumPaginas(30);	
 			revista.setNomeItem("Lula Vs Bolsonaro");
 			
-			itemServiceImpl.addItemAcervo(revista);
+			itemServiceImpl.addItem(revista);
 		}
 		
 		@Test
 		public void testRemoveRevista() {
-			itemServiceImpl.deleteItemAcervo(revista.getId());
+			itemServiceImpl.deleteItem(revista.getId());
 			assertEquals(0,itemServiceImpl.getAllItems().size());
 		}
 

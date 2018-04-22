@@ -32,19 +32,19 @@ public class MidiaEletronicaUpdateTest {
 		midiaEletronica.setNomeItem("Roberto Carlos");
 
 		
-		itemServiceImpl.addItemAcervo(midiaEletronica);
+		itemServiceImpl.addItem(midiaEletronica);
 	}
 	
 	@Test
 	public void updateMidiaEletronica() {
 		midiaEletronica.setNomeItem("Michael Jackson");
-		itemServiceImpl.updateItemAcervo(midiaEletronica);
+		itemServiceImpl.updateItem(midiaEletronica);
 		assertEquals(itemServiceImpl.getItemById(midiaEletronica.getId()).getNomeItem(),"Michael Jackson");
 	}
 	
 	@After
 	public void removeTrabalhoDeConclusao() {
-		itemServiceImpl.deleteItemAcervo(midiaEletronica.getId());
+		itemServiceImpl.deleteItem(midiaEletronica.getId());
 	}
 
 }

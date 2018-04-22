@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import uepb.web.ufab.model.Curso;
-import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
 @Configuration
 @Transactional
@@ -30,7 +29,7 @@ public class CursoDao {
 		return hibernateTemplate.get(Curso.class, id);
 	}
 
-	public void addCurso(ItemAcervo itemAcervo) {
+	public void addCurso(Curso itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 
 	}
@@ -53,7 +52,7 @@ public class CursoDao {
 
 	@SuppressWarnings("unchecked")
 	public boolean cursoExists(String cursoName) {
-		String hql = "FROM Curso as i WHERE i.nomeItem = ?";	
+		String hql = "FROM Curso as i WHERE i.nomeCurso = ?";	
 		List<Curso> items = (List<Curso>) hibernateTemplate.find(hql, cursoName);
 		return items.size() > 0 ? true : false;
 	}

@@ -1,4 +1,4 @@
-package itemAcervoTest;
+package createDeleteItemAcervoTest;
 
 import static org.junit.Assert.*;
 
@@ -27,21 +27,13 @@ public class AnalDeCongressoTest{
 		analDecongresso.setLocal("UEPB");
 		analDecongresso.setNomeItem("CBA 2018");
 		
-		itemServiceImpl.addItemAcervo(analDecongresso);
+		itemServiceImpl.addItem(analDecongresso);
 	}
-	
-	
-	@Test
-	public void updateAnalDeCongresso() {
-		analDecongresso.setNomeItem("CBA 2019");
-		itemServiceImpl.updateItemAcervo(analDecongresso);
-		assertEquals(itemServiceImpl.getItemById(analDecongresso.getId()).getNomeItem(),"CBA 2019");
-	}
-	
+		
 	
 	@Test
 	public void testRemoveAnalDeCongresso() {
-		itemServiceImpl.deleteItemAcervo(analDecongresso.getId());
+		itemServiceImpl.deleteItem(analDecongresso.getId());
 		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}
 

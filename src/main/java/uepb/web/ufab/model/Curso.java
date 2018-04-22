@@ -34,16 +34,16 @@ public class Curso implements Serializable {
 	private Tipo tipoCurso;
 	
 	@Column(name = "NOME_CURSO")
-	private String nome;
+	private String nomeCurso;
 	@Column(name = "AREA_CURSO")
-	private String area;
+	private String areaCurso;
 
 	public String getNome() {
-		return nome;
+		return nomeCurso;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeCurso = nome;
 	}
 
 
@@ -56,11 +56,11 @@ public class Curso implements Serializable {
 	}
 
 	public String getArea() {
-		return area;
+		return areaCurso;
 	}
 
 	public void setArea(String area) {
-		this.area = area;
+		this.areaCurso = area;
 	}
 
 	

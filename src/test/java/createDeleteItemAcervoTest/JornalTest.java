@@ -1,8 +1,7 @@
-package itemAcervoTest;
+package createDeleteItemAcervoTest;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,20 +27,14 @@ public class JornalTest {
 		jornal.setEdicao("5ª edição");
 		jornal.setNomeItem("Já!");
 		
-		itemServiceImpl.addItemAcervo(jornal);
+		itemServiceImpl.addItem(jornal);
 	}
 	
 	
 	@Test
-	public void updateTest() {
-		jornal.setNomeItem("JA JA");
-		itemServiceImpl.updateItemAcervo(jornal);
-		assertEquals(itemServiceImpl.getItemById(jornal.getId()).getNomeItem(),"JA JA");
-	}
-	
-	@After
 	public void deleteJornal() {
-		itemServiceImpl.deleteItemAcervo(jornal.getId());
+		itemServiceImpl.deleteItem(jornal.getId());
+		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}
 
 }

@@ -2,6 +2,7 @@ package updateItemAcervoTest;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,14 +31,19 @@ public class RevistaUpdateTest {
 		revista.setNumPaginas(30);	
 		revista.setNomeItem("Lula Vs Bolsonaro");
 		
-		itemServiceImpl.addItemAcervo(revista);
+		itemServiceImpl.addItem(revista);
 	}
 	
 	@Test
 	public void updateRevista() {
 		revista.setNomeItem("Lula vs Bolsomito");
-		itemServiceImpl.updateItemAcervo(revista);
+		itemServiceImpl.updateItem(revista);
 		assertEquals(itemServiceImpl.getItemById(revista.getId()).getNomeItem(),"Lula vs Bolsomito");
+	}
+	
+	@After
+	public void removeLivra() {
+		itemServiceImpl.deleteItem(revista.getId());
 	}
 
 }

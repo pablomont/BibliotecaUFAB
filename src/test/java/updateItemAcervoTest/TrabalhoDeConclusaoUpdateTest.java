@@ -1,7 +1,10 @@
-package itemAcervoTest;
+package updateItemAcervoTest;
+
+
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +18,7 @@ import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
 import uepb.web.ufab.service.ItemServiceImpl;
 @ContextConfiguration(classes = { DBConfig.class , TrabalhoDeConclusaoDao.class ,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class TrabalhoDeConclusaoTest {
+public class TrabalhoDeConclusaoUpdateTest {
 
 		@Autowired private  ItemServiceImpl itemServiceImpl;
 		private TrabalhoDeConclusao trabalhoDeconclusao;
@@ -28,21 +31,20 @@ public class TrabalhoDeConclusaoTest {
 			trabalhoDeconclusao.setLocal("UEPB");
 			trabalhoDeconclusao.setTipo(TrabalhoDeConclusao.TipoTrabalho.MONOGRAFIA);
 			
-			itemServiceImpl.addItemAcervo(trabalhoDeconclusao);
+			itemServiceImpl.addItem(trabalhoDeconclusao);
 		}
-		
-		@Test
-		public void updateTrabalhoDeConclusao() {
-			trabalhoDeconclusao.setNomeItem("Análise de usabilidade na educação");
-			itemServiceImpl.updateItemAcervo(trabalhoDeconclusao);
-			assertEquals(itemServiceImpl.getItemById(trabalhoDeconclusao.getId()).getNomeItem(),"Análise de usabilidade na educação");
-		}
-		
-		
-		@Test
-		public void testRemoveTrabalhoDeConclusao() {
-			itemServiceImpl.deleteItemAcervo(trabalhoDeconclusao.getId());
-			assertEquals(0,itemServiceImpl.getAllItems().size());
-		}
+	
+	@Test
+	public void updateTrabalhoDeConclusao() {
+		trabalhoDeconclusao.setNomeItem("Análise de usabilidade na educação");
+		itemServiceImpl.updateItem(trabalhoDeconclusao);
+		assertEquals(itemServiceImpl.getItemById(trabalhoDeconclusao.getId()).getNomeItem(),"Análise de usabilidade na educação");
+	}
+	
+
+	@After
+	public void testRemoveTrabalhoDeConclusao() {
+		itemServiceImpl.deleteItem(trabalhoDeconclusao.getId());
+	}
 
 }
