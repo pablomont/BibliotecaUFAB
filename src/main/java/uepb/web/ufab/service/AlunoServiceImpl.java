@@ -31,11 +31,12 @@ public class AlunoServiceImpl implements IService<Aluno> {
 
 	public boolean addItem(Aluno aluno) {
 		if (alunoDao.alunoExists(aluno.getCpf())){
-	         return false;
-     } else {
-    	 alunoDao.addAluno(aluno);
-	         return true;
-     }   
+			return false;
+		}
+		else {
+			alunoDao.addAluno(aluno);
+	        return true;
+		}   
 	}
 
 	public void updateItem(Aluno aluno) {
