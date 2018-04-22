@@ -8,16 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
-import uepb.web.ufab.dao.ItemDao;
+import uepb.web.ufab.dao.ItemAcervoDao;
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
 @Transactional
 @Service
 @Configuration
-public class ItemServiceImpl implements ItemService {
+public class ItemServiceImpl implements IService<ItemAcervo>{
+
 
 	@Autowired
-	ItemDao itemDao;
+	ItemAcervoDao itemDao;
 	
 	public List<ItemAcervo> getAllItems() {
 		return itemDao.getAllItems();
@@ -45,4 +46,6 @@ public class ItemServiceImpl implements ItemService {
 	         return true;
        }   
 	}
+
+	
 }

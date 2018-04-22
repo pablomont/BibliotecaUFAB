@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class TrabalhoDeConclusaoDao implements ItemDao {
+public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;

@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.Revista;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class RevistaDao implements ItemDao {
+public class RevistaDao implements ItemAcervoDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;

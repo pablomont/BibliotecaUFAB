@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class AnalDeCongressoDao implements ItemDao {
+public class AnalDeCongressoDao implements ItemAcervoDao {
 	
 
 	@Autowired

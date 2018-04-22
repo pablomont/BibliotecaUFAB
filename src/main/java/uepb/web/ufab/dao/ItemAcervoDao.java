@@ -4,7 +4,7 @@ import java.util.List;
 
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
-public interface ItemDao {
+public interface ItemAcervoDao {
 	List<ItemAcervo> getAllItems();
     ItemAcervo getItemById(int id);
     void addItemAcervo(ItemAcervo itemAcervo);

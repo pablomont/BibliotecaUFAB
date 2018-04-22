@@ -13,13 +13,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.MidiaEletronicaDao;
 import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
+import uepb.web.ufab.service.ItemServiceImpl;
 
 
-@ContextConfiguration(classes = { DBConfig.class , MidiaEletronicaDao.class })
+@ContextConfiguration(classes = { DBConfig.class , MidiaEletronicaDao.class,ItemServiceImpl.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MidiaEletronicaUpdateTest {
 
-	@Autowired private  MidiaEletronicaDao midiaEletronicaDaoImpl;
+	@Autowired private  ItemServiceImpl itemServiceImpl;
 	private MidiaEletronica midiaEletronica;
 
 	
@@ -31,19 +32,19 @@ public class MidiaEletronicaUpdateTest {
 		midiaEletronica.setNomeItem("Roberto Carlos");
 
 		
-		midiaEletronicaDaoImpl.addItemAcervo(midiaEletronica);
+		itemServiceImpl.addItemAcervo(midiaEletronica);
 	}
 	
 	@Test
 	public void updateMidiaEletronica() {
 		midiaEletronica.setNomeItem("Michael Jackson");
-		midiaEletronicaDaoImpl.updateItemAcervo(midiaEletronica);
-		assertEquals(midiaEletronicaDaoImpl.getItemById(midiaEletronica.getId()).getNomeItem(),"Michael Jackson");
+		itemServiceImpl.updateItemAcervo(midiaEletronica);
+		assertEquals(itemServiceImpl.getItemById(midiaEletronica.getId()).getNomeItem(),"Michael Jackson");
 	}
 	
 	@After
 	public void removeTrabalhoDeConclusao() {
-		midiaEletronicaDaoImpl.deleteItemAcervo(midiaEletronica.getId());
+		itemServiceImpl.deleteItemAcervo(midiaEletronica.getId());
 	}
 
 }

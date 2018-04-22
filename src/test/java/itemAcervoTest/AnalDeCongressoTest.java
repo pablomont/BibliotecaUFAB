@@ -12,7 +12,7 @@ import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AnalDeCongressoDao;
 import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 import uepb.web.ufab.service.ItemServiceImpl;
-@ContextConfiguration(classes = { DBConfig.class , AnalDeCongressoDao.class,ItemServiceImpl.class })
+@ContextConfiguration(classes = { DBConfig.class , AnalDeCongressoDao.class,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AnalDeCongressoTest{
 

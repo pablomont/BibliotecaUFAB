@@ -1,29 +1,50 @@
 package uepb.web.ufab.model;
 
-public class Curso {
+import java.io.Serializable;
 
-	public enum Tipo{GRADUAÇÃO, POS}
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity 
+@Table(name= "CURSO")
+public class Curso implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
-	private Tipo tipoCurso;
-	private String nome;
-	private String area;
-
-	public Curso() {
-		
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+    private int id;	
+	
+	public enum Tipo{GRADUACAO, POS}
+	
+	public int getId() {
+		return id;
 	}
+
+	@Enumerated(EnumType.STRING)
+	@Column(name="TIPO_CURSO")
+	private Tipo tipoCurso;
 	
-	
+	@Column(name = "NOME_CURSO")
+	private String nome;
+	@Column(name = "AREA_CURSO")
+	private String area;
 
 	public String getNome() {
 		return nome;
 	}
 
-
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 
 
 	public Tipo getTipoCurso() {
@@ -34,34 +55,6 @@ public class Curso {
 		this.tipoCurso = tipoCurso;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((tipoCurso == null) ? 0 : tipoCurso.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Curso other = (Curso) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (tipoCurso != other.tipoCurso)
-			return false;
-		return true;
-	}
-
 	public String getArea() {
 		return area;
 	}
@@ -70,11 +63,5 @@ public class Curso {
 		this.area = area;
 	}
 
-	@Override
-	public String toString() {
-		return "Curso [nome=" + getNome() + "]";
-	}
 	
-	
-		
 }

@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class MidiaEletronicaDao implements ItemDao {
+public class MidiaEletronicaDao implements ItemAcervoDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;

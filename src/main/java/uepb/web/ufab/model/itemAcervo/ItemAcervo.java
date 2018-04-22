@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 
 
 @MappedSuperclass
-public abstract class ItemAcervo{
+public class ItemAcervo{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

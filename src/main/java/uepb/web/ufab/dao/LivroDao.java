@@ -22,7 +22,7 @@ import org.springframework.stereotype.Repository;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class LivroDao implements ItemDao{
+public class LivroDao implements ItemAcervoDao{
 
 	
 	@Autowired

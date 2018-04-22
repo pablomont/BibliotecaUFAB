@@ -25,7 +25,7 @@ import uepb.web.ufab.model.itemAcervo.Jornal;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class JornalDao implements ItemDao {
+public class JornalDao implements ItemAcervoDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
