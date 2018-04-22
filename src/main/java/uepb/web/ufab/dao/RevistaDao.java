@@ -28,8 +28,7 @@ public class RevistaDao implements ItemAcervoDao {
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	/** Busca todos itens do acervo do tipo Revista
-	 *  @return Lista de acervo passado pelo
-	 *  @param hql 
+	 *  @return Lista de revistas
 	 */
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
@@ -50,7 +49,7 @@ public class RevistaDao implements ItemAcervoDao {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
-	 *  @param itemAlterado 
+	 *  @param itemAcervo
 	 */
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
 		Revista item = (Revista) getItemById(itemAcervo.getId());
@@ -69,9 +68,8 @@ public class RevistaDao implements ItemAcervoDao {
 	public void deleteItemAcervo(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
-	/** Verifica a existencia do item no acervo atraves do
+	/** Verifica a existencia do item no acervo atraves do nome do item
 	 * @param itemName
-	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")

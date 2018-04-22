@@ -27,9 +27,8 @@ public class CursoDao {
 	
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	/** Busca o Curso
-	 *  @return Curso de Alunos passado pelo
-	 *  @param hql 
+	/** Busca os Cursos
+	 *  @return Cursos dos Alunos 
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Curso> getAllCursos() {
@@ -68,9 +67,8 @@ public class CursoDao {
 	public void deleteCurso(int id) {
 		hibernateTemplate.delete(getCursoById(id));
 	}
-	/** Verifica a existencia do Curso atraves do
+	/** Verifica a existencia do item no acervo atraves do nome do item
 	 * @param cursoName
-	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")

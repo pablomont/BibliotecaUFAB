@@ -26,21 +26,20 @@ public class CursoServiceImpl implements IService<Curso> {
 	
 	@Autowired
 	private CursoDao cursoDao;
-	/** Busca o Curso
-	 *  @return Lista de Curso
-	 *  @param cursoDao 
+	/** Busca todos os Cursos
+	 *  @return Lista de Cursos
 	 */
 	public List<Curso> getAllItems() {
 		return cursoDao.getAllCursos();
 	}
-	/** Busca o Item
-	 *  @return Item passado pelo
-	 *  @param id 
+	/** Busca o Curso
+	 *  @return Curso
+	 *  @param id do curso
 	 */
 	public Curso getItemById(int id) {
 		return cursoDao.getCursoById(id);
 	}
-	/** Adiciona o Item atraves do Nome para o
+	/** Adiciona o Curso
  	 *  @param curso 
  	 *  @return false se o Curso não existir
 	 *  @return true se o Curso existir
@@ -53,14 +52,14 @@ public class CursoServiceImpl implements IService<Curso> {
 	         return true;
       }   
 	}
-	/** Atualiza o Curso do 
+	/** Atualiza o Curso
  	 *  @param curso 
 	 */
 	public void updateItem(Curso curso) {
 		cursoDao.updateCurso(curso);
 	}
-	/** Deleta o Item do Curso atraves do 
- 	 *  @param id 
+	/** Deleta o Item do Curso 
+ 	 *  @param id do curso
 	 */
 	public void deleteItem(int id) {
 		cursoDao.deleteCurso(id);

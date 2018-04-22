@@ -28,8 +28,7 @@ public class LivroDao implements ItemAcervoDao{
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	/** Busca todos itens do acervo do tipo Livro
-	 *  @return Lista de acervo passado pelo
-	 *  @param hql 
+	 *  @return Lista de livros
 	 */
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
@@ -50,7 +49,7 @@ public class LivroDao implements ItemAcervoDao{
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
-	 *  @param itemAlterado 
+	 *  @param itemAcervo
 	 */
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
 		Livro item = (Livro) getItemById(itemAcervo.getId());
@@ -73,9 +72,8 @@ public class LivroDao implements ItemAcervoDao{
 		hibernateTemplate.delete(getItemById(id));
 	}
 
-	/** Verifica a existencia do item no acervo atraves do
+	/** Verifica a existencia do item no acervo atraves do nome do item
 	 * @param itemName
-	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
