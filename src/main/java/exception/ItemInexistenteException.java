@@ -11,6 +11,7 @@ public class ItemInexistenteException extends Exception {
 	*/
 	private static final long serialVersionUID = 1L;
 	/** Quando ocorre um erro o metodo usa
+	 *  @exception para definir o erro de que o item não existe 
 	 *  @param msg para mostrar uma mensagem de que o item não existe
 	 */
 	public ItemInexistenteException(String msg) {
@@ -18,6 +19,7 @@ public class ItemInexistenteException extends Exception {
 	}
 	
 	/** Quando ocorre um erro o metodo usa
+	 *  @exception para definir o erro de que o item não existe
 	 *  @param msg para definir uma mensagem de erro
 	 *  @param cause mostra a causa do erro
 	 */

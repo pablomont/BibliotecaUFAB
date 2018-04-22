@@ -26,22 +26,22 @@ import uepb.web.ufab.model.Aluno;
 public class AlunoDao {
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	/** Busca todos os Aluno
-	 *  @return Lista de Alunos 
-	 *  
+	/** Busca o Aluno
+	 *  @return Lista de Alunos passado pelo
+	 *  @param hql 
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Aluno> getAllAlunos() {
 		String hql = "FROM Aluno as i ORDER BY i.id";
 		return (List<Aluno>) hibernateTemplate.find(hql);
 	}
-	/** @return retorna o Aluno especificado pelo id
-	 *  @param id 
+	/** @return retorna o Aluno atraves do
+	 *  @param id
 	 */
 	public Aluno getAlunoById(int id) {
 		return hibernateTemplate.get(Aluno.class, id);
 	}
-	/** Adiciona um Aluno 
+	/** Adiciona um Aluno atraves do
 	 *  @param aluno
 	 */
 	public void addAluno(Aluno aluno) {
@@ -67,13 +67,13 @@ public class AlunoDao {
 
 	}
 	/** Deleta o Aluno atraves do id
-	 *@param id/
-	 **/
+	 */
 	public void deleteAluno(int id) {
 		hibernateTemplate.delete(getAlunoById(id));
 	}
-	/** Verifica a existencia do Aluno através  do seu cpf
+	/** Verifica a existencia do Aluno atraves do
 	 * @param cpf
+	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")

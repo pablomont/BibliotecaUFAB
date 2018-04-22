@@ -27,8 +27,9 @@ public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	/** Busca todos itens do acervo do tipo Trabalho de Conclusão
-	 *  @return Lista de TCCs
+	/** Busca todos itens do acervo do tipo Revista
+	 *  @return Lista de acervo passado pelo
+	 *  @param hql 
 	 */
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
@@ -48,7 +49,7 @@ public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
-	 *  @param itemAcervo
+	 *  @param itemAlterado 
 	 */
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
 		TrabalhoDeConclusao item = (TrabalhoDeConclusao) getItemById(itemAcervo.getId());
@@ -63,13 +64,13 @@ public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 		hibernateTemplate.update(item);
 	}
 	/** Deleta o ItemAcervo atraves do ID
-	 *@param id/
-	 **/
+	 */
 	public void deleteItemAcervo(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
-	/** Verifica a existencia do item no acervo atraves do nome do item
+	/** Verifica a existencia do item no acervo atraves do
 	 * @param itemName
+	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")

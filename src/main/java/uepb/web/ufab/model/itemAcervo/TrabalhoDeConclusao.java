@@ -72,12 +72,12 @@ public class TrabalhoDeConclusao extends ItemAcervo implements Serializable{
 		this.tipo = tipo;
 	}
 	public void addAutor(String autor) {
-	
+		// TODO Auto-generated method stub
 		autores.add(autor);
 		
 	}
 	public void addOrientador(String orientador) {
-		
+		// TODO Auto-generated method stub
 		orientadores.add(orientador);
 	}
 	

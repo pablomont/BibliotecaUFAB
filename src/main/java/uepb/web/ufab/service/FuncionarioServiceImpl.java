@@ -26,20 +26,21 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
 
 	@Autowired
 	private FuncionarioDao funcionarioDao;
-	/** Busca os Funcionarios
-	 *  @return Lista de Funcionarios
+	/** Busca o Funcionario
+	 *  @return Lista de Funcionario
+	 *  @param funcionarioDao 
 	 */
 	public List<Funcionario> getAllItems() {
 		return funcionarioDao.getAllFuncionarios();
 	}
-	/** Busca o Funcionario
-	 *  @return Funcionário
-	 *  @param id do funcionario
+	/** Busca o Item
+	 *  @return Item passado pelo
+	 *  @param id 
 	 */
 	public Funcionario getItemById(int id) {
 		return funcionarioDao.getFuncionarioById(id);
 	}
-	/** Adiciona o Funcionario
+	/** Adiciona o Item atraves do Cpf para o
  	 *  @param funcionario 
  	 *  @return false se o Funcionario não existir
 	 *  @return true se o Funcionario existir 
@@ -53,15 +54,15 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
 	        return true;
 		}   
 	}
-	/** Atualiza o Funcionario
+	/** Atualiza o Funcionario do 
  	 *  @param funcionario 
 	 */
 	public void updateItem(Funcionario funcionario) {
 		funcionarioDao.updateFuncionario(funcionario);
 		
 	}
-	/** Deleta o Funcionario
- 	 *  @param id do funcionario
+	/** Deleta o Funcionario atraves do 
+ 	 *  @param id 
 	 */
 	public void deleteItem(int id) {
 		funcionarioDao.deleteFuncionario(id);

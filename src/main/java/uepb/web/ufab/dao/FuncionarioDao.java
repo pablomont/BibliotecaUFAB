@@ -27,8 +27,9 @@ public class FuncionarioDao {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	/** Busca os Funcionarios
-	 *  @return Lista de Funcionarios
+	/** Busca o Funcionario
+	 *  @return Lista de Funcionario passado pelo
+	 *  @param hql 
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Funcionario> getAllFuncionarios() {
@@ -74,8 +75,9 @@ public class FuncionarioDao {
 	public void deleteFuncionario(int id) {
 		hibernateTemplate.delete(getFuncionarioById(id));
 	}
-	/** Verifica a existencia do item no acervo atraves do seu cpf
+	/** Verifica a existencia do Funcionario atraves do
 	 * @param cpf
+	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")

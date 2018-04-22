@@ -28,7 +28,8 @@ public class MidiaEletronicaDao implements ItemAcervoDao {
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	/** Busca todos itens do acervo do tipo MidiaEletronica
-	 *  @return Lista de mídias eletronicas
+	 *  @return Lista de acervo passado pelo
+	 *  @param hql 
 	 */
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
@@ -49,7 +50,7 @@ public class MidiaEletronicaDao implements ItemAcervoDao {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
-	 *  @param itemAcervo
+	 *  @param itemAlterado 
 	 */
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
 		MidiaEletronica item = (MidiaEletronica) getItemById(itemAcervo.getId());
@@ -64,8 +65,9 @@ public class MidiaEletronicaDao implements ItemAcervoDao {
 	public void deleteItemAcervo(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
-	/** Verifica a existencia do item no acervo atraves do nome do item
+	/** Verifica a existencia do item no acervo atraves do
 	 * @param itemName
+	 * @param hql
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
