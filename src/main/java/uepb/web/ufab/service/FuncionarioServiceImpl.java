@@ -14,19 +14,37 @@ import uepb.web.ufab.model.Funcionario;
 @Transactional
 @Service
 @Configuration
+	/**
+	* <h1>CursoServiceImpl</h1>
+	* CursoServiceImpl Implementa todos os serviços de Curso
+	*
+	* @author  Samuel Rufino e Pablo Monteiro
+	* @version 1.0
+	* @since   2018-04-20
+	*/
 public class FuncionarioServiceImpl implements IService<Funcionario> {
 
 	@Autowired
 	private FuncionarioDao funcionarioDao;
-	
+	/** Busca o Funcionario
+	 *  @return Lista de Funcionario
+	 *  @param funcionarioDao 
+	 */
 	public List<Funcionario> getAllItems() {
 		return funcionarioDao.getAllFuncionarios();
 	}
-
+	/** Busca o Item
+	 *  @return Item passado pelo
+	 *  @param id 
+	 */
 	public Funcionario getItemById(int id) {
 		return funcionarioDao.getFuncionarioById(id);
 	}
-
+	/** Adiciona o Item atraves do Cpf para o
+ 	 *  @param funcionario 
+ 	 *  @return false se o Funcionario não existir
+	 *  @return true se o Funcionario existir 
+	 */
 	public boolean addItem(Funcionario funcionario) {
 		if (funcionarioDao.funcionarioExists(funcionario.getCpf())){
 			return false;
@@ -36,12 +54,16 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
 	        return true;
 		}   
 	}
-
+	/** Atualiza o Funcionario do 
+ 	 *  @param funcionario 
+	 */
 	public void updateItem(Funcionario funcionario) {
 		funcionarioDao.updateFuncionario(funcionario);
 		
 	}
-
+	/** Deleta o Funcionario atraves do 
+ 	 *  @param id 
+	 */
 	public void deleteItem(int id) {
 		funcionarioDao.deleteFuncionario(id);
 		

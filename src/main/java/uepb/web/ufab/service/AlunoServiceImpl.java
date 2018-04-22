@@ -15,20 +15,38 @@ import uepb.web.ufab.model.Aluno;
 @Transactional
 @Service
 @Configuration
+	/**
+	* <h1>AlunoServiceImpl</h1>
+	* AlunoServiceImpl Implementa todos os serviços para o usuario Alunos
+	*
+	* @author  Samuel Rufino e Pablo Monteiro
+	* @version 1.0
+	* @since   2018-04-20
+	*/
 public class AlunoServiceImpl implements IService<Aluno> {
 
 	
 	@Autowired
 	private AlunoDao alunoDao;
-	
+	/** Busca o Item
+	 *  @return Lista de Item do aluno passado pelo
+	 *  @param alunoDao 
+	 */
 	public List<Aluno> getAllItems() {
 		return alunoDao.getAllAlunos();
 	}
-
+	/** Busca o Item
+	 *  @return Item passado pelo
+	 *  @param id 
+	 */
 	public Aluno getItemById(int id) {
 		return alunoDao.getAlunoById(id);
 	}
-
+	/** Adiciona o Item atraves do Cpf para um 
+ 	 *  @param aluno 
+ 	 *  @return false se o Aluno não existir
+	 *  @return true se o Aluno existir
+	 */
 	public boolean addItem(Aluno aluno) {
 		if (alunoDao.alunoExists(aluno.getCpf())){
 			return false;
@@ -38,12 +56,16 @@ public class AlunoServiceImpl implements IService<Aluno> {
 	        return true;
 		}   
 	}
-
+	/** Atualiza o Item do 
+ 	 *  @param aluno 
+	 */
 	public void updateItem(Aluno aluno) {
 		alunoDao.updateAluno(aluno);
 		
 	}
-
+	/** Deleta o Item do Aluno atraves do 
+ 	 *  @param id 
+	 */
 	public void deleteItem(int id) {
 		alunoDao.deleteAluno(id);
 		
