@@ -17,7 +17,7 @@ import uepb.web.ufab.model.Curso;
 public class CursoServiceImpl implements IService<Curso> {
 	
 	@Autowired
-	CursoDao cursoDao;
+	private CursoDao cursoDao;
 
 	public List<Curso> getAllItems() {
 		return cursoDao.getAllCursos();
@@ -38,7 +38,6 @@ public class CursoServiceImpl implements IService<Curso> {
 
 	public void updateItem(Curso curso) {
 		cursoDao.updateCurso(curso);
-		
 	}
 
 	public void deleteItem(int id) {

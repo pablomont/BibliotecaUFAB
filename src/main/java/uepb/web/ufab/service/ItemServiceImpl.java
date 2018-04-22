@@ -18,7 +18,7 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 
 
 	@Autowired
-	ItemAcervoDao itemDao;
+	private ItemAcervoDao itemDao;
 	
 	public List<ItemAcervo> getAllItems() {
 		return itemDao.getAllItems();
