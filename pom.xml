@@ -25,6 +25,12 @@
   	
   
   	<dependency>
+    	<groupId>javax.interceptor</groupId>
+    	<artifactId>javax.interceptor-api</artifactId>
+    	<version>1.2</version>
+	</dependency>
+  
+  	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId> mysql-connector-java </artifactId>
 		<version>5.1.31</version>

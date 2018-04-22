@@ -11,7 +11,6 @@ public class ItemExistenteException extends Exception {
 	*/
 	private static final long serialVersionUID = 1L;
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception para definir o erro de que o item já existe 
 	 *  @param msg para mostrar uma mensagem de que o item já existe
 	 */
 	public ItemExistenteException(String msg) {
@@ -19,8 +18,7 @@ public class ItemExistenteException extends Exception {
 	}
 	
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception para definir o erro de que o item já existe
-	 *  @param @param msg para mostrar uma mensagem de que o item já existe
+	 *  @param msg para mostrar uma mensagem de que o item já existe
 	 *  @param cause mostra a causa do erro
 	 */
 	public ItemExistenteException(String msg, Throwable cause) {

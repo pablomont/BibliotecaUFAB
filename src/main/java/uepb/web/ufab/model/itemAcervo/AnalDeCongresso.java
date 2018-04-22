@@ -69,7 +69,6 @@ public class AnalDeCongresso extends ItemAcervo implements Serializable {
 	}
 
 	public void addAutor(String autor) {
-		// TODO Auto-generated method stub
 		autores.add(autor);
 	}
 
