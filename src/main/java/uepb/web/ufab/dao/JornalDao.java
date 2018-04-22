@@ -24,7 +24,7 @@ public class JornalDao implements ItemDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
-		String hql = "FROM JORNAL as i ORDER BY i.id";
+		String hql = "FROM Jornal as i ORDER BY i.id";
 		return (List<ItemAcervo>) hibernateTemplate.find(hql);
 	}
 
@@ -38,16 +38,14 @@ public class JornalDao implements ItemDao {
 	}
 
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
-		ItemAcervo item = getItemById(itemAcervo.getId());
-	
-		//item.clone(itemAcervo);
-		//item.addAtritubes(itemAcervo);
-//		i.setUsername(person.getUsername());
-//		i.setPassword(person.getPassword());
-//		i.setAge(person.getAge());
-//		i.setGender(person.getGender());
-//		i.setCity(person.getCity());
-		hibernateTemplate.update(itemAcervo);
+		Jornal item = (Jornal) getItemById(itemAcervo.getId());
+		Jornal itemAlterado = (Jornal)itemAcervo;
+		
+		
+		item.setNomeItem(itemAlterado.getNomeItem());
+		item.setEdicao(itemAlterado.getEdicao());
+		item.setDate(itemAlterado.getDate());
+		hibernateTemplate.update(item);
 	}
 
 	public void deleteItemAcervo(int id) {

@@ -2,6 +2,12 @@ package uepb.web.ufab.model.itemAcervo;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity 
+@Table(name= "REVISTA")
 public class Revista extends ItemAcervo implements Serializable{
 	
 
@@ -9,8 +15,12 @@ public class Revista extends ItemAcervo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Column(name = "EDITORA")
 	private String editora;
+	@Column(name = "EDICAO")
 	private String edicao;
+	@Column(name = "QTD_PAGINA")
 	private int numPaginas;
 	
 	public String getEditora() {

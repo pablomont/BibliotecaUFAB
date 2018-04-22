@@ -1,4 +1,4 @@
-package daoTest;
+package daoCreateDeleteTest;
 
 import static org.junit.Assert.*;
 
@@ -10,15 +10,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uepb.web.ufab.config.DBConfig;
-import uepb.web.ufab.dao.LivroDao;
 import uepb.web.ufab.dao.TrabalhoDeConclusaoDao;
-import uepb.web.ufab.model.itemAcervo.Revista;
 import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
 @ContextConfiguration(classes = { DBConfig.class , TrabalhoDeConclusaoDao.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TrabalhoDeConclusaoTest {
 
-		@Autowired private  TrabalhoDeConclusaoDao itemDaoImpl;
+		@Autowired private  TrabalhoDeConclusaoDao trabalhoDeConclusaoDaoImpl;
 		private TrabalhoDeConclusao trabalhodeconclusao;
 
 		
@@ -31,12 +29,12 @@ public class TrabalhoDeConclusaoTest {
 			trabalhodeconclusao.setLocal("UEPB");
 			trabalhodeconclusao.setTipo(TrabalhoDeConclusao.TipoTrabalho.MONOGRAFIA);
 			
-			itemDaoImpl.addItemAcervo(trabalhodeconclusao);
+			trabalhoDeConclusaoDaoImpl.addItemAcervo(trabalhodeconclusao);
 		}
 		@Test
-		public void testRemoveRevista() {
-			itemDaoImpl.deleteItemAcervo(1);
-			assertEquals(0,itemDaoImpl.getAllItems().size());
+		public void testRemoveTrabalhoDeConclusao() {
+			trabalhoDeConclusaoDaoImpl.deleteItemAcervo(trabalhodeconclusao.getId());
+			assertEquals(0,trabalhoDeConclusaoDaoImpl.getAllItems().size());
 		}
 
 }

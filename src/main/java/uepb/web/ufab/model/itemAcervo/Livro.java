@@ -22,7 +22,7 @@ public class Livro extends ItemAcervo implements Serializable{
 	
 	@ElementCollection
     @CollectionTable(
-        name = "AUTOR",
+        name = "AUTOR_LIVRO",
         joinColumns=@JoinColumn(name = "id")      
     )
 	@Column(name="NOME_AUTOR")
@@ -82,35 +82,8 @@ public class Livro extends ItemAcervo implements Serializable{
 		getAutores().add(autor);
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Livro other = (Livro) obj;
-		if (isbn == null) {
-			if (other.isbn != null)
-				return false;
-		} else if (!isbn.equals(other.isbn))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Livro [isbn=" + isbn + ", autores=" + autores + ", editora=" + editora + ", numPaginas=" + numPaginas
-				+ ", area=" + area + ", tema=" + tema + "]";
+	public void setAutores(List<String> autores) {
+		this.autores = autores;
 	}
 
 	

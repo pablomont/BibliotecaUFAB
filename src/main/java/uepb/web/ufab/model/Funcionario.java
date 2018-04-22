@@ -1,7 +1,7 @@
 package uepb.web.ufab.model;
 
 
-public class Funcionario extends Pessoa {
+public class Funcionario {
 
 	public enum NivelAcesso {ADMIN,OPERADOR}
 	private NivelAcesso nivelAcesso;
@@ -19,12 +19,6 @@ public class Funcionario extends Pessoa {
 		this.nivelAcesso = nivelAcesso;
 	}
 
-	
-	@Override
-	public String toString() {
-		return "Funcionario [nome=" + name + ", cpf=" + cpf + "]";
-	}
-	
-	
+
 	
 }

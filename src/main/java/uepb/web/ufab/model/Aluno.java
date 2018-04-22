@@ -2,7 +2,7 @@ package uepb.web.ufab.model;
 
 
 
-public class Aluno extends Pessoa{
+public class Aluno{
 	private Curso curso;
 	
 	

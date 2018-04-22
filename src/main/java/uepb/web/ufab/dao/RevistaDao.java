@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 import uepb.web.ufab.model.itemAcervo.Revista;
 
@@ -23,7 +22,7 @@ public class RevistaDao implements ItemDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
-		String hql = "FROM REVISTA as i ORDER BY i.id";
+		String hql = "FROM Revista as i ORDER BY i.id";
 		return (List<ItemAcervo>) hibernateTemplate.find(hql);
 	}
 
@@ -37,16 +36,16 @@ public class RevistaDao implements ItemDao {
 	}
 
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
-		ItemAcervo item = getItemById(itemAcervo.getId());
+		Revista item = (Revista) getItemById(itemAcervo.getId());
+		Revista itemAlterado = (Revista)itemAcervo;
 		
-		//item.clone(itemAcervo);
-		//item.addAtritubes(itemAcervo);
-//		i.setUsername(person.getUsername());
-//		i.setPassword(person.getPassword());
-//		i.setAge(person.getAge());
-//		i.setGender(person.getGender());
-//		i.setCity(person.getCity());
-		hibernateTemplate.update(itemAcervo);
+		item.setNomeItem(itemAlterado.getNomeItem());
+		item.setDate(itemAlterado.getDate());
+		item.setEditora(item.getEditora());
+		item.setNumPaginas(itemAlterado.getNumPaginas());
+		item.setEdicao(itemAlterado.getEdicao());
+		item.setNomeItem(itemAlterado.getNomeItem());
+		hibernateTemplate.update(item);
 	}
 
 	public void deleteItemAcervo(int id) {

@@ -1,7 +1,8 @@
-package daoTest;
+package daoUpdateTest;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,15 +11,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uepb.web.ufab.config.DBConfig;
-import uepb.web.ufab.dao.LivroDao;
 import uepb.web.ufab.dao.MidiaEletronicaDao;
 import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
-import uepb.web.ufab.model.itemAcervo.Revista;
+
+
 @ContextConfiguration(classes = { DBConfig.class , MidiaEletronicaDao.class })
 @RunWith(SpringJUnit4ClassRunner.class)
-public class MidiaEletronicaTest {
+public class MidiaEletronicaUpdateTest {
 
-	@Autowired private  MidiaEletronicaDao itemDaoImpl;
+	@Autowired private  MidiaEletronicaDao midiaEletronicaDaoImpl;
 	private MidiaEletronica midiaEletronica;
 
 	
@@ -28,13 +29,21 @@ public class MidiaEletronicaTest {
 		midiaEletronica = new MidiaEletronica();
 		midiaEletronica.setTipo(MidiaEletronica.TipoMidia.CD);
 		midiaEletronica.setNomeItem("Roberto Carlos");
+
 		
-		itemDaoImpl.addItemAcervo(midiaEletronica);
+		midiaEletronicaDaoImpl.addItemAcervo(midiaEletronica);
 	}
+	
 	@Test
-	public void testMidiaEletronica() {
-		itemDaoImpl.deleteItemAcervo(1);
-		assertEquals(0,itemDaoImpl.getAllItems().size());
+	public void updateMidiaEletronica() {
+		midiaEletronica.setNomeItem("Michael Jackson");
+		midiaEletronicaDaoImpl.updateItemAcervo(midiaEletronica);
+		assertEquals(midiaEletronicaDaoImpl.getItemById(midiaEletronica.getId()).getNomeItem(),"Michael Jackson");
+	}
+	
+	@After
+	public void removeTrabalhoDeConclusao() {
+		midiaEletronicaDaoImpl.deleteItemAcervo(midiaEletronica.getId());
 	}
 
 }

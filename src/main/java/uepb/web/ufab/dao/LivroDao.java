@@ -39,19 +39,14 @@ public class LivroDao implements ItemDao{
 		Livro item = (Livro) getItemById(itemAcervo.getId());
 		Livro itemAlterado = (Livro)itemAcervo;
 		
-		
+		item.setAutores(itemAlterado.getAutores());
 		item.setNomeItem(itemAlterado.getNomeItem());
 		item.setArea(itemAlterado.getArea());
 		item.setDate(itemAlterado.getDate());
 		item.setEditora(item.getEditora());
-		item.setIsbn(itemAlterado.getEditora());
+		item.setIsbn(itemAlterado.getIsbn());
 		item.setNumPaginas(itemAlterado.getNumPaginas());
 		item.setTema(itemAlterado.getTema());
-//		i.setUsername(person.getUsername());
-//		i.setPassword(person.getPassword());
-//		i.setAge(person.getAge());
-//		i.setGender(person.getGender());
-//		i.setCity(person.getCity());
 		hibernateTemplate.update(item);
 	}
 

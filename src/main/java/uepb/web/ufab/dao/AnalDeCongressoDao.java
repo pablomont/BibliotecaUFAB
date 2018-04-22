@@ -13,6 +13,7 @@ import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
 
+
 @Configuration
 @Transactional
 @Repository
@@ -24,7 +25,7 @@ public class AnalDeCongressoDao implements ItemDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<ItemAcervo> getAllItems() {
-		String hql = "FROM ANAL_DE_CONGRESSO as i ORDER BY i.id";
+		String hql = "FROM AnalDeCongresso as i ORDER BY i.id";
 		return (List<ItemAcervo>) hibernateTemplate.find(hql);
 	}
 
@@ -38,16 +39,15 @@ public class AnalDeCongressoDao implements ItemDao {
 	}
 
 	public void updateItemAcervo(ItemAcervo itemAcervo) {
-		ItemAcervo item = getItemById(itemAcervo.getId());
-	
-		//item.clone(itemAcervo);
-		//item.addAtritubes(itemAcervo);
-//		i.setUsername(person.getUsername());
-//		i.setPassword(person.getPassword());
-//		i.setAge(person.getAge());
-//		i.setGender(person.getGender());
-//		i.setCity(person.getCity());
-		hibernateTemplate.update(itemAcervo);
+		AnalDeCongresso item = (AnalDeCongresso) getItemById(itemAcervo.getId());
+		AnalDeCongresso itemAlterado = (AnalDeCongresso)itemAcervo;
+		
+		item.setAutores(itemAlterado.getAutores());
+		item.setNomeItem(itemAlterado.getNomeItem());
+		item.setLocal(itemAlterado.getLocal());
+		item.setDate(itemAlterado.getDate());
+		item.setTipo(itemAlterado.getTipo());
+		hibernateTemplate.update(item);
 	}
 
 	public void deleteItemAcervo(int id) {
