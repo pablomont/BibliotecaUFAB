@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
@@ -26,12 +28,15 @@ import uepb.web.ufab.model.Aluno;
 public class AlunoServiceImpl implements IService<Aluno> {
 
 	
+	private static final Logger logger = LogManager.getLogger(AlunoServiceImpl.class);
+	
 	@Autowired
 	private AlunoDao alunoDao;
 	/** Busca todos os alunos
 	 *  @return Lista dos alunos
 	 */
 	public List<Aluno> getAllItems() {
+		logger.info("AlunoService: getAllItems()");
 		return alunoDao.getAllAlunos();
 	}
 	/** Busca o Aluno
@@ -39,7 +44,9 @@ public class AlunoServiceImpl implements IService<Aluno> {
 	 *  @param id do Alundo 
 	 */
 	public Aluno getItemById(int id) {
-		return alunoDao.getAlunoById(id);
+		Aluno a = alunoDao.getAlunoById(id);
+		logger.info("AlunoService: getItemByid(id) ,id = "+ id +"result: "+a);
+		return a;
 	}
 	/** Adiciona o Aluno pelo
  	 *  @param aluno 
@@ -47,11 +54,15 @@ public class AlunoServiceImpl implements IService<Aluno> {
 	 *  @return true se o Aluno existir
 	 */
 	public boolean addItem(Aluno aluno) {
+		
+		
+		
 		if (alunoDao.alunoExists(aluno.getCpf())){
 			return false;
 		}
 		else {
 			alunoDao.addAluno(aluno);
+			logger.info("AlunoService: addItem(aluno), aluno = " + aluno);
 	        return true;
 		}   
 	}
@@ -59,15 +70,18 @@ public class AlunoServiceImpl implements IService<Aluno> {
  	 *  @param aluno 
 	 */
 	public void updateItem(Aluno aluno) {
+		
+		
 		alunoDao.updateAluno(aluno);
+		logger.info("AlunoService: updateItem(aluno), aluno = " + aluno);
 		
 	}
 	/** Deleta o Item do Aluno atraves do seu id
  	 *  @param id 
 	 */
 	public void deleteItem(int id) {
+		logger.info("AlunoService: deleteItem(id), id = "+id);
 		alunoDao.deleteAluno(id);
-		
 	}
 
 }

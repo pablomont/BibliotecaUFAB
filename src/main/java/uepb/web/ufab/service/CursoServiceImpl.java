@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
@@ -24,12 +26,16 @@ import uepb.web.ufab.model.Curso;
 	*/
 public class CursoServiceImpl implements IService<Curso> {
 	
+	private static final Logger logger = LogManager.getLogger(CursoServiceImpl.class);
+	
+	
 	@Autowired
 	private CursoDao cursoDao;
 	/** Busca todos os Cursos
 	 *  @return Lista de Cursos
 	 */
 	public List<Curso> getAllItems() {
+		logger.info("CursoService: getAllItems()");
 		return cursoDao.getAllCursos();
 	}
 	/** Busca o Curso
@@ -37,7 +43,10 @@ public class CursoServiceImpl implements IService<Curso> {
 	 *  @param id do curso
 	 */
 	public Curso getItemById(int id) {
-		return cursoDao.getCursoById(id);
+		
+		Curso c = cursoDao.getCursoById(id);
+		logger.info("CursoService: getItemByid(id), id = " + id +"result: "+c);
+		return c;
 	}
 	/** Adiciona o Curso
  	 *  @param curso 
@@ -49,6 +58,7 @@ public class CursoServiceImpl implements IService<Curso> {
 	         return false;
       } else {
     	  cursoDao.addCurso(curso);
+    	  logger.info("CursoService: addItem(curso), curso = " + curso);
 	         return true;
       }   
 	}
@@ -57,11 +67,13 @@ public class CursoServiceImpl implements IService<Curso> {
 	 */
 	public void updateItem(Curso curso) {
 		cursoDao.updateCurso(curso);
+		logger.info("CursoService: updateItem(curso), curso = " + curso);
 	}
 	/** Deleta o Item do Curso 
  	 *  @param id do curso
 	 */
 	public void deleteItem(int id) {
 		cursoDao.deleteCurso(id);
+		logger.info("cursoService: deleteItem(id), id = " + id);
 	}
 }

@@ -54,6 +54,15 @@ public class Aluno extends Pessoa{
 	public void setSenhaAcesso(String senhaAcesso) {
 		this.senhaAcesso = senhaAcesso;
 	}
+
+	@Override
+	public String toString() {
+		return "Aluno [curso=" + curso + ", matricula=" + matricula + ", nomeDaMae=" + nomeDaMae + ", senhaAcesso="
+				+ senhaAcesso + ", id=" + id + ", rg=" + rg + ", cpf=" + cpf + ", naturalidade=" + naturalidade
+				+ ", nome=" + nome + ", endereco=" + endereco + "]";
+	}
+
+	
 	
 	
 

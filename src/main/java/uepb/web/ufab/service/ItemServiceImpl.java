@@ -4,10 +4,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-
 import uepb.web.ufab.dao.ItemAcervoDao;
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
@@ -24,13 +25,15 @@ import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 */
 public class ItemServiceImpl implements IService<ItemAcervo>{
 
-
+	private static final Logger logger = LogManager.getLogger(FuncionarioServiceImpl.class);
+	
 	@Autowired
 	private ItemAcervoDao itemDao;
 	/** Busca todos os itens
 	 *  @return Lista de itens
 	 */
 	public List<ItemAcervo> getAllItems() {
+		logger.info("ItemService: getAllItems()");
 		return itemDao.getAllItems();
 	}
 
@@ -39,8 +42,9 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	 *  @param id do item
 	 */
 	public ItemAcervo getItemById(int id) {
-		ItemAcervo obj = itemDao.getItemById(id);
-		return obj;
+		ItemAcervo i = itemDao.getItemById(id);
+		logger.info("ItemService: getItemByid(id), id = " + id +"result: "+i);
+		return i;
 	}
 
 	/** Atualiza o item do acervo
@@ -48,6 +52,7 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	 */
 	public void updateItem(ItemAcervo itemAcervo) {
 		itemDao.updateItemAcervo(itemAcervo);
+		logger.info("ItemService: addItem(itemAcervo), itemAcervo = " + itemAcervo);
 	}
 	
 	/** Deleta o item
@@ -55,6 +60,7 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	 */
 	public void deleteItem(int id) {
 		itemDao.deleteItemAcervo(id);
+		logger.info("ItemService: deleteItem(id), id = " + id);
 	}
 
 	/** Adiciona o item 
@@ -67,6 +73,7 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	         return false;
        } else {
        	itemDao.addItemAcervo(itemAcervo);
+       	logger.info("ItemService: addItem(itemAcervo), itemaAcervo = " + itemAcervo);
 	         return true;
        }   
 	}
