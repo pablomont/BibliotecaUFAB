@@ -4,7 +4,7 @@
  		
 ## * Código java do sistema:  [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/src/main/java)
 
-## * Documentação(Javadoc): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/Doc/uepb/web/ufab)
+## * Documentação(Javadoc): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/doc/uepb/web/ufab)
 		
 ## * Código de testes unitários do sistema(Junit): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/src/test/java)
 			
