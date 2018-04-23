@@ -6,7 +6,7 @@
 
 ## * Documentação(Javadoc): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/doc)
 		
-## * Código de testes unitários do sistema(Junit): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/Doc/uepb/web/ufab)
+## * Código de testes unitários do sistema(Junit): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/Doc)
 			
 		 
 				
