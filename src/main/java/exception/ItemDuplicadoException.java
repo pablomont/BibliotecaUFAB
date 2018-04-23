@@ -11,7 +11,6 @@ public class ItemDuplicadoException extends Exception {
 	*/
 	private static final long serialVersionUID = 1L;
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception defini o erro de que o item já existe 
 	 *  @param msg mostra uma mensagem de que o item já existe
 	 */
 	public ItemDuplicadoException(String msg) {
@@ -19,7 +18,6 @@ public class ItemDuplicadoException extends Exception {
 	}
 	
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception defini o erro de que o item já existe
 	 *  @param msg mostra uma mensagem de que o item já existe
 	 *  @param cause mostra a causa do erro
 	 */

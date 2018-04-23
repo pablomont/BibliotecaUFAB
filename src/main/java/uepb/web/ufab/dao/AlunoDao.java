@@ -101,7 +101,6 @@ public class AlunoDao {
 	
 	
 	/** Verifica a existencia do Aluno através  do seu cpf
-	 * @param cpf
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")

@@ -14,9 +14,7 @@ public class AcessoNegadoException extends Exception {
 	private static final long serialVersionUID = 1L;
 	
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception para definir uma mensagem de erro usando 
 	 *  @param msg de erro
-	 *  @return msg mensagem de que o acesso foi negado ao sistema
 	 */
 	public AcessoNegadoException(String msg) {
 
@@ -24,10 +22,9 @@ public class AcessoNegadoException extends Exception {
 	}
 	
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception para definir uma mensagem de erro usando
+
 	 *  @param msg de que o acesso foi negado ao sistema
 	 *  @param cause mostra a causa do acesso foi negado ao sistema
-	 *  @return msg mensagem e causa de que o acesso foi negado ao sistema
 	 */
 	public AcessoNegadoException(String msg, Throwable cause) {
 
