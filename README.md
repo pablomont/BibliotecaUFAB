@@ -1,12 +1,12 @@
 # BibliotecaUFAB
 
-## * Projeto de baixo nível: [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/cb2d93820ab73e3e70f076feaf3a13054c235b80/Diagramas) 
+## * Projeto de baixo nível: [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/Diagramas) 
  		
 ## * Código java do sistema:  [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/src/main/java)
 
-## * Documentação(Javadoc): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/doc)
+## * Documentação(Javadoc): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/Doc/uepb/web/ufab)
 		
-## * Código de testes unitários do sistema(Junit): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/Doc)
+## * Código de testes unitários do sistema(Junit): [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/src/test/java)
 			
 		 
 				
