@@ -1,6 +1,6 @@
 # BibliotecaUFAB
 
-## * Projeto de baixo nível: [aqui](https://github.com/pablomont/BibliotecaUFAB/blob/master/Diagramas/DiagramaUML_BibliotecaUFAB_Final.pdf) 
+## * Projeto de baixo nível: [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/cb2d93820ab73e3e70f076feaf3a13054c235b80/Diagramas) 
  		
 ## * Código java do sistema:  [aqui](https://github.com/pablomont/BibliotecaUFAB/tree/master/src/main/java)
 
