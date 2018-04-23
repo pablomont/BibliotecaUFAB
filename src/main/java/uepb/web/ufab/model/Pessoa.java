@@ -14,10 +14,10 @@ public class Pessoa {
 	@Column(name="id")
     protected int id;	
 	
-	@Column(name = "RG")
+	@Column(unique=true,name = "RG")
 	protected String rg;
 	
-	@Column(name = "CPF")
+	@Column(unique=true,name = "CPF",nullable = false)
 	protected String cpf;
 	
 	@Column(name = "NATURALIDADE")

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AlunoDao;
 import uepb.web.ufab.dao.CursoDao;
@@ -28,6 +30,7 @@ public class UpdateAlunoTest {
 	@Autowired private CursoServiceImpl cursoServiceImpl;
 	
 	Aluno aluno;
+	Aluno aluno2;
 	Curso curso;
 	
 	@Before
@@ -42,6 +45,10 @@ public class UpdateAlunoTest {
 		aluno.setRg("3775630");
 		aluno.setSenhaAcesso("admin");
 		
+		aluno2 = new Aluno();
+		aluno2.setCpf("123456798");
+		aluno.setMatricula("444222555");
+		
 		curso = new Curso();
 		curso.setArea("Exatas");
 		curso.setNome("Ciência da Computação");
@@ -49,22 +56,41 @@ public class UpdateAlunoTest {
 		cursoServiceImpl.addItem(curso);
 		
 		aluno.setCurso(curso);
+		aluno2.setCurso(curso);
 		alunoServiceImpl.addItem(aluno);
+		alunoServiceImpl.addItem(aluno2);
 		
 		
 	}
 	
 	
 	@Test
-	public void updateAluno() {
+	public void updateAluno() throws ItemDuplicadoException, ItemInexistenteException {
 		aluno.setSenhaAcesso("ROOT0011");
 		alunoServiceImpl.updateItem(aluno);
 		assertEquals(alunoServiceImpl.getItemById(aluno.getId()).getSenhaAcesso(),"ROOT0011");
 	}
 	
+	@Test(expected = ItemDuplicadoException.class)
+	public void updateAlunoMatriculaDuplicada() throws ItemDuplicadoException, ItemInexistenteException {
+		aluno2.setMatricula(aluno.getMatricula());
+		alunoServiceImpl.updateItem(aluno2);
+	}
+	
+	
+	@Test(expected = ItemInexistenteException.class)
+	public void updateAlunoInexistente() throws ItemDuplicadoException, ItemInexistenteException{
+		Aluno aluno3 = new Aluno();
+		aluno3.setCpf("123456");
+		aluno3.setMatricula("00022255");
+		
+		alunoServiceImpl.updateItem(aluno3);
+	}
+	
 	@After
-	public void deleteAluno() {
+	public void deleteAlunos() {
 		alunoServiceImpl.deleteItem(aluno.getId());
+		alunoServiceImpl.deleteItem(aluno2.getId());
 	}
 	
 	@After

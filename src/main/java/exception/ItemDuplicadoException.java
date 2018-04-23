@@ -1,6 +1,6 @@
 package exception;
 
-public class ItemExistenteException extends Exception {
+public class ItemDuplicadoException extends Exception {
 
 	/**
 	* <h1>ItemExistenteException</h1>
@@ -11,19 +11,19 @@ public class ItemExistenteException extends Exception {
 	*/
 	private static final long serialVersionUID = 1L;
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception para definir o erro de que o item já existe 
-	 *  @param msg para mostrar uma mensagem de que o item já existe
+	 *  @exception defini o erro de que o item já existe 
+	 *  @param msg mostra uma mensagem de que o item já existe
 	 */
-	public ItemExistenteException(String msg) {
+	public ItemDuplicadoException(String msg) {
 		super(msg);
 	}
 	
 	/** Quando ocorre um erro o metodo usa
-	 *  @exception para definir o erro de que o item já existe
-	 *  @param @param msg para mostrar uma mensagem de que o item já existe
+	 *  @exception defini o erro de que o item já existe
+	 *  @param msg mostra uma mensagem de que o item já existe
 	 *  @param cause mostra a causa do erro
 	 */
-	public ItemExistenteException(String msg, Throwable cause) {
+	public ItemDuplicadoException(String msg, Throwable cause) {
 		super(msg,cause);
 	}
 }

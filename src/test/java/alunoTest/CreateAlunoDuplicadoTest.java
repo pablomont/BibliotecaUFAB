@@ -1,17 +1,14 @@
 package alunoTest;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import exception.ItemInexistenteException;
+import exception.ItemDuplicadoException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AlunoDao;
 import uepb.web.ufab.dao.CursoDao;
@@ -20,9 +17,10 @@ import uepb.web.ufab.model.Curso;
 import uepb.web.ufab.service.AlunoServiceImpl;
 import uepb.web.ufab.service.CursoServiceImpl;
 
+
 @ContextConfiguration(classes = { DBConfig.class , AlunoDao.class, CursoDao.class,CursoServiceImpl.class, AlunoServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class CreateDeleteAlunoTest {
+public class CreateAlunoDuplicadoTest {
 
 	@Autowired private AlunoServiceImpl alunoServiceImpl;
 	@Autowired private CursoServiceImpl cursoServiceImpl;
@@ -50,17 +48,18 @@ public class CreateDeleteAlunoTest {
 		
 		aluno.setCurso(curso);
 		alunoServiceImpl.addItem(aluno);
+		
+		
 	}
 
-	@Test
-	public void deleteAluno() throws DataAccessException, ItemInexistenteException {
-		alunoServiceImpl.deleteItemByMatricula(aluno.getMatricula());
-		assertEquals(alunoServiceImpl.getAllItems().size(),0);
+	@Test(expected = ItemDuplicadoException.class)
+	public void createAlunoDuplicado() throws ItemDuplicadoException {
+		alunoServiceImpl.addItem(aluno);
 	}
 	
 	@After
-	public void deleteCurso() { 
+	public void removeAlunoECurso() {
+		alunoServiceImpl.deleteItem(aluno.getId());
 		cursoServiceImpl.deleteItem(curso.getId());
 	}
-
 }

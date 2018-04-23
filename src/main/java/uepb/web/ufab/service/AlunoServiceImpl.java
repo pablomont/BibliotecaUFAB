@@ -8,8 +8,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.dao.AlunoDao;
 import uepb.web.ufab.model.Aluno;
 
@@ -48,40 +51,64 @@ public class AlunoServiceImpl implements IService<Aluno> {
 		logger.info("AlunoService: getItemByid(id) ,id = "+ id +"result: "+a);
 		return a;
 	}
+	
+	
+	public Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException {
+		Aluno a = alunoDao.getAlunoByMatricula(matricula);
+		logger.info("AlunoService: getItemByid(id) ,id = "+ matricula +"result: "+a);
+		return a;
+	}
+	
+	
 	/** Adiciona o Aluno pelo
  	 *  @param aluno 
- 	 *  @return false se o Aluno não existir
 	 *  @return true se o Aluno existir
+	 * @throws ItemDuplicadoException lançada caso o aluno ja exista
 	 */
-	public boolean addItem(Aluno aluno) {
+	public boolean addItem(Aluno aluno) throws ItemDuplicadoException {
 		
-		
-		
-		if (alunoDao.alunoExists(aluno.getCpf())){
-			return false;
+		if (alunoDao.alunoExists(aluno.getMatricula())){
+			throw new ItemDuplicadoException("Aluno duplicado");
 		}
 		else {
 			alunoDao.addAluno(aluno);
 			logger.info("AlunoService: addItem(aluno), aluno = " + aluno);
-	        return true;
+			return true;
+	        
 		}   
 	}
 	/** Atualiza o Aluno
  	 *  @param aluno 
+	 * @throws ItemDuplicadoException 
+	 * @throws ItemInexistenteException 
 	 */
-	public void updateItem(Aluno aluno) {
+	public void updateItem(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException {
+		Aluno alunoAux = alunoDao.getAlunoByMatricula(aluno.getMatricula());
 		
+		if(alunoAux.equals(null) || alunoAux.getCpf().equals(aluno.getCpf())) {
+			alunoDao.updateAluno(aluno);
+			logger.info("AlunoService: updateItem(aluno), aluno = " + aluno);
+		}
+
+		else {
+			throw new ItemDuplicadoException("Matricula duplicada");
+		}
 		
-		alunoDao.updateAluno(aluno);
-		logger.info("AlunoService: updateItem(aluno), aluno = " + aluno);
 		
 	}
 	/** Deleta o Item do Aluno atraves do seu id
  	 *  @param id 
 	 */
 	public void deleteItem(int id) {
+		
+		alunoDao.deleteAlunoById(id);
 		logger.info("AlunoService: deleteItem(id), id = "+id);
-		alunoDao.deleteAluno(id);
+	}
+	
+	public void deleteItemByMatricula(String matricula) throws DataAccessException, ItemInexistenteException {
+		
+		alunoDao.deleteAlunoByMatricula(matricula);
+		logger.info("AlunoService: deleteItem(matricula), matricula = "+matricula);
 	}
 
 }

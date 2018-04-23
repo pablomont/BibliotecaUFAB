@@ -6,9 +6,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import exception.ItemInexistenteException;
 import uepb.web.ufab.model.Aluno;
 
 
@@ -41,6 +43,26 @@ public class AlunoDao {
 	public Aluno getAlunoById(int id) {
 		return hibernateTemplate.get(Aluno.class, id);
 	}
+	
+	
+	/** @return retorna o Aluno especificado pela matricula
+	 *  @param matricula 
+	 * @throws ItemInexistenteException 
+	 */
+	
+	@SuppressWarnings("unchecked")
+	public Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException {
+		String hql = "FROM Aluno as i WHERE i.matricula = ?";
+		List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, matricula);
+		
+		if(items.size() == 0) {
+			throw new ItemInexistenteException("Matricula inexistente");
+		}
+		
+		return items.get(0);
+	}
+	
+	
 	/** Adiciona um Aluno 
 	 *  @param aluno
 	 */
@@ -69,17 +91,23 @@ public class AlunoDao {
 	/** Deleta o Aluno atraves do id
 	 *@param id/
 	 **/
-	public void deleteAluno(int id) {
+	public void deleteAlunoById(int id) {
 		hibernateTemplate.delete(getAlunoById(id));
 	}
+	
+	public void deleteAlunoByMatricula(String matricula) throws DataAccessException, ItemInexistenteException {
+		hibernateTemplate.delete(getAlunoByMatricula(matricula));
+	}
+	
+	
 	/** Verifica a existencia do Aluno através  do seu cpf
 	 * @param cpf
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean alunoExists(String cpf) {
-		String hql = "FROM Aluno as i WHERE i.cpf = ?";	
-		List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, cpf);
+	public boolean alunoExists(String matricula) {
+		String hql = "FROM Aluno as i WHERE i.matricula = ?";	
+		List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, matricula);
 		return items.size() > 0 ? true : false;
 	}
 }
