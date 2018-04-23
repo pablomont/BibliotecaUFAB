@@ -1,4 +1,4 @@
-package daoUpdateTest;
+package itemAcervoTest;
 
 import static org.junit.Assert.*;
 
@@ -12,33 +12,43 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.LivroDao;
 import uepb.web.ufab.model.itemAcervo.Livro;
+import uepb.web.ufab.service.ItemServiceImpl;
 
-@ContextConfiguration(classes = { DBConfig.class , LivroDao.class })
+@ContextConfiguration(classes = { DBConfig.class ,LivroDao.class,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class LivroUpdateTest {
-
-	@Autowired private LivroDao livroDaoImpl;
-	private Livro livro;
+public class LivroTest{
 	
+	@Autowired private ItemServiceImpl itemServiceImpl;
+	private Livro livro;
 	
 	@Before
 	public void setUp() throws Exception {
 		livro = new Livro();
 		livro.setNomeItem("COSMOS");
-		livro.setTema("Ficção Científica");
+		livro.setTema("Ficcao Cientifica");
 		livro.setEditora("Universe books, inc");
 		livro.addAutor("Carl Sagan");
+		livro.setArea("Ciencia");
+		livro.setNumPaginas(350);
+		livro.setIsbn("123456789");
 		
 		//Adiciona um livro
-		livroDaoImpl.addItemAcervo(livro);
+		itemServiceImpl.addItemAcervo(livro);
 
 	}
+	
+	
 	@Test
 	public void updateLivro(){
 		livro.setNomeItem("COSMOS UMA ODISSEIA NO ESPAÇO");
-		livroDaoImpl.updateItemAcervo(livro);
-		assertEquals(livroDaoImpl.getItemById(livro.getId()).getNomeItem(),"COSMOS UMA ODISSEIA NO ESPAÇO");
+		itemServiceImpl.updateItemAcervo(livro);
+		assertEquals(itemServiceImpl.getItemById(livro.getId()).getNomeItem(),"COSMOS UMA ODISSEIA NO ESPAÇO");
 	}
 	
+	@Test
+	public void testRemoveLivro() {
+		itemServiceImpl.deleteItemAcervo(livro.getId());
+		assertEquals(0,itemServiceImpl.getAllItems().size());
+	}
 	
 }

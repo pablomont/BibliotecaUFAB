@@ -24,7 +24,7 @@ public class ItemAcervoController {
 	public ModelAndView loadForm(@ModelAttribute("itemForm")ItemAcervo item /* BindingResult result , Model model*/){
 		ModelAndView m = new ModelAndView();
         m.setViewName("formItem");
-        m.addObject("items", itemService.getAllItemss());
+       // m.addObject("items", itemService.getAllItemss());
     	return m;
 	}
 

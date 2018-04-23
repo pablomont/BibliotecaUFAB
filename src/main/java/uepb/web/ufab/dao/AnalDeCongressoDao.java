@@ -77,7 +77,7 @@ public class AnalDeCongressoDao implements ItemDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM ANAL_DE_CONGRESSO as i WHERE i.nomeItem = ?";
+		String hql = "FROM AnalDeCongresso as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

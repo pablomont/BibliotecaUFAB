@@ -80,7 +80,7 @@ public class LivroDao implements ItemDao{
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM LIVRO as i WHERE i.nomeItem = ?";
+		String hql = "FROM Livro as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

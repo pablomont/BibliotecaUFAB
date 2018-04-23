@@ -77,7 +77,7 @@ public class JornalDao implements ItemDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM JORNAL as i WHERE i.nomeItem = ?";
+		String hql = "FROM Jornal as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

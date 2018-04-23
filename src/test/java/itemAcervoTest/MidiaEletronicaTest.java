@@ -1,4 +1,4 @@
-package daoCreateDeleteTest;
+package itemAcervoTest;
 
 import static org.junit.Assert.*;
 
@@ -12,11 +12,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.MidiaEletronicaDao;
 import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
-@ContextConfiguration(classes = { DBConfig.class , MidiaEletronicaDao.class })
+import uepb.web.ufab.service.ItemServiceImpl;
+@ContextConfiguration(classes = { DBConfig.class , MidiaEletronicaDao.class ,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MidiaEletronicaTest {
 
-	@Autowired private  MidiaEletronicaDao midiaEletronicaDaoImpl;
+	@Autowired private  ItemServiceImpl itemServiceImpl;
 	private MidiaEletronica midiaEletronica;
 
 	
@@ -26,14 +27,14 @@ public class MidiaEletronicaTest {
 		midiaEletronica = new MidiaEletronica();
 		midiaEletronica.setTipo(MidiaEletronica.TipoMidia.CD);
 		midiaEletronica.setNomeItem("Roberto Carlos");
-
 		
-		midiaEletronicaDaoImpl.addItemAcervo(midiaEletronica);
+		itemServiceImpl.addItemAcervo(midiaEletronica);
 	}
+	
 	@Test
 	public void testDeleteEletronica() {
-		midiaEletronicaDaoImpl.deleteItemAcervo(midiaEletronica.getId());
-		assertEquals(0,midiaEletronicaDaoImpl.getAllItems().size());
+		itemServiceImpl.deleteItemAcervo(midiaEletronica.getId());
+		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}
 
 }

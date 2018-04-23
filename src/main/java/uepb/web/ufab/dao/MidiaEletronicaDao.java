@@ -72,7 +72,7 @@ public class MidiaEletronicaDao implements ItemDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM MIDIA_ELETRONICA as i WHERE i.nomeItem = ?";
+		String hql = "FROM MidiaEletronica as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

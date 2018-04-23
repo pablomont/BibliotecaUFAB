@@ -6,7 +6,7 @@ import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
 public interface ItemService {
      
-     List<ItemAcervo> getAllItemss();
+     List<ItemAcervo> getAllItems();
      ItemAcervo getItemById(int id);
      boolean addItemAcervo(ItemAcervo itemAcervo);
      void updateItemAcervo(ItemAcervo itemAcervo);

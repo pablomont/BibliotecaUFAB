@@ -75,7 +75,7 @@ public class TrabalhoDeConclusaoDao implements ItemDao {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemAcervoExists(String itemName) {
-		String hql = "FROM TRABALHO_DE_CONCLUSAO as i WHERE i.nomeItem = ?";
+		String hql = "FROM TrabalhoDeConclusao as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;
 	}

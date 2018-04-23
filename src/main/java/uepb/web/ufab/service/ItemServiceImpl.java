@@ -2,19 +2,24 @@ package uepb.web.ufab.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import uepb.web.ufab.dao.ItemDao;
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
+@Transactional
 @Service
+@Configuration
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	ItemDao itemDao;
 	
-	public List<ItemAcervo> getAllItemss() {
+	public List<ItemAcervo> getAllItems() {
 		return itemDao.getAllItems();
 	}
 

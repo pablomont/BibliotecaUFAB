@@ -1,4 +1,4 @@
-package daoCreateDeleteTest;
+package itemAcervoTest;
 
 import static org.junit.Assert.*;
 
@@ -12,16 +12,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.RevistaDao;
 import uepb.web.ufab.model.itemAcervo.Revista;
+import uepb.web.ufab.service.ItemServiceImpl;
 
-@ContextConfiguration(classes = { DBConfig.class , RevistaDao.class })
+@ContextConfiguration(classes = { DBConfig.class , RevistaDao.class ,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class RevistaTest {
 
-		@Autowired private  RevistaDao revistaDaoImpl;
+		@Autowired private  ItemServiceImpl itemServiceImpl;
 		private Revista revista;
 
-		
-		
 		@Before
 		public void setUp() throws Exception {
 			revista = new Revista();
@@ -30,12 +29,13 @@ public class RevistaTest {
 			revista.setNumPaginas(30);	
 			revista.setNomeItem("Lula Vs Bolsonaro");
 			
-			revistaDaoImpl.addItemAcervo(revista);
+			itemServiceImpl.addItemAcervo(revista);
 		}
+		
 		@Test
 		public void testRemoveRevista() {
-			revistaDaoImpl.deleteItemAcervo(1);
-			assertEquals(0,revistaDaoImpl.getAllItems().size());
+			itemServiceImpl.deleteItemAcervo(revista.getId());
+			assertEquals(0,itemServiceImpl.getAllItems().size());
 		}
 
 }
