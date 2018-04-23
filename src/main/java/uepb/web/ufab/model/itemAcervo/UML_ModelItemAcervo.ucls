@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="uepb.web.ufab.model.itemAcervo.AnalDeCongresso" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/AnalDeCongresso.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="168" x="214" y="-133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="uepb.web.ufab.model.itemAcervo.Livro" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/Livro.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="168" x="6" y="-133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="uepb.web.ufab.model.itemAcervo.Jornal" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/Jornal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="150" x="422" y="-133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="uepb.web.ufab.model.itemAcervo.MidiaEletronica" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/MidiaEletronica.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="150" x="802" y="-133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/TrabalhoDeConclusao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="333" width="192" x="992" y="-133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="6" language="java" name="uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao.TipoTrabalho" 
+    project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/TrabalhoDeConclusao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="166" x="992" y="348"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="7" language="java" name="uepb.web.ufab.model.itemAcervo.Revista" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/Revista.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="150" x="612" y="-133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="8" language="java" name="uepb.web.ufab.model.itemAcervo.AnalDeCongresso.TipoAnal" 
+    project="BibliotecaUFAB" file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/AnalDeCongresso.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="150" x="214" y="348"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="9" language="java" name="uepb.web.ufab.model.itemAcervo.ItemAcervo" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/ItemAcervo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="150" x="508" y="-416"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="10" language="java" name="uepb.web.ufab.model.itemAcervo.MidiaEletronica.TipoMidia" 
+    project="BibliotecaUFAB" file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/model/itemAcervo/MidiaEletronica.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="150" x="802" y="348"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="13">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="14">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="15" name="tipo"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </nesting>  
+  <nesting id="18">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <association id="19">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="20" name="tipo"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="23">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="24" name="tipo"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="26">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

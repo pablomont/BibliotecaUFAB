@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="uepb.web.ufab.dao.AnalDeCongressoDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/AnalDeCongressoDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="474" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="uepb.web.ufab.dao.MidiaEletronicaDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/MidiaEletronicaDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="721" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="uepb.web.ufab.dao.RevistaDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/RevistaDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="968" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="uepb.web.ufab.dao.AlunoDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/AlunoDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="207" x="-20" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="uepb.web.ufab.dao.CursoDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/CursoDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="227" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" language="java" name="uepb.web.ufab.dao.ItemAcervoDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/ItemAcervoDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="200" x="1092" y="202"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="uepb.web.ufab.dao.LivroDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/LivroDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="1215" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="uepb.web.ufab.dao.FuncionarioDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/FuncionarioDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="211" x="1956" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="uepb.web.ufab.dao.TrabalhoDeConclusaoDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/TrabalhoDeConclusaoDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="1462" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="uepb.web.ufab.dao.JornalDao" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/dao/JornalDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="207" x="1709" y="-81"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="11">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="12">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="13">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="14">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="15">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="16">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

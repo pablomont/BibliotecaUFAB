@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="uepb.web.ufab.service.CursoServiceImpl" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/service/CursoServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="147" x="212" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="uepb.web.ufab.service.IService" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/service/IService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="124" x="524" y="420"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="uepb.web.ufab.service.AlunoServiceImpl" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/service/AlunoServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="192" x="399" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="uepb.web.ufab.service.FuncionarioServiceImpl" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/service/FuncionarioServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="180" x="631" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="uepb.web.ufab.service.ItemServiceImpl" project="BibliotecaUFAB" 
+    file="/BibliotecaUFAB/src/main/java/uepb/web/ufab/service/ItemServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="173" x="851" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="6">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="7">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="8">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="9">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
