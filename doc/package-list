@@ -1,0 +1,12 @@
+alunoTest
+createDeleteItemAcervoTest
+cursoTest
+exception
+funcionarioTest
+uepb.web.ufab.config
+uepb.web.ufab.controller
+uepb.web.ufab.dao
+uepb.web.ufab.model
+uepb.web.ufab.model.itemAcervo
+uepb.web.ufab.service
+updateItemAcervoTest
