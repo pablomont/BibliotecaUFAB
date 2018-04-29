@@ -1,7 +1,8 @@
-package createDeleteItemAcervoTest;
+package itemAcervoTest.update;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +15,7 @@ import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 import uepb.web.ufab.service.ItemServiceImpl;
 @ContextConfiguration(classes = { DBConfig.class , AnalDeCongressoDao.class,ItemServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class AnalDeCongressoTest{
+public class AnalDeCongressoUpdateTest{
 
 	@Autowired private  ItemServiceImpl itemServiceImpl;
 	private AnalDeCongresso analDecongresso;
@@ -29,13 +30,17 @@ public class AnalDeCongressoTest{
 		
 		itemServiceImpl.addItem(analDecongresso);
 	}
-		
 	
 	@Test
+	public void updateAnalDeCongresso() {
+		analDecongresso.setNomeItem("CBA 2019");
+		itemServiceImpl.updateItem(analDecongresso);
+		assertEquals(itemServiceImpl.getItemById(analDecongresso.getId()).getNomeItem(),"CBA 2019");
+	}
+	
+	@After
 	public void testRemoveAnalDeCongresso() {
 		itemServiceImpl.deleteItem(analDecongresso.getId());
-		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}
-
-
+	
 }

@@ -40,41 +40,54 @@ public class AlunoServiceImpl implements IService<Aluno> {
 	 */
 	public List<Aluno> getAllItems() {
 		logger.info("AlunoService: getAllItems()");
-		return alunoDao.getAllAlunos();
+		return alunoDao.getAllItems();
+
 	}
 	/** Busca o Aluno
 	 *  @return Aluno
 	 *  @param id do Alundo 
+	 * @throws ItemInexistenteException 
 	 */
-	public Aluno getItemById(int id) {
-		Aluno a = alunoDao.getAlunoById(id);
-		logger.info("AlunoService: getItemByid(id) ,id = "+ id +"result: "+a);
-		return a;
+	public Aluno getItemById(int id) throws ItemInexistenteException {
+		
+		if(alunoDao.itemExists(id)) {
+			Aluno a = alunoDao.getItemById(id);
+			logger.info("AlunoService: getItemByid(id) ,id = "+ id +"result: "+a);
+			return a;
+		}
+		else {
+			throw new ItemInexistenteException("Aluno inexistente");
+		}
 	}
 	
 	
 	public Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException {
-		Aluno a = alunoDao.getAlunoByMatricula(matricula);
-		logger.info("AlunoService: getItemByid(id) ,id = "+ matricula +"result: "+a);
-		return a;
+		
+		if(alunoDao.itemExists(matricula)) {
+			Aluno a = alunoDao.getAlunoByMatricula(matricula);
+			logger.info("AlunoService: getItemByid(id) ,id = "+ matricula +"result: "+a);
+			return a;
+		}
+		else {
+			throw new ItemInexistenteException("Aluno inexistente");
+		}	
 	}
 	
 	
-	/** Adiciona o Aluno pelo
+	/** Adiciona o Aluno
  	 *  @param aluno 
 	 *  @return true se o Aluno existir
 	 * @throws ItemDuplicadoException lançada caso o aluno ja exista
 	 */
 	public boolean addItem(Aluno aluno) throws ItemDuplicadoException {
 		
-		if (alunoDao.alunoExists(aluno.getMatricula())){
+		if (alunoDao.itemExists(aluno.getMatricula())){
 			throw new ItemDuplicadoException("Aluno duplicado");
 		}
 		else {
-			alunoDao.addAluno(aluno);
+			alunoDao.addItem(aluno);
 			logger.info("AlunoService: addItem(aluno), aluno = " + aluno);
-			return true;
-	        
+			return true;       
 		}   
 	}
 	/** Atualiza o Aluno
@@ -83,29 +96,43 @@ public class AlunoServiceImpl implements IService<Aluno> {
 	 * @throws ItemInexistenteException 
 	 */
 	public void updateItem(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException {
-		Aluno alunoAux = alunoDao.getAlunoByMatricula(aluno.getMatricula());
 		
-		if(alunoAux.equals(null) || alunoAux.getCpf().equals(aluno.getCpf())) {
-			alunoDao.updateAluno(aluno);
-			logger.info("AlunoService: updateItem(aluno), aluno = " + aluno);
-		}
-
+		
+		if(!alunoDao.itemExists(aluno.getMatricula()))
+			throw new ItemInexistenteException("Aluno não existe");
+		
 		else {
-			throw new ItemDuplicadoException("Matricula duplicada");
+			Aluno alunoAux = alunoDao.getAlunoByMatricula(aluno.getMatricula());
+					
+			if(alunoAux.equals(aluno)) {
+				alunoDao.updateItem(aluno);
+				logger.info("AlunoService: updateItem(aluno), aluno = " + aluno);
+			}
+			
+			else {
+				throw new ItemDuplicadoException("Aluno duplicado");
+			}	
 		}
-		
+			
 		
 	}
-	/** Deleta o Item do Aluno atraves do seu id
+	/** Deleta o Aluno atraves do seu id
  	 *  @param id 
+	 * @throws ItemInexistenteException 
 	 */
-	public void deleteItem(int id) {
+	public void deleteItem(int id) throws ItemInexistenteException {
 		
-		alunoDao.deleteAlunoById(id);
+		if(!alunoDao.itemExists(id))
+			throw new ItemInexistenteException("Aluno não existe");
+		
+		alunoDao.deleteItemById(id);
 		logger.info("AlunoService: deleteItem(id), id = "+id);
 	}
 	
 	public void deleteItemByMatricula(String matricula) throws DataAccessException, ItemInexistenteException {
+		
+		if(!alunoDao.itemExists(matricula))
+			throw new ItemInexistenteException("Aluno não existe");
 		
 		alunoDao.deleteAlunoByMatricula(matricula);
 		logger.info("AlunoService: deleteItem(matricula), matricula = "+matricula);

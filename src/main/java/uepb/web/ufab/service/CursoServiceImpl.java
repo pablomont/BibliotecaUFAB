@@ -36,7 +36,7 @@ public class CursoServiceImpl implements IService<Curso> {
 	 */
 	public List<Curso> getAllItems() {
 		logger.info("CursoService: getAllItems()");
-		return cursoDao.getAllCursos();
+		return cursoDao.getAllItems();
 	}
 	/** Busca o Curso
 	 *  @return Curso
@@ -44,7 +44,7 @@ public class CursoServiceImpl implements IService<Curso> {
 	 */
 	public Curso getItemById(int id) {
 		
-		Curso c = cursoDao.getCursoById(id);
+		Curso c = cursoDao.getItemById(id);
 		logger.info("CursoService: getItemByid(id), id = " + id +"result: "+c);
 		return c;
 	}
@@ -54,10 +54,10 @@ public class CursoServiceImpl implements IService<Curso> {
 	 *  @return true se o Curso existir
 	 */
 	public boolean addItem(Curso curso) {
-		if (cursoDao.cursoExists(curso.getNome())){
+		if (cursoDao.itemExists(curso.getNome())){
 	         return false;
       } else {
-    	  cursoDao.addCurso(curso);
+    	  cursoDao.addItem(curso);
     	  logger.info("CursoService: addItem(curso), curso = " + curso);
 	         return true;
       }   
@@ -66,14 +66,14 @@ public class CursoServiceImpl implements IService<Curso> {
  	 *  @param curso 
 	 */
 	public void updateItem(Curso curso) {
-		cursoDao.updateCurso(curso);
+		cursoDao.updateItem(curso);
 		logger.info("CursoService: updateItem(curso), curso = " + curso);
 	}
 	/** Deleta o Item do Curso 
  	 *  @param id do curso
 	 */
 	public void deleteItem(int id) {
-		cursoDao.deleteCurso(id);
+		cursoDao.deleteItemById(id);
 		logger.info("cursoService: deleteItem(id), id = " + id);
 	}
 }

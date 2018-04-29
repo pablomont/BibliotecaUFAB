@@ -25,7 +25,7 @@ import uepb.web.ufab.model.itemAcervo.Jornal;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class JornalDao implements ItemAcervoDao {
+public class JornalDao implements IDao<ItemAcervo> {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
@@ -48,13 +48,13 @@ public class JornalDao implements ItemAcervoDao {
 	 *  @param itemAcervo
 	 */
 	
-	public void addItemAcervo(ItemAcervo itemAcervo) {
+	public void addItem(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
 	 *  @param itemAcervo
 	 */
-	public void updateItemAcervo(ItemAcervo itemAcervo) {
+	public void updateItem(ItemAcervo itemAcervo) {
 		Jornal item = (Jornal) getItemById(itemAcervo.getId());
 		Jornal itemAlterado = (Jornal)itemAcervo;
 		
@@ -66,7 +66,7 @@ public class JornalDao implements ItemAcervoDao {
 	}
 	/** Deleta o ItemAcervo atraves do ID
 	 */
-	public void deleteItemAcervo(int id) {
+	public void deleteItemById(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do nome do item
@@ -74,7 +74,7 @@ public class JornalDao implements ItemAcervoDao {
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemAcervoExists(String itemName) {
+	public boolean itemExists(String itemName) {
 		String hql = "FROM Jornal as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;

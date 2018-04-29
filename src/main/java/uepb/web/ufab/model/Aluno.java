@@ -66,7 +66,7 @@ public class Aluno extends Pessoa{
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
 		return result;
 	}
@@ -75,7 +75,7 @@ public class Aluno extends Pessoa{
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -88,8 +88,5 @@ public class Aluno extends Pessoa{
 		return true;
 	}
 
-	
-	
-	
 
 }

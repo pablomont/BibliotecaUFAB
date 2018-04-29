@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class MidiaEletronicaDao implements ItemAcervoDao {
+public class MidiaEletronicaDao implements IDao<ItemAcervo> {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
@@ -45,13 +45,13 @@ public class MidiaEletronicaDao implements ItemAcervoDao {
 	/** Adiciona um MidiaEletronica atraves do
 	 *  @param itemAcervo
 	 */
-	public void addItemAcervo(ItemAcervo itemAcervo) {
+	public void addItem(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
 	 *  @param itemAcervo
 	 */
-	public void updateItemAcervo(ItemAcervo itemAcervo) {
+	public void updateItem(ItemAcervo itemAcervo) {
 		MidiaEletronica item = (MidiaEletronica) getItemById(itemAcervo.getId());
 		MidiaEletronica itemAlterado = (MidiaEletronica)itemAcervo;
 		
@@ -61,7 +61,7 @@ public class MidiaEletronicaDao implements ItemAcervoDao {
 	}
 	/** Deleta o ItemAcervo atraves do ID
 	 */
-	public void deleteItemAcervo(int id) {
+	public void deleteItemById(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do nome do item
@@ -69,7 +69,7 @@ public class MidiaEletronicaDao implements ItemAcervoDao {
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemAcervoExists(String itemName) {
+	public boolean itemExists(String itemName) {
 		String hql = "FROM MidiaEletronica as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;

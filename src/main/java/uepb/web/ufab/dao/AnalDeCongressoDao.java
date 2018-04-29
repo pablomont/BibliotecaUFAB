@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class AnalDeCongressoDao implements ItemAcervoDao {
+public class AnalDeCongressoDao implements IDao<ItemAcervo> {
 	
 
 	@Autowired
@@ -48,13 +48,13 @@ public class AnalDeCongressoDao implements ItemAcervoDao {
 	/** Adiciona um AnalDeCongresso atraves do
 	 *  @param itemAcervo
 	 */
-	public void addItemAcervo(ItemAcervo itemAcervo) {
+	public void addItem(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
 	 *  @param itemAcervo
 	 */
-	public void updateItemAcervo(ItemAcervo itemAcervo) {
+	public void updateItem(ItemAcervo itemAcervo) {
 		AnalDeCongresso item = (AnalDeCongresso) getItemById(itemAcervo.getId());
 		AnalDeCongresso itemAlterado = (AnalDeCongresso)itemAcervo;
 		
@@ -67,7 +67,7 @@ public class AnalDeCongressoDao implements ItemAcervoDao {
 	}
 	/** Deleta o ItemAcervo atraves do ID
 	 */
-	public void deleteItemAcervo(int id) {
+	public void deleteItemById(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do nome do item
@@ -75,7 +75,7 @@ public class AnalDeCongressoDao implements ItemAcervoDao {
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemAcervoExists(String itemName) {
+	public boolean itemExists(String itemName) {
 		String hql = "FROM AnalDeCongresso as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;

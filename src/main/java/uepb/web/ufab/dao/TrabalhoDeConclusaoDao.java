@@ -23,7 +23,7 @@ import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
+public class TrabalhoDeConclusaoDao implements IDao<ItemAcervo> {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
@@ -44,13 +44,13 @@ public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 	/** Adiciona um Revista atraves do
 	 *  @param itemAcervo
 	 */
-	public void addItemAcervo(ItemAcervo itemAcervo) {
+	public void addItem(ItemAcervo itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 	}
 	/** Altera as caracteristicas do itemAcervo
 	 *  @param itemAcervo
 	 */
-	public void updateItemAcervo(ItemAcervo itemAcervo) {
+	public void updateItem(ItemAcervo itemAcervo) {
 		TrabalhoDeConclusao item = (TrabalhoDeConclusao) getItemById(itemAcervo.getId());
 		TrabalhoDeConclusao itemAlterado = (TrabalhoDeConclusao)itemAcervo;
 		
@@ -65,7 +65,7 @@ public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 	/** Deleta o ItemAcervo atraves do ID
 	 *@param id/
 	 **/
-	public void deleteItemAcervo(int id) {
+	public void deleteItemById(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do nome do item
@@ -73,7 +73,7 @@ public class TrabalhoDeConclusaoDao implements ItemAcervoDao {
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemAcervoExists(String itemName) {
+	public boolean itemExists(String itemName) {
 		String hql = "FROM TrabalhoDeConclusao as i WHERE i.nomeItem = ?";
 		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
 		return items.size() > 0 ? true : false;

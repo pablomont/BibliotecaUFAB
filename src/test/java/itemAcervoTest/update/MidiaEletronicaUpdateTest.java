@@ -1,4 +1,4 @@
-package updateItemAcervoTest;
+package itemAcervoTest.update;
 
 import static org.junit.Assert.*;
 

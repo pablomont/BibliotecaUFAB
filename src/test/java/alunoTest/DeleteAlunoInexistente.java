@@ -23,8 +23,6 @@ public class DeleteAlunoInexistente {
 
 	@Autowired private AlunoServiceImpl alunoServiceImpl;
 
-
-
 	@Test(expected = ItemInexistenteException.class)
 	public void deleteAlunoInexistente() throws DataAccessException, ItemInexistenteException {
 		Aluno aluno2 = new Aluno();

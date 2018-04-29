@@ -22,7 +22,7 @@ import uepb.web.ufab.model.Curso;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class CursoDao {
+public class CursoDao implements IDao<Curso> {
 
 	
 	@Autowired
@@ -31,28 +31,28 @@ public class CursoDao {
 	 *  @return Cursos dos Alunos 
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Curso> getAllCursos() {
+	public List<Curso> getAllItems() {
 		String hql = "FROM Curso as i ORDER BY i.id";
 		return (List<Curso>) hibernateTemplate.find(hql);
 	}
 	/** @return retorna o Curso do Aluno atraves do
 	 *  @param id
 	 */
-	public Curso getCursoById(int id) {
+	public Curso getItemById(int id) {
 		return hibernateTemplate.get(Curso.class, id);
 	}
 	/** Adiciona um Curso atraves do
 	 *  @param itemAcervo
 	 */
-	public void addCurso(Curso itemAcervo) {
+	public void addItem(Curso itemAcervo) {
 		hibernateTemplate.save(itemAcervo);
 
 	}
 	/** Altera as caracteristicas do Curso
 	 *  @param curso 
 	 */
-	public void updateCurso(Curso curso) {
-		Curso cursoAux = getCursoById(curso.getId());
+	public void updateItem(Curso curso) {
+		Curso cursoAux = getItemById(curso.getId());
 
 		
 		cursoAux.setArea(curso.getArea());
@@ -64,15 +64,15 @@ public class CursoDao {
 	}
 	/** Deleta o Curso atraves do ID
 	 */
-	public void deleteCurso(int id) {
-		hibernateTemplate.delete(getCursoById(id));
+	public void deleteItemById(int id) {
+		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do nome do item
 	 * @param cursoName
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean cursoExists(String cursoName) {
+	public boolean itemExists(String cursoName) {
 		String hql = "FROM Curso as i WHERE i.nomeCurso = ?";	
 		List<Curso> items = (List<Curso>) hibernateTemplate.find(hql, cursoName);
 		return items.size() > 0 ? true : false;

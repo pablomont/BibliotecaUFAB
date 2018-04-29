@@ -6,7 +6,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -25,7 +24,8 @@ import uepb.web.ufab.model.Aluno;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class AlunoDao {
+public class AlunoDao implements IDao<Aluno> {
+	
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	/** Busca todos os Aluno
@@ -33,14 +33,14 @@ public class AlunoDao {
 	 *  
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Aluno> getAllAlunos() {
+	public List<Aluno> getAllItems() {
 		String hql = "FROM Aluno as i ORDER BY i.id";
 		return (List<Aluno>) hibernateTemplate.find(hql);
 	}
 	/** @return retorna o Aluno especificado pelo id
 	 *  @param id 
 	 */
-	public Aluno getAlunoById(int id) {
+	public Aluno getItemById(int id) {
 		return hibernateTemplate.get(Aluno.class, id);
 	}
 	
@@ -51,14 +51,10 @@ public class AlunoDao {
 	 */
 	
 	@SuppressWarnings("unchecked")
-	public Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException {
+	public Aluno getAlunoByMatricula(String matricula)  {
 		String hql = "FROM Aluno as i WHERE i.matricula = ?";
 		List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, matricula);
-		
-		if(items.size() == 0) {
-			throw new ItemInexistenteException("Matricula inexistente");
-		}
-		
+	
 		return items.get(0);
 	}
 	
@@ -66,15 +62,15 @@ public class AlunoDao {
 	/** Adiciona um Aluno 
 	 *  @param aluno
 	 */
-	public void addAluno(Aluno aluno) {
+	public void addItem(Aluno aluno) {
 		hibernateTemplate.save(aluno);
 
 	}
 	/** Altera as caracteristicas do Aluno
 	 *  @param aluno 
 	 */
-	public void updateAluno(Aluno aluno) {
-		Aluno alunoAux = getAlunoById(aluno.getId());
+	public void updateItem(Aluno aluno) {
+		Aluno alunoAux = getItemById(aluno.getId());
 
 		alunoAux.setCpf(aluno.getCpf());
 		alunoAux.setCurso(aluno.getCurso());
@@ -91,11 +87,11 @@ public class AlunoDao {
 	/** Deleta o Aluno atraves do id
 	 *@param id/
 	 **/
-	public void deleteAlunoById(int id) {
-		hibernateTemplate.delete(getAlunoById(id));
+	public void deleteItemById(int id) {
+		hibernateTemplate.delete(getItemById(id));
 	}
 	
-	public void deleteAlunoByMatricula(String matricula) throws DataAccessException, ItemInexistenteException {
+	public void deleteAlunoByMatricula(String matricula) {
 		hibernateTemplate.delete(getAlunoByMatricula(matricula));
 	}
 	
@@ -104,9 +100,23 @@ public class AlunoDao {
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean alunoExists(String matricula) {
+	public boolean itemExists(String matricula) {
 		String hql = "FROM Aluno as i WHERE i.matricula = ?";	
 		List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, matricula);
 		return items.size() > 0 ? true : false;
 	}
+	
+	/** Verifica a existencia do Aluno através  do seu cpf
+	 * @return true or false
+	 */
+	@SuppressWarnings("unchecked")
+	public boolean itemExists(int id) {
+		String hql = "FROM Aluno as i WHERE i.id = ?";	
+		List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, id);
+		return items.size() > 0 ? true : false;
+	}
+	
+	
+	
+	
 }

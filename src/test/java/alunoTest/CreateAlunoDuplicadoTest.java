@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AlunoDao;
 import uepb.web.ufab.dao.CursoDao;
@@ -58,7 +59,7 @@ public class CreateAlunoDuplicadoTest {
 	}
 	
 	@After
-	public void removeAlunoECurso() {
+	public void removeAlunoECurso() throws ItemInexistenteException {
 		alunoServiceImpl.deleteItem(aluno.getId());
 		cursoServiceImpl.deleteItem(curso.getId());
 	}

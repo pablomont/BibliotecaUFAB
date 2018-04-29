@@ -1,4 +1,4 @@
-package createDeleteItemAcervoTest;
+package itemAcervoTest.createDelete;
 
 import static org.junit.Assert.*;
 
