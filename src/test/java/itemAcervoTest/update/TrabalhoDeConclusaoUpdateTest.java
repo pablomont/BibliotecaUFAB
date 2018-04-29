@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.TrabalhoDeConclusaoDao;
 import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
@@ -35,7 +37,7 @@ public class TrabalhoDeConclusaoUpdateTest {
 		}
 	
 	@Test
-	public void updateTrabalhoDeConclusao() {
+	public void updateTrabalhoDeConclusao() throws ItemDuplicadoException, ItemInexistenteException {
 		trabalhoDeconclusao.setNomeItem("Análise de usabilidade na educação");
 		itemServiceImpl.updateItem(trabalhoDeconclusao);
 		assertEquals(itemServiceImpl.getItemById(trabalhoDeconclusao.getId()).getNomeItem(),"Análise de usabilidade na educação");
@@ -43,7 +45,7 @@ public class TrabalhoDeConclusaoUpdateTest {
 	
 
 	@After
-	public void testRemoveTrabalhoDeConclusao() {
+	public void testRemoveTrabalhoDeConclusao() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(trabalhoDeconclusao.getId());
 	}
 

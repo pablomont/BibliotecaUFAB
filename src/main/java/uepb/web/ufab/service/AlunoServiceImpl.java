@@ -8,7 +8,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import exception.ItemDuplicadoException;
@@ -129,7 +128,7 @@ public class AlunoServiceImpl implements IService<Aluno> {
 		logger.info("AlunoService: deleteItem(id), id = "+id);
 	}
 	
-	public void deleteItemByMatricula(String matricula) throws DataAccessException, ItemInexistenteException {
+	public void deleteItemByMatricula(String matricula) throws ItemInexistenteException {
 		
 		if(!alunoDao.itemExists(matricula))
 			throw new ItemInexistenteException("Aluno não existe");

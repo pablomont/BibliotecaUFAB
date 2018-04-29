@@ -8,6 +8,6 @@ public interface IDao<T> {
     void addItem(T itemAcervo);
     void updateItem(T itemAcervo);
     void deleteItemById(int id);
-    boolean itemExists(String itemName);
+    boolean itemExists(int id);
     
 }

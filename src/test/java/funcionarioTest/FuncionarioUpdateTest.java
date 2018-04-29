@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.FuncionarioDao;
 import uepb.web.ufab.model.Funcionario;
@@ -42,14 +44,14 @@ public class FuncionarioUpdateTest {
 	
 	
 	@Test
-	public void updateFuncionario() {
+	public void updateFuncionario() throws ItemDuplicadoException, ItemInexistenteException {
 		funcionario.setNivelAcesso(Funcionario.NivelAcesso.OPERADOR);
 		funcionarioServiceImpl.updateItem(funcionario);
 		assertEquals(funcionarioServiceImpl.getItemById(funcionario.getId()).getNivelAcesso(),Funcionario.NivelAcesso.OPERADOR);
 	}
 
 	@After
-	public void deleteFuncionario() {
+	public void deleteFuncionario() throws ItemInexistenteException {
 		funcionarioServiceImpl.deleteItem(funcionario.getId());
 	}
 

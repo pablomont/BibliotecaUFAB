@@ -94,7 +94,7 @@ public class UpdateAlunoTest {
 	}
 	
 	@After
-	public void deleteCurso() { 
+	public void deleteCurso() throws ItemInexistenteException { 
 		cursoServiceImpl.deleteItem(curso.getId());
 	}
 

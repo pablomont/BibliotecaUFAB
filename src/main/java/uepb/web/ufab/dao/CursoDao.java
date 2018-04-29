@@ -72,8 +72,8 @@ public class CursoDao implements IDao<Curso> {
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemExists(String cursoName) {
-		String hql = "FROM Curso as i WHERE i.nomeCurso = ?";	
+	public boolean itemExists(int cursoName) {
+		String hql = "FROM Curso as i WHERE i.id = ?";	
 		List<Curso> items = (List<Curso>) hibernateTemplate.find(hql, cursoName);
 		return items.size() > 0 ? true : false;
 	}

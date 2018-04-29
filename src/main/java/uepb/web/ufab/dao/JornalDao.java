@@ -70,13 +70,13 @@ public class JornalDao implements IDao<ItemAcervo> {
 		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do nome do item
-	 * @param itemName
+	 * @param id
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemExists(String itemName) {
-		String hql = "FROM Jornal as i WHERE i.nomeItem = ?";
-		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
+	public boolean itemExists(int id) {
+		String hql = "FROM Jornal as i WHERE i.id = ?";
+		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, id);
 		return items.size() > 0 ? true : false;
 	}
 }

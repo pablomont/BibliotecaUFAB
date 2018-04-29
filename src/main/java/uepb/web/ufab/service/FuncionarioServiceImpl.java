@@ -9,6 +9,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
+
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.dao.FuncionarioDao;
 import uepb.web.ufab.model.Funcionario;
 
@@ -35,14 +38,14 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
 	 */
 	public List<Funcionario> getAllItems() {
 		logger.info("FuncionarioService: getAllItems()");
-		return funcionarioDao.getAllFuncionarios();
+		return funcionarioDao.getAllItems();
 	}
 	/** Busca o Funcionario
 	 *  @return Funcionário
 	 *  @param id do funcionario
 	 */
-	public Funcionario getItemById(int id) {
-		Funcionario f = funcionarioDao.getFuncionarioById(id);
+	public Funcionario getItemById(int id) throws ItemInexistenteException{
+		Funcionario f = funcionarioDao.getItemById(id);
 		logger.info("FuncionarioService: getItemByid(id), id = " + id +"result: "+f);
 		return f;
 	}
@@ -51,12 +54,12 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
  	 *  @return false se o Funcionario não existir
 	 *  @return true se o Funcionario existir 
 	 */
-	public boolean addItem(Funcionario funcionario) {
-		if (funcionarioDao.funcionarioExists(funcionario.getCpf())){
+	public boolean addItem(Funcionario funcionario) throws ItemDuplicadoException{
+		if (funcionarioDao.itemExists(funcionario.getId())){
 			return false;
 		}
 		else {
-			funcionarioDao.addFuncionario(funcionario);
+			funcionarioDao.addItem(funcionario);
 			 logger.info("FuncionarioService: addItem(funcionario), funcionario = " + funcionario);
 	        return true;
 		}   
@@ -64,16 +67,16 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
 	/** Atualiza o Funcionario
  	 *  @param funcionario 
 	 */
-	public void updateItem(Funcionario funcionario) {
-		funcionarioDao.updateFuncionario(funcionario);
+	public void updateItem(Funcionario funcionario) throws ItemDuplicadoException, ItemInexistenteException{
+		funcionarioDao.updateItem(funcionario);
 		logger.info("FuncionarioService: updateItem(funcionario), funcionario = " + funcionario);
 		
 	}
 	/** Deleta o Funcionario
  	 *  @param id do funcionario
 	 */
-	public void deleteItem(int id) {
-		funcionarioDao.deleteFuncionario(id);
+	public void deleteItem(int id) throws ItemInexistenteException{
+		funcionarioDao.deleteItemById(id);
 		logger.info("FuncionarioService: deleteItem(id), id = " + id);	
 	}
 }

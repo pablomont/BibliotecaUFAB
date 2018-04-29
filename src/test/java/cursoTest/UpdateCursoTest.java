@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.CursoDao;
 import uepb.web.ufab.model.Curso;
@@ -34,14 +36,14 @@ public class UpdateCursoTest {
 	}
 	
 	@Test
-	public void updateCurso() {
+	public void updateCurso() throws ItemDuplicadoException, ItemInexistenteException {
 		curso.setTipoCurso(Curso.Tipo.POS);
 		cursoServiceImpl.updateItem(curso);
 		assertEquals(cursoServiceImpl.getItemById(curso.getId()).getTipoCurso(),Curso.Tipo.POS);
 	}
 	
 	@After
-	public void removeCurso() {
+	public void removeCurso() throws ItemInexistenteException {
 		cursoServiceImpl.deleteItem(curso.getId());
 	}
 

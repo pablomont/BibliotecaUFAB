@@ -9,6 +9,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
+
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.dao.IDao;
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 
@@ -41,35 +44,21 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	 *  @return item
 	 *  @param id do item
 	 */
-	public ItemAcervo getItemById(int id) {
+	public ItemAcervo getItemById(int id) throws ItemInexistenteException{
 		ItemAcervo i = itemDao.getItemById(id);
 		logger.info("ItemService: getItemByid(id), id = " + id +"result: "+i);
 		return i;
 	}
-
-	/** Atualiza o item do acervo
-	 * @param itemAcervo
-	 */
-	public void updateItem(ItemAcervo itemAcervo) {
-		itemDao.updateItem(itemAcervo);
-		logger.info("ItemService: addItem(itemAcervo), itemAcervo = " + itemAcervo);
-	}
 	
-	/** Deleta o item
- 	 *  @param id do item
-	 */
-	public void deleteItem(int id) {
-		itemDao.deleteItemById(id);
-		logger.info("ItemService: deleteItem(id), id = " + id);
-	}
-
+	
+	
 	/** Adiciona o item 
  	 *  @param itemAcervo 
  	 *  @return false se o item não existir
 	 *  @return true se o item existir 
 	 */
-	public synchronized boolean addItem(ItemAcervo itemAcervo) {
-		if (itemDao.itemExists(itemAcervo.getNomeItem())){
+	public synchronized boolean addItem(ItemAcervo itemAcervo) throws ItemDuplicadoException{
+		if (itemDao.itemExists(itemAcervo.getId())){
 	         return false;
        } else {
        	itemDao.addItem(itemAcervo);
@@ -77,6 +66,24 @@ public class ItemServiceImpl implements IService<ItemAcervo>{
 	         return true;
        }   
 	}
+
+	/** Atualiza o item do acervo
+	 * @param itemAcervo
+	 */
+	public void updateItem(ItemAcervo itemAcervo) throws ItemDuplicadoException, ItemInexistenteException{
+		itemDao.updateItem(itemAcervo);
+		logger.info("ItemService: addItem(itemAcervo), itemAcervo = " + itemAcervo);
+	}
+	
+	/** Deleta o item
+ 	 *  @param id do item
+	 */
+	public void deleteItem(int id) throws ItemInexistenteException{
+		itemDao.deleteItemById(id);
+		logger.info("ItemService: deleteItem(id), id = " + id);
+	}
+
+	
 
 	
 }

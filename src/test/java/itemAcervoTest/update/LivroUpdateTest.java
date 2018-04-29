@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.LivroDao;
 import uepb.web.ufab.model.itemAcervo.Livro;
@@ -41,7 +43,7 @@ public class LivroUpdateTest{
 	}
 	
 	@Test
-	public void updateLivro(){
+	public void updateLivro() throws ItemDuplicadoException, ItemInexistenteException{
 		livro.setNomeItem("COSMOS UMA ODISSEIA NO ESPAÇO");
 		itemServiceImpl.updateItem(livro);
 		assertEquals(itemServiceImpl.getItemById(livro.getId()).getNomeItem(),"COSMOS UMA ODISSEIA NO ESPAÇO");
@@ -49,7 +51,7 @@ public class LivroUpdateTest{
 
 	
 	@After
-	public void testRemoveLivro() {
+	public void testRemoveLivro() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(livro.getId());
 	}
 }

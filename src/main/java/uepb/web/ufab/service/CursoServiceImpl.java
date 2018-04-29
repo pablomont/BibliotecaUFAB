@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.dao.CursoDao;
 import uepb.web.ufab.model.Curso;
 
@@ -42,7 +44,9 @@ public class CursoServiceImpl implements IService<Curso> {
 	 *  @return Curso
 	 *  @param id do curso
 	 */
-	public Curso getItemById(int id) {
+	public Curso getItemById(int id) throws ItemInexistenteException{
+		
+		
 		
 		Curso c = cursoDao.getItemById(id);
 		logger.info("CursoService: getItemByid(id), id = " + id +"result: "+c);
@@ -53,8 +57,8 @@ public class CursoServiceImpl implements IService<Curso> {
  	 *  @return false se o Curso não existir
 	 *  @return true se o Curso existir
 	 */
-	public boolean addItem(Curso curso) {
-		if (cursoDao.itemExists(curso.getNome())){
+	public boolean addItem(Curso curso)  throws ItemDuplicadoException{
+		if (cursoDao.itemExists(curso.getId())){
 	         return false;
       } else {
     	  cursoDao.addItem(curso);
@@ -65,14 +69,14 @@ public class CursoServiceImpl implements IService<Curso> {
 	/** Atualiza o Curso
  	 *  @param curso 
 	 */
-	public void updateItem(Curso curso) {
+	public void updateItem(Curso curso) throws ItemDuplicadoException, ItemInexistenteException {
 		cursoDao.updateItem(curso);
 		logger.info("CursoService: updateItem(curso), curso = " + curso);
 	}
 	/** Deleta o Item do Curso 
  	 *  @param id do curso
 	 */
-	public void deleteItem(int id) {
+	public void deleteItem(int id) throws ItemInexistenteException{
 		cursoDao.deleteItemById(id);
 		logger.info("cursoService: deleteItem(id), id = " + id);
 	}

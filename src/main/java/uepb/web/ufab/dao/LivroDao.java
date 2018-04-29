@@ -73,13 +73,13 @@ public class LivroDao implements IDao<ItemAcervo>{
 	}
 
 	/** Verifica a existencia do item no acervo atraves do nome do item
-	 * @param itemName
+	 * @param id
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean itemExists(String itemName) {
-		String hql = "FROM Livro as i WHERE i.nomeItem = ?";
-		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, itemName);
+	public boolean itemExists(int id) {
+		String hql = "FROM Livro as i WHERE i.id = ?";
+		List<ItemAcervo> items = (List<ItemAcervo>) hibernateTemplate.find(hql, id);
 		return items.size() > 0 ? true : false;
 	}
 	

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.CursoDao;
 import uepb.web.ufab.model.Curso;
@@ -34,7 +35,7 @@ public class CreateEditCursoTest {
 	}
 	
 	@Test
-	public void removeCurso() {
+	public void removeCurso() throws ItemInexistenteException {
 		cursoServiceImpl.deleteItem(curso.getId());
 		assertEquals(0,cursoServiceImpl.getAllItems().size());
 	}

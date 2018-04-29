@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AnalDeCongressoDao;
 import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
@@ -32,7 +34,7 @@ public class AnalDeCongressoTest{
 		
 	
 	@Test
-	public void testRemoveAnalDeCongresso() {
+	public void testRemoveAnalDeCongresso() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(analDecongresso.getId());
 		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}

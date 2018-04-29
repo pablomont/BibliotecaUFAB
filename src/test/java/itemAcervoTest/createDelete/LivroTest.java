@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.LivroDao;
 import uepb.web.ufab.model.itemAcervo.Livro;
@@ -39,7 +40,7 @@ public class LivroTest{
 	
 	
 	@Test
-	public void testRemoveLivro() {
+	public void testRemoveLivro() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(livro.getId());
 		assertEquals(0,itemServiceImpl.getAllItems().size());
 	}

@@ -23,7 +23,7 @@ import uepb.web.ufab.model.Funcionario;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class FuncionarioDao {
+public class FuncionarioDao implements IDao<Funcionario> {
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
@@ -31,7 +31,7 @@ public class FuncionarioDao {
 	 *  @return Lista de Funcionarios
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Funcionario> getAllFuncionarios() {
+	public List<Funcionario> getAllItems() {
 		String hql = "FROM Funcionario as i ORDER BY i.id";
 		return (List<Funcionario>) hibernateTemplate.find(hql);
 	}
@@ -39,21 +39,21 @@ public class FuncionarioDao {
 	 *  @return Funcionario passado pelo
 	 *  @param id 
 	 */
-	public Funcionario getFuncionarioById(int id) {
+	public Funcionario getItemById(int id) {
 		return hibernateTemplate.get(Funcionario.class, id);
 	}
 	/** Adiciona um Funcionario atraves do
 	 *  @param funcionario
 	 */
-	public void addFuncionario(Funcionario funcionario) {
+	public void addItem(Funcionario funcionario) {
 		hibernateTemplate.save(funcionario);
 
 	}
 	/** Altera as caracteristicas do Funcionario
 	 *  @param funcionario 
 	 */
-	public void updateFuncionario(Funcionario funcionario) {
-		Funcionario funcionarioAux = getFuncionarioById(funcionario.getId());
+	public void updateItem(Funcionario funcionario) {
+		Funcionario funcionarioAux = getItemById(funcionario.getId());
 
 		funcionarioAux.setCpf(funcionario.getCpf());
 		funcionarioAux.setEmail(funcionario.getEmail());
@@ -71,17 +71,17 @@ public class FuncionarioDao {
 	}
 	/** Deleta o Funcionario atraves do id
 	 */
-	public void deleteFuncionario(int id) {
-		hibernateTemplate.delete(getFuncionarioById(id));
+	public void deleteItemById(int id) {
+		hibernateTemplate.delete(getItemById(id));
 	}
 	/** Verifica a existencia do item no acervo atraves do seu cpf
 	 * @param cpf
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean funcionarioExists(String cpf) {
-		String hql = "FROM Funcionario as i WHERE i.cpf = ?";	
-		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, cpf);
+	public boolean itemExists(int id) {
+		String hql = "FROM Funcionario as i WHERE i.id = ?";	
+		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, id);
 		return items.size() > 0 ? true : false;
 	}
 }

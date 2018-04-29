@@ -59,7 +59,7 @@ public class CreateDeleteAlunoTest {
 	}
 	
 	@After
-	public void deleteCurso() { 
+	public void deleteCurso() throws ItemInexistenteException { 
 		cursoServiceImpl.deleteItem(curso.getId());
 	}
 

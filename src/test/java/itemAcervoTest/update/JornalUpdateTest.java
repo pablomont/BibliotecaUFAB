@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.JornalDao;
 import uepb.web.ufab.model.itemAcervo.Jornal;
@@ -30,14 +32,14 @@ public class JornalUpdateTest {
 		itemServiceImpl.addItem(jornal);
 	}
 	@Test
-	public void updateTest() {
+	public void updateTest() throws ItemDuplicadoException, ItemInexistenteException {
 		jornal.setNomeItem("Aqui, Agora!");
 		itemServiceImpl.updateItem(jornal);
 		assertEquals(itemServiceImpl.getItemById(jornal.getId()).getNomeItem(),"Aqui, Agora!");
 	}
 	
 	@After
-	public void removeJornal() {
+	public void removeJornal() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(jornal.getId());
 	}
 

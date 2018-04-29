@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.MidiaEletronicaDao;
 import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
@@ -36,14 +38,14 @@ public class MidiaEletronicaUpdateTest {
 	}
 	
 	@Test
-	public void updateMidiaEletronica() {
+	public void updateMidiaEletronica() throws ItemDuplicadoException, ItemInexistenteException {
 		midiaEletronica.setNomeItem("Michael Jackson");
 		itemServiceImpl.updateItem(midiaEletronica);
 		assertEquals(itemServiceImpl.getItemById(midiaEletronica.getId()).getNomeItem(),"Michael Jackson");
 	}
 	
 	@After
-	public void removeTrabalhoDeConclusao() {
+	public void removeTrabalhoDeConclusao() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(midiaEletronica.getId());
 	}
 

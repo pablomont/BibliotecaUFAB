@@ -9,6 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import exception.ItemDuplicadoException;
+import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AnalDeCongressoDao;
 import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
@@ -32,14 +35,14 @@ public class AnalDeCongressoUpdateTest{
 	}
 	
 	@Test
-	public void updateAnalDeCongresso() {
+	public void updateAnalDeCongresso() throws ItemDuplicadoException, ItemInexistenteException {
 		analDecongresso.setNomeItem("CBA 2019");
 		itemServiceImpl.updateItem(analDecongresso);
 		assertEquals(itemServiceImpl.getItemById(analDecongresso.getId()).getNomeItem(),"CBA 2019");
 	}
 	
 	@After
-	public void testRemoveAnalDeCongresso() {
+	public void testRemoveAnalDeCongresso() throws ItemInexistenteException {
 		itemServiceImpl.deleteItem(analDecongresso.getId());
 	}
 	
