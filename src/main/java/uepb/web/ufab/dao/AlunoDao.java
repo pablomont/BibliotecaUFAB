@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-
-import exception.ItemInexistenteException;
 import uepb.web.ufab.model.Aluno;
 
 
@@ -47,7 +45,6 @@ public class AlunoDao implements IDao<Aluno> {
 	
 	/** @return retorna o Aluno especificado pela matricula
 	 *  @param matricula 
-	 * @throws ItemInexistenteException 
 	 */
 	
 	@SuppressWarnings("unchecked")

@@ -77,7 +77,6 @@ public class UpdateAlunoTest {
 		alunoServiceImpl.updateItem(aluno2);
 	}
 	
-	
 	@Test(expected = ItemInexistenteException.class)
 	public void updateAlunoInexistente() throws ItemDuplicadoException, ItemInexistenteException{
 		Aluno aluno3 = new Aluno();

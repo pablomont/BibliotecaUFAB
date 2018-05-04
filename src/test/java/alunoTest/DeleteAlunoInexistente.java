@@ -10,14 +10,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AlunoDao;
-import uepb.web.ufab.dao.CursoDao;
 import uepb.web.ufab.model.Aluno;
 import uepb.web.ufab.model.Curso;
 import uepb.web.ufab.service.AlunoServiceImpl;
-import uepb.web.ufab.service.CursoServiceImpl;
 
 
-@ContextConfiguration(classes = { DBConfig.class , AlunoDao.class, CursoDao.class,CursoServiceImpl.class, AlunoServiceImpl.class})
+@ContextConfiguration(classes = { DBConfig.class , AlunoDao.class,AlunoServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DeleteAlunoInexistente {
 

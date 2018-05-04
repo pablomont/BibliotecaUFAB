@@ -1,7 +1,5 @@
 package funcionarioTest;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,14 +15,12 @@ import uepb.web.ufab.dao.FuncionarioDao;
 import uepb.web.ufab.model.Funcionario;
 import uepb.web.ufab.service.FuncionarioServiceImpl;
 
-
 @ContextConfiguration(classes = { DBConfig.class , FuncionarioDao.class, FuncionarioServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class FuncionarioUpdateTest {
+public class CreateFuncionarioDuplicado {
 
 	@Autowired private FuncionarioServiceImpl funcionarioServiceImpl;
 	Funcionario funcionario;
-	Funcionario funcionario2;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -40,38 +36,16 @@ public class FuncionarioUpdateTest {
 		funcionario.setSenha("admin");
 		funcionario.setTelefone("83988258064");
 		
-		funcionario2 = new Funcionario();
-		funcionario2.setCpf("99966554411");
-		
+		funcionarioServiceImpl.addItem(funcionario);
+	}
+
+	@Test(expected = ItemDuplicadoException.class)
+	public void createFuncionarioDuplicado() throws ItemDuplicadoException {
 		funcionarioServiceImpl.addItem(funcionario);
 	}
 	
-	
-	@Test
-	public void updateFuncionario() throws ItemDuplicadoException, ItemInexistenteException {
-		funcionario.setNivelAcesso(Funcionario.NivelAcesso.OPERADOR);
-		funcionarioServiceImpl.updateItem(funcionario);
-		assertEquals(funcionarioServiceImpl.getItemById(funcionario.getId()).getNivelAcesso(),Funcionario.NivelAcesso.OPERADOR);
-	}
-
-	
-
-	@Test(expected = ItemDuplicadoException.class)
-	public void updateFuncionarioCpfDuplicado() throws ItemDuplicadoException, ItemInexistenteException {
-		funcionario2.setCpf(funcionario.getCpf());
-		funcionarioServiceImpl.updateItem(funcionario2);
-	}
-	
-	@Test(expected = ItemInexistenteException.class)
-	public void updateFuncionarioInexistente() throws ItemDuplicadoException, ItemInexistenteException{
-		Funcionario funcionario3 = new Funcionario();
-		funcionario3.setCpf("123456");
-		
-		funcionarioServiceImpl.updateItem(funcionario3);
-	}
-	
 	@After
-	public void deleteFuncionario() throws ItemInexistenteException {
+	public void removeFuncionario() throws ItemInexistenteException {
 		funcionarioServiceImpl.deleteItem(funcionario.getId());
 	}
 

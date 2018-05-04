@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-
 import exception.ItemDuplicadoException;
 import exception.ItemInexistenteException;
 import uepb.web.ufab.dao.FuncionarioDao;
@@ -45,38 +44,86 @@ public class FuncionarioServiceImpl implements IService<Funcionario> {
 	 *  @param id do funcionario
 	 */
 	public Funcionario getItemById(int id) throws ItemInexistenteException{
-		Funcionario f = funcionarioDao.getItemById(id);
-		logger.info("FuncionarioService: getItemByid(id), id = " + id +"result: "+f);
-		return f;
+		if(funcionarioDao.itemExists(id)) {
+			Funcionario f = funcionarioDao.getItemById(id);
+			logger.info("FuncionarioService: getItemByid(id) ,id = "+ id +"result: "+f);
+			return f;
+		}
+		else {
+			throw new ItemInexistenteException("Funcinario inexistente");
+		}
 	}
+	
+	
+	public Funcionario getFuncionarioByCpf(String cpf) throws ItemInexistenteException {
+		
+		if(funcionarioDao.itemExists(cpf)) {
+			Funcionario f = funcionarioDao.getFuncionarioByCpf(cpf);
+			logger.info("FuncionarioService: getFuncionarioByCpf(cpf) ,cpf = "+ cpf +"result: "+f);
+			return f;
+		}
+		else {
+			throw new ItemInexistenteException("Aluno inexistente");
+		}	
+	}
+	
+	
 	/** Adiciona o Funcionario
  	 *  @param funcionario 
  	 *  @return false se o Funcionario não existir
 	 *  @return true se o Funcionario existir 
 	 */
 	public boolean addItem(Funcionario funcionario) throws ItemDuplicadoException{
-		if (funcionarioDao.itemExists(funcionario.getId())){
-			return false;
+		if (funcionarioDao.itemExists(funcionario.getCpf())){
+			throw new ItemDuplicadoException("Funcionario duplicado");
 		}
 		else {
 			funcionarioDao.addItem(funcionario);
-			 logger.info("FuncionarioService: addItem(funcionario), funcionario = " + funcionario);
-	        return true;
+			logger.info("FuncionarioService: addItem(funcionario), funcionario = " + funcionario);
+			return true;       
 		}   
+		
+		
 	}
 	/** Atualiza o Funcionario
  	 *  @param funcionario 
 	 */
 	public void updateItem(Funcionario funcionario) throws ItemDuplicadoException, ItemInexistenteException{
-		funcionarioDao.updateItem(funcionario);
-		logger.info("FuncionarioService: updateItem(funcionario), funcionario = " + funcionario);
+		if(!funcionarioDao.itemExists(funcionario.getCpf()))
+			throw new ItemInexistenteException("Funcionario não existe");
+		
+		else {
+			Funcionario funcionarioAux = funcionarioDao.getFuncionarioByCpf(funcionario.getCpf());
+					
+			if(funcionarioAux.equals(funcionario)) {
+				funcionarioDao.updateItem(funcionario);
+				logger.info("FuncionarioService: updateItem(funcionario), funcionario = " + funcionario);
+			}
+			
+			else {
+				throw new ItemDuplicadoException("Funcionario duplicado");
+			}	
+		}
+			
 		
 	}
 	/** Deleta o Funcionario
  	 *  @param id do funcionario
 	 */
 	public void deleteItem(int id) throws ItemInexistenteException{
+		if(!funcionarioDao.itemExists(id))
+			throw new ItemInexistenteException("Funcionario não existe");
+		
 		funcionarioDao.deleteItemById(id);
-		logger.info("FuncionarioService: deleteItem(id), id = " + id);	
+		logger.info("FuncionarioService: deleteItem(id), id = "+id);
+	}
+	
+	public void deleteFuncionarioByCpf(String cpf) throws ItemInexistenteException {
+		
+		if(!funcionarioDao.itemExists(cpf))
+			throw new ItemInexistenteException("Funcionario não existe");
+		
+		funcionarioDao.deleteFuncionarioByCpf(cpf);
+		logger.info("AlunoService: deleteItem(matricula), matricula = "+cpf);
 	}
 }

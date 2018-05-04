@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-
 import uepb.web.ufab.model.Funcionario;
 
 
@@ -42,6 +41,21 @@ public class FuncionarioDao implements IDao<Funcionario> {
 	public Funcionario getItemById(int id) {
 		return hibernateTemplate.get(Funcionario.class, id);
 	}
+	
+	
+	/** @return retorna o Funcionario especificado pela cpf
+	 *  @param cpf 
+	 */
+	
+	@SuppressWarnings("unchecked")
+	public Funcionario getFuncionarioByCpf(String cpf)  {
+		String hql = "FROM Funcionario as i WHERE i.cpf = ?";
+		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, cpf);
+	
+		return items.get(0);
+	}
+	
+	
 	/** Adiciona um Funcionario atraves do
 	 *  @param funcionario
 	 */
@@ -74,14 +88,32 @@ public class FuncionarioDao implements IDao<Funcionario> {
 	public void deleteItemById(int id) {
 		hibernateTemplate.delete(getItemById(id));
 	}
-	/** Verifica a existencia do item no acervo atraves do seu cpf
-	 * @param cpf
+	
+	/** Deleta o Funcionario atraves do cpf
+	 */
+	public void deleteFuncionarioByCpf(String cpf) {
+		hibernateTemplate.delete(getFuncionarioByCpf(cpf));
+	}
+	/** Verifica a existencia do item no acervo atraves do seu id
+	 * @param id
 	 * @return true or false
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean itemExists(int id) {
 		String hql = "FROM Funcionario as i WHERE i.id = ?";	
 		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, id);
+		return items.size() > 0 ? true : false;
+	}
+	
+	
+	/** Verifica a existencia do item no acervo atraves do seu cpf
+	 * @param cpf
+	 * @return true or false
+	 */
+	@SuppressWarnings("unchecked")
+	public boolean itemExists(String cpf) {
+		String hql = "FROM Funcionario as i WHERE i.cpf = ?";	
+		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, cpf);
 		return items.size() > 0 ? true : false;
 	}
 }

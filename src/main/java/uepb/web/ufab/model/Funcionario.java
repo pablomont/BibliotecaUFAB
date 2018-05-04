@@ -7,7 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity 
-@Table(name= "ALUNO")
+@Table(name= "FUNCIONARIO")
 public class Funcionario extends Pessoa{
 
 	public enum NivelAcesso {ADMIN,OPERADOR}
@@ -78,6 +78,13 @@ public class Funcionario extends Pessoa{
 		this.senha = senha;
 	}
 
+	@Override
+	public String toString() {
+		return "Funcionario [nivelAcesso=" + nivelAcesso + ", email=" + email + ", telefone=" + telefone
+				+ ", nomeUsuario=" + nomeUsuario + ", senha=" + senha + "]";
+	}
+
+	
 	
 	
 }

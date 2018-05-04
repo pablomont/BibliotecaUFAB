@@ -63,5 +63,33 @@ public class Curso implements Serializable {
 		this.areaCurso = area;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Curso other = (Curso) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Curso [id=" + id + ", tipoCurso=" + tipoCurso + ", nomeCurso=" + nomeCurso + ", areaCurso=" + areaCurso
+				+ "]";
+	}
+
 	
 }

@@ -64,7 +64,7 @@ public class AlunoServiceImpl implements IService<Aluno> {
 		
 		if(alunoDao.itemExists(matricula)) {
 			Aluno a = alunoDao.getAlunoByMatricula(matricula);
-			logger.info("AlunoService: getItemByid(id) ,id = "+ matricula +"result: "+a);
+			logger.info("AlunoService: getAlunoByMatricula(matricula), matricula = "+ matricula +"result: "+a);
 			return a;
 		}
 		else {
