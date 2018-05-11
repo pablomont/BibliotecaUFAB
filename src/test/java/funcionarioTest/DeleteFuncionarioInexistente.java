@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.FuncionarioDao;
+import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.Funcionario;
 import uepb.web.ufab.service.FuncionarioServiceImpl;
 

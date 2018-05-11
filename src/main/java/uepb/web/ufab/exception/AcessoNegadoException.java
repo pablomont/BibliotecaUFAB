@@ -1,4 +1,4 @@
-package exception;
+package uepb.web.ufab.exception;
 
 public class AcessoNegadoException extends Exception {
 

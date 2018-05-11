@@ -12,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import exception.ItemDuplicadoException;
-import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.LivroDao;
+import uepb.web.ufab.exception.ItemDuplicadoException;
+import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.itemAcervo.Livro;
 import uepb.web.ufab.service.ItemServiceImpl;
 

@@ -9,9 +9,10 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
-import exception.ItemDuplicadoException;
-import exception.ItemInexistenteException;
+
 import uepb.web.ufab.dao.CursoDao;
+import uepb.web.ufab.exception.ItemDuplicadoException;
+import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.Curso;
 
 @Transactional

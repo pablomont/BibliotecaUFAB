@@ -2,8 +2,8 @@ package uepb.web.ufab.service;
 
 import java.util.List;
 
-import exception.ItemDuplicadoException;
-import exception.ItemInexistenteException;
+import uepb.web.ufab.exception.ItemDuplicadoException;
+import uepb.web.ufab.exception.ItemInexistenteException;
 
 public interface IService<T> {
      

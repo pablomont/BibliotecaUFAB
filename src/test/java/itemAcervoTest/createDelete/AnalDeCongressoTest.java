@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import exception.ItemInexistenteException;
 import uepb.web.ufab.config.DBConfig;
 import uepb.web.ufab.dao.AnalDeCongressoDao;
+import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 import uepb.web.ufab.service.ItemServiceImpl;
 @ContextConfiguration(classes = { DBConfig.class , AnalDeCongressoDao.class,ItemServiceImpl.class})

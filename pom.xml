@@ -7,7 +7,7 @@
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>BibliotecaUfab Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/pablomont/BibliotecaUFAB</url>
   
   <properties>
   	<spring.version>4.0.1.RELEASE</spring.version>
