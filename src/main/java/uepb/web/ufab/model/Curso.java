@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity 
 @Table(name= "CURSO")
-public class Curso implements Serializable {
+public class Curso implements Serializable, EntidadeBase {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -25,10 +25,6 @@ public class Curso implements Serializable {
 	
 	public enum Tipo{GRADUACAO, POS}
 	
-	public int getId() {
-		return id;
-	}
-
 	@Enumerated(EnumType.STRING)
 	@Column(name="TIPO_CURSO")
 	private Tipo tipoCurso;
@@ -38,6 +34,11 @@ public class Curso implements Serializable {
 	@Column(name = "AREA_CURSO")
 	private String areaCurso;
 
+	
+	public int getId() {
+		return id;
+	}
+	
 	public String getNome() {
 		return nomeCurso;
 	}
@@ -90,6 +91,5 @@ public class Curso implements Serializable {
 		return "Curso [id=" + id + ", tipoCurso=" + tipoCurso + ", nomeCurso=" + nomeCurso + ", areaCurso=" + areaCurso
 				+ "]";
 	}
-
 	
 }

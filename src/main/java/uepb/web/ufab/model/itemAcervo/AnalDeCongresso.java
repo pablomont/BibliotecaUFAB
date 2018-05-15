@@ -14,9 +14,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
+import uepb.web.ufab.model.EntidadeBase;
+
 @Entity 
 @Table(name= "ANAL_DE_CONGRESSO")
-public class AnalDeCongresso extends ItemAcervo implements Serializable {
+public class AnalDeCongresso extends ItemAcervo implements Serializable  {
 	
 	
 	/**

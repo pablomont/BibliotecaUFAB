@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Pessoa {
+public class Pessoa implements EntidadeBase {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

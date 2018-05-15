@@ -21,6 +21,8 @@ public class SpringConfig {
         resolver.setSuffix(".jsp");  
         resolver.setViewClass(JstlView.class);  
         return resolver;  
-    }  
+    } 
+	
+	
 	
 }
