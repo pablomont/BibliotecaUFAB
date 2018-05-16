@@ -12,8 +12,9 @@ import javax.persistence.TemporalType;
 import uepb.web.ufab.model.EntidadeBase;
 
 
+
 @MappedSuperclass
-public class ItemAcervo implements EntidadeBase{
+public class ItemAcervo implements EntidadeBase {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

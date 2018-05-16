@@ -2,9 +2,8 @@ package uepb.web.ufab.dao.inter;
 
 import java.util.List;
 
-import uepb.web.ufab.model.EntidadeBase;
 
-public interface IGenericDao<T extends EntidadeBase> {
+public interface IGenericDao<T> {
 	List<T> getAllItems();
     T getItemById(int id);
     void addItem(T item);

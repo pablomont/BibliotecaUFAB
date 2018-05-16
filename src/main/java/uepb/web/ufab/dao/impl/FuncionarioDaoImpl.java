@@ -7,7 +7,7 @@ import uepb.web.ufab.model.Funcionario;
 
 
 
-@Repository
+
 	/**
 	* <h1>FuncionarioDao</h1>
 	* FuncionarioDao é um usuario do acervo
@@ -16,6 +16,7 @@ import uepb.web.ufab.model.Funcionario;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class FuncionarioDaoImpl extends GenericDaoImpl<Funcionario> implements IFuncionarioDao {
 
 	public void updateFuncionario(Funcionario funcionario) {

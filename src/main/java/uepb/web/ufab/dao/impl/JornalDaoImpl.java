@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import uepb.web.ufab.dao.inter.IJornalDao;
 import uepb.web.ufab.model.itemAcervo.Jornal;
 
-@Repository
+
 	/**
 	* <h1>JornalDao</h1>
 	* JornalDao é um dos itens do acervo
@@ -14,6 +14,7 @@ import uepb.web.ufab.model.itemAcervo.Jornal;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class JornalDaoImpl extends GenericDaoImpl<Jornal> implements IJornalDao {
 
 	public void updateJornal(Jornal jornal) {

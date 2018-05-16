@@ -5,7 +5,6 @@ import uepb.web.ufab.dao.inter.ICursoDao;
 import uepb.web.ufab.model.Curso;
 
 
-@Repository
 
 	/**
 	* <h1>CursosDao</h1>
@@ -15,6 +14,7 @@ import uepb.web.ufab.model.Curso;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class CursoDaoImpl extends GenericDaoImpl<Curso> implements ICursoDao {
 
 	public void updateCurso(Curso curso) {

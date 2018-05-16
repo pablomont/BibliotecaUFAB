@@ -7,7 +7,7 @@ import uepb.web.ufab.dao.inter.IRevistaDao;
 import uepb.web.ufab.model.itemAcervo.Revista;
 
 
-@Repository
+
 	/**
 	* <h1>RevistaDao</h1>
 	* RevistaDao é um dos itens do acervo
@@ -16,6 +16,7 @@ import uepb.web.ufab.model.itemAcervo.Revista;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class RevistaDaoImpl extends GenericDaoImpl<Revista> implements IRevistaDao {
 
 	public void updateRevista(Revista revista) {

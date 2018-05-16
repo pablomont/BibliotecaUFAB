@@ -37,6 +37,7 @@ public class AlunoController {
 		Aluno a = new Aluno();
 		a.setMatricula("1420830141");
 		a.setNome("Pablo");
+		a.setCpf("10190673494");
 		try {
 			alunoService.addItem(a);
 		} catch (ItemDuplicadoException e) {

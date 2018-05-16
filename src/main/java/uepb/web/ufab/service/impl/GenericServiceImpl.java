@@ -2,13 +2,14 @@ package uepb.web.ufab.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 import uepb.web.ufab.dao.inter.IGenericDao;
 import uepb.web.ufab.exception.ItemDuplicadoException;
 import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.EntidadeBase;
 import uepb.web.ufab.service.inter.IGenericService;
-
 
 @Service
 public class GenericServiceImpl<T extends EntidadeBase> implements IGenericService<T> {
@@ -26,11 +27,12 @@ public class GenericServiceImpl<T extends EntidadeBase> implements IGenericServi
     	
     }
 	
-	
+    @Transactional
 	public List<T> getAllItems() {
 		return genericDao.getAllItems();
 	}
 
+    @Transactional
 	public T getItemById(int id) throws ItemInexistenteException {
 		if(!genericDao.itemExists(id))
 			throw new ItemInexistenteException("Elemento inexistente");
@@ -39,6 +41,7 @@ public class GenericServiceImpl<T extends EntidadeBase> implements IGenericServi
 	
 	}
 
+    @Transactional
 	public boolean addItem(T item) throws ItemDuplicadoException {
 		if (genericDao.itemExists(item.getId())){
 			throw new ItemDuplicadoException("Elemento duplicado");
@@ -51,6 +54,7 @@ public class GenericServiceImpl<T extends EntidadeBase> implements IGenericServi
 		}   
 	}
 
+    @Transactional
 	public void deleteItem(int id) throws ItemInexistenteException {
 		if(!genericDao.itemExists(id))
 			throw new ItemInexistenteException("Elemento não existe");

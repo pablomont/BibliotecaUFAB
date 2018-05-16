@@ -6,7 +6,7 @@ import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
 
 
 
-@Repository
+
 	/**
 	* <h1>MidiaEletronicaDao</h1>
 	* MidiaEletronicaDao é um dos itens do acervo
@@ -15,6 +15,7 @@ import uepb.web.ufab.model.itemAcervo.MidiaEletronica;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class MidiaEletronicaDaoImpl extends GenericDaoImpl<MidiaEletronica> implements IMidiaEletronicaDao {
 
 	public void updateMidiaEletronica(MidiaEletronica midiaEletronica) {

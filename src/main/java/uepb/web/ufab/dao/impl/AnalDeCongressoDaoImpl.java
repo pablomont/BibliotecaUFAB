@@ -6,7 +6,7 @@ import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 
 
 
-@Repository
+
 	/**
 	* <h1>AnalDeCongressoDao</h1>
 	* AnalDeCongressoDao é um dos itens do acervo
@@ -15,6 +15,7 @@ import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class AnalDeCongressoDaoImpl extends GenericDaoImpl<AnalDeCongresso> implements IAnalDeCongressoDao {
 
 	public void updateAnalDeCongresso(AnalDeCongresso analDeCongresso) {

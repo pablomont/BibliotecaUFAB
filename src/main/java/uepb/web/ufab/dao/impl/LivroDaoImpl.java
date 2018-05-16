@@ -6,7 +6,7 @@ import uepb.web.ufab.model.itemAcervo.Livro;
 import org.springframework.stereotype.Repository;
 
 
-@Repository
+
 	/**
 	* <h1>LivroDao</h1>
 	* LivroDao é um dos itens do acervo
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+@Repository
 public class LivroDaoImpl extends GenericDaoImpl<Livro> implements ILivroDao{
 
 	public void updateLivro(Livro livro) {

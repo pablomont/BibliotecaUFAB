@@ -13,16 +13,17 @@ import uepb.web.ufab.service.inter.IAlunoService;
 
 
 
-@Transactional
-@Service
+
 	/**
 	* <h1>AlunoServiceImpl</h1>
-	* AlunoServiceImpl Implementa todos os serviços para o usuario Aluno
+	* AlunoServiceImpl Implementa todos os serviços dos Alunos
 	*
 	* @author  Samuel Rufino e Pablo Monteiro
 	* @version 1.0
 	* @since   2018-04-20
 	*/
+
+@Service
 public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlunoService {
 
 	private IAlunoDao alunoDao;
@@ -37,7 +38,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
         this.alunoDao = (IAlunoDao) genericDao;
     }
 	
-	
+    @Transactional
 	public Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException {
 		if(alunoDao.itemExists(matricula)) {
 			Aluno a = alunoDao.getAlunoByMatricula(matricula);
@@ -48,6 +49,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 		}	
 	}
 
+    @Transactional
 	public void deleteAlunoByMatricula(String matricula) throws ItemInexistenteException {
 		if(!alunoDao.itemExists(matricula))
 			throw new ItemInexistenteException("Aluno não existe");
@@ -56,6 +58,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 		
 	}
 
+    @Transactional
 	public void updateAluno(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException {
 		if(!alunoDao.itemExists(aluno.getMatricula()))
 			throw new ItemInexistenteException("Aluno não existe");
