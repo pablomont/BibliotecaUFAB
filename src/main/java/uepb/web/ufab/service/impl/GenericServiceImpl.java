@@ -2,10 +2,7 @@ package uepb.web.ufab.service.impl;
 
 import java.util.List;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
-
 import uepb.web.ufab.dao.inter.IGenericDao;
 import uepb.web.ufab.exception.ItemDuplicadoException;
 import uepb.web.ufab.exception.ItemInexistenteException;
@@ -52,25 +49,6 @@ public class GenericServiceImpl<T extends EntidadeBase> implements IGenericServi
 			//logger.info("CursoService: addItem(curso), curso = " + curso);
 			return true;       
 		}   
-	}
-
-	public void updateItem(T item) throws ItemDuplicadoException, ItemInexistenteException {
-		if(!genericDao.itemExists(item.getId()))
-			throw new ItemInexistenteException("Elemento não existe");
-		
-		else {
-			T tAux = genericDao.getItemById(item.getId());
-					
-			if(tAux.equals(item)) {
-				genericDao.updateItem(item);
-				
-			}
-			
-			else {
-				throw new ItemDuplicadoException("Elemento duplicado");
-			}	
-		}
-		
 	}
 
 	public void deleteItem(int id) throws ItemInexistenteException {

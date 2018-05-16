@@ -1,6 +1,7 @@
 package uepb.web.ufab.dao.impl;
 import org.springframework.stereotype.Repository;
-import uepb.web.ufab.dao.inter.IGenericDao;
+
+import uepb.web.ufab.dao.inter.ICursoDao;
 import uepb.web.ufab.model.Curso;
 
 
@@ -14,7 +15,19 @@ import uepb.web.ufab.model.Curso;
 	* @version 1.0
 	* @since   2018-04-20
 	*/
-public class CursoDaoImpl extends GenericDaoImpl<Curso> implements IGenericDao<Curso> {
+public class CursoDaoImpl extends GenericDaoImpl<Curso> implements ICursoDao {
+
+	public void updateCurso(Curso curso) {
+		Curso cursoAux = getItemById(curso.getId());
+
+		
+		cursoAux.setArea(curso.getArea());
+		cursoAux.setNome(curso.getNome());
+		cursoAux.setTipoCurso(curso.getTipoCurso());
+		
+		super.updateItem(cursoAux);
+		
+	}
 
 	
 	

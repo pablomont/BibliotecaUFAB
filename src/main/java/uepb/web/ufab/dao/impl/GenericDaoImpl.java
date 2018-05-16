@@ -13,7 +13,7 @@ import uepb.web.ufab.model.EntidadeBase;
 public  abstract class  GenericDaoImpl<T extends EntidadeBase> implements IGenericDao<T> {
 
 	@Autowired
-	private HibernateTemplate  hibernateTemplate;
+	protected HibernateTemplate  hibernateTemplate;
 	
 	private Class<T> persistedClass;
 

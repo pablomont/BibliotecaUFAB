@@ -9,8 +9,7 @@ public interface IGenericService<T> {
      
      List<T> getAllItems();
      T getItemById(int id) throws ItemInexistenteException;
-     boolean addItem(T item) throws ItemDuplicadoException;
-     void updateItem(T item) throws ItemDuplicadoException, ItemInexistenteException;
+     boolean addItem(T item) throws ItemDuplicadoException; 
      void deleteItem(int id) throws ItemInexistenteException;
 }
 

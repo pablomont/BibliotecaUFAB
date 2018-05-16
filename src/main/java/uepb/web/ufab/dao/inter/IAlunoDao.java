@@ -6,5 +6,6 @@ public interface IAlunoDao extends IGenericDao<Aluno>{
 
 	Aluno getAlunoByMatricula(String matricula);
 	void deleteAlunoByMatricula(String matricula);
+	void updateAluno(Aluno aluno);
 	boolean itemExists(String matricula);
 }

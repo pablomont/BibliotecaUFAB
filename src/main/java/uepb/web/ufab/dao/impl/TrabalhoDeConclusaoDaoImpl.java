@@ -27,4 +27,17 @@ import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
 	*/
 public class TrabalhoDeConclusaoDaoImpl extends GenericDaoImpl<TrabalhoDeConclusao> implements ITrabalhoDeConclusaoDao {
 
+	public void updateTrabalhoDeConclusao(TrabalhoDeConclusao trabalhoDeConclusao) {
+		TrabalhoDeConclusao item =  getItemById(trabalhoDeConclusao.getId());
+		
+		item.setAutores(trabalhoDeConclusao.getAutores());
+		item.setNomeItem(trabalhoDeConclusao.getNomeItem());
+		item.setDate(trabalhoDeConclusao.getDate());
+		item.setLocal(trabalhoDeConclusao.getLocal());
+		item.setOrientadores(trabalhoDeConclusao.getOrientadores());
+		item.setTipo(trabalhoDeConclusao.getTipo());
+		super.updateItem(item);
+		
+	}
+
 }

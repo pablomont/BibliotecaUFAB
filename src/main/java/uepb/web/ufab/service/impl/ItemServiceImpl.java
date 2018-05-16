@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 import uepb.web.ufab.model.itemAcervo.ItemAcervo;
+import uepb.web.ufab.service.inter.IItemAcervoService;
 
 
 @Transactional
@@ -18,6 +19,6 @@ import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 * @version 1.0
 * @since   2018-04-20
 */
-public class ItemServiceImpl extends GenericServiceImpl<ItemAcervo> /*implements IItemAcervoService*/{
+public class ItemServiceImpl extends GenericServiceImpl<ItemAcervo> implements IItemAcervoService{
 
 }

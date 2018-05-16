@@ -1,16 +1,12 @@
 package uepb.web.ufab.service.impl;
 
-
-
 import javax.transaction.Transactional;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import uepb.web.ufab.dao.inter.IAlunoDao;
 import uepb.web.ufab.dao.inter.IGenericDao;
+import uepb.web.ufab.exception.ItemDuplicadoException;
 import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.Aluno;
 import uepb.web.ufab.service.inter.IAlunoService;
@@ -30,7 +26,8 @@ import uepb.web.ufab.service.inter.IAlunoService;
 public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlunoService {
 
 	private IAlunoDao alunoDao;
-    public AlunoServiceImpl(){
+    
+	public AlunoServiceImpl(){
     	
     }
     
@@ -59,6 +56,21 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 		
 	}
 
-	
-
+	public void updateAluno(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException {
+		if(!alunoDao.itemExists(aluno.getMatricula()))
+			throw new ItemInexistenteException("Aluno não existe");
+		
+		else {
+			Aluno alunoAux = getAlunoByMatricula(aluno.getMatricula());
+					
+			if(alunoAux.equals(aluno)) {
+				alunoDao.updateAluno(alunoAux);
+			}
+			
+			else {
+				throw new ItemDuplicadoException("Já existe um aluno com essa matrícula");
+			}	
+		}
+		
+	}	
 }
