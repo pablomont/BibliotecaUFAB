@@ -1,5 +1,7 @@
 package uepb.web.ufab.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import uepb.web.ufab.dao.inter.IFuncionarioDao;
@@ -10,7 +12,7 @@ import uepb.web.ufab.model.Funcionario;
 
 	/**
 	* <h1>FuncionarioDao</h1>
-	* FuncionarioDao é um usuario do acervo
+	* Persiste dados dos funcionarios
 	*
 	* @author  Samuel Rufino e Pablo Monteiro
 	* @version 1.0
@@ -34,6 +36,26 @@ public class FuncionarioDaoImpl extends GenericDaoImpl<Funcionario> implements I
 		funcionarioAux.setTelefone(funcionario.getTelefone());
 		
 		super.updateItem(funcionarioAux);
+	}
+
+	@SuppressWarnings("unchecked")
+	public boolean funcionarioExists(String cpf) {
+		String hql = "FROM Funcionario as i WHERE i.cpf = ?";	
+		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, cpf);
+		return items.size() > 0 ? true : false;
+	}
+
+	public void deleteFuncionarioByCpf(String cpf) {
+		hibernateTemplate.delete(getFuncionarioByCpf(cpf));
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	public Funcionario getFuncionarioByCpf(String cpf) {
+		String hql = "FROM Funcionario as i WHERE i.cpf = ?";
+		List<Funcionario> items = (List<Funcionario>) hibernateTemplate.find(hql, cpf);
+	
+		return items.get(0);
 	}
 
 	

@@ -11,7 +11,7 @@ import uepb.web.ufab.model.Aluno;
 
 	/**
 	* <h1>AlunoDao</h1>
-	* AlunoDao é um usuario do acervo
+	* Persiste dads dos alunos
 	*
 	* @author  Samuel Rufino e Pablo Monteiro
 	* @version 1.0
@@ -33,7 +33,7 @@ public class AlunoDaoImpl extends GenericDaoImpl<Aluno> implements IAlunoDao {
 		}
 
 		@SuppressWarnings("unchecked")
-		public boolean itemExists(String matricula) {
+		public boolean alunoExists(String matricula) {
 			String hql = "FROM Aluno as i WHERE i.matricula = ?";	
 			List<Aluno> items = (List<Aluno>) hibernateTemplate.find(hql, matricula);
 			return items.size() > 0 ? true : false;

@@ -48,7 +48,10 @@ public class AlunoController {
 		return m;
 	}
 	
-	
+	@RequestMapping(value = "/teste", method = RequestMethod.GET)
+	public String teste() {
+		return "teste";
+	}
 	
 //	@Autowired
 //	private IService itemService;

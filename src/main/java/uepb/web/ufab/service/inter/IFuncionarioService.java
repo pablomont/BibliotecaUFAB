@@ -6,5 +6,6 @@ import uepb.web.ufab.model.Funcionario;
 
 public interface IFuncionarioService extends IGenericService<Funcionario> {
 	void updateFuncionario(Funcionario funcionario) throws ItemInexistenteException, ItemDuplicadoException;
+	void deleteFuncionarioByCpf(String cpf) throws ItemInexistenteException;
 
 }

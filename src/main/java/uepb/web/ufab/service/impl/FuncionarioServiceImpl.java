@@ -41,11 +41,11 @@ public class FuncionarioServiceImpl extends GenericServiceImpl<Funcionario> impl
 	
     @Transactional
 	public void updateFuncionario(Funcionario funcionario) throws ItemInexistenteException, ItemDuplicadoException {
-		if(!funcionarioDao.itemExists(funcionario.getId()))
+		if(!funcionarioDao.funcionarioExists(funcionario.getCpf()))
 			throw new ItemInexistenteException("Funcionario não existe");
 		
 		else {
-			Funcionario funcionarioAux = funcionarioDao.getItemById(funcionario.getId());
+			Funcionario funcionarioAux = funcionarioDao.getFuncionarioByCpf(funcionario.getCpf());
 					
 			if(funcionarioAux.equals(funcionario)) {
 				funcionarioDao.updateFuncionario(funcionario);
@@ -55,6 +55,14 @@ public class FuncionarioServiceImpl extends GenericServiceImpl<Funcionario> impl
 				throw new ItemDuplicadoException("Funcionario duplicado");
 			}	
 		}
+	}
+
+	public void deleteFuncionarioByCpf(String cpf) throws ItemInexistenteException {
+		if(!funcionarioDao.funcionarioExists(cpf))
+			throw new ItemInexistenteException("Funcionario não existe");
+		
+		funcionarioDao.deleteFuncionarioByCpf(cpf);
+		
 	}
 
 	

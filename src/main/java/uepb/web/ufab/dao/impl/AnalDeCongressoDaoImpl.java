@@ -4,9 +4,6 @@ import uepb.web.ufab.dao.inter.IAnalDeCongressoDao;
 import uepb.web.ufab.model.itemAcervo.AnalDeCongresso;
 
 
-
-
-
 	/**
 	* <h1>AnalDeCongressoDao</h1>
 	* AnalDeCongressoDao é um dos itens do acervo

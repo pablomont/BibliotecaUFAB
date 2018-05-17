@@ -40,7 +40,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 	
     @Transactional
 	public Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException {
-		if(alunoDao.itemExists(matricula)) {
+		if(alunoDao.alunoExists(matricula)) {
 			Aluno a = alunoDao.getAlunoByMatricula(matricula);
 			return a;
 		}
@@ -51,7 +51,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 
     @Transactional
 	public void deleteAlunoByMatricula(String matricula) throws ItemInexistenteException {
-		if(!alunoDao.itemExists(matricula))
+		if(!alunoDao.alunoExists(matricula))
 			throw new ItemInexistenteException("Aluno não existe");
 		
 		alunoDao.deleteAlunoByMatricula(matricula);
@@ -60,14 +60,14 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 
     @Transactional
 	public void updateAluno(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException {
-		if(!alunoDao.itemExists(aluno.getMatricula()))
+		if(!alunoDao.alunoExists(aluno.getMatricula()))
 			throw new ItemInexistenteException("Aluno não existe");
 		
 		else {
 			Aluno alunoAux = getAlunoByMatricula(aluno.getMatricula());
 					
 			if(alunoAux.equals(aluno)) {
-				alunoDao.updateAluno(alunoAux);
+				alunoDao.updateAluno(aluno);
 			}
 			
 			else {
