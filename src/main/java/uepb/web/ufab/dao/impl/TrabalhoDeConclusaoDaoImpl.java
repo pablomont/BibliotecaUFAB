@@ -6,8 +6,6 @@ import uepb.web.ufab.dao.inter.ITrabalhoDeConclusaoDao;
 import uepb.web.ufab.model.itemAcervo.TrabalhoDeConclusao;
 
 
-
-
 	/**
 	* <h1>RevistaDao</h1>
 	* TrabalhoDeConclusaoDao é um dos itens do acervo

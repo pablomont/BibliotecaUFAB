@@ -12,8 +12,7 @@
 	</head>
 	
 	
-	<body>
-		
+	<body>		
 		<table >
               <tr>
                   <th>Nome</th>
