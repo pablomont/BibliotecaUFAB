@@ -1,20 +1,15 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Biblioteca UFAB</title>
+    <title>Biblioteca Central - UFAB</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,10 +42,10 @@
                         <h3 class="panel-title">Entrar</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="blank" method="post">
+                       <form role="form" action="blank" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Cpf" name="cpf" type="" autofocus>
+                                    <input class="form-control" placeholder="cpf" name="cpf" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -60,7 +55,6 @@
                                         <input name="remember" type="checkbox" value="Remember Me">Lembre-se de mim
                                     </label>
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
                                 <input type="submit" class="btn btn-lg btn-success btn-block" value = "Login">
                             </fieldset>
                         </form>
@@ -80,7 +74,7 @@
     <script src="resources/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="resources/dist/js/sb-admin-2.js"></script>
+    <script src="resources/js/sb-admin-2.js"></script>
 
 </body>
 
