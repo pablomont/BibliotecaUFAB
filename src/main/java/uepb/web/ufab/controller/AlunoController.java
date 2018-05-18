@@ -1,5 +1,7 @@
 package uepb.web.ufab.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import uepb.web.ufab.exception.ItemDuplicadoException;
 import uepb.web.ufab.model.Aluno;
+import uepb.web.ufab.model.Curso;
 import uepb.web.ufab.service.inter.IAlunoService;
+import uepb.web.ufab.service.inter.ICursoService;
 //import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,36 +25,46 @@ import uepb.web.ufab.service.inter.IAlunoService;
 //import uepb.web.ufab.model.itemAcervo.ItemAcervo;
 //import uepb.web.ufab.service.IService;
 
-
-
 @Controller
 public class AlunoController {
 
-	
-	
 	@Autowired
 	private IAlunoService alunoService;
-	@RequestMapping(value = "/items", method = RequestMethod.GET)
-	public ModelAndView loadForm(@ModelAttribute("itemForm")Aluno aluno){
+	@Autowired
+	private ICursoService cursoService;
+	
+	@RequestMapping(value = "alunos", method = RequestMethod.POST)
+	public List<Aluno> loadForm(@ModelAttribute("itemForm")Aluno aluno) throws ItemDuplicadoException{
+		generateAluno();
 		ModelAndView m = new ModelAndView();
-		m.setViewName("formItem");
-		Aluno a = new Aluno();
-		a.setMatricula("1420830141");
-		a.setNome("Pablo");
-		a.setCpf("10190673494");
-		try {
-			alunoService.addItem(a);
-		} catch (ItemDuplicadoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		m.addObject("items",alunoService.getAllItems());
-		return m;
+		m.setViewName("alunos");
+		m.addObject("alunos",alunoService.getAllItems());
+		return alunoService.getAllItems();
 	}
 	
-	@RequestMapping(value = "/teste", method = RequestMethod.GET)
-	public String teste() {
-		return "teste";
+	private void generateAluno() throws ItemDuplicadoException{
+		Aluno aluno;
+		Curso curso;
+		aluno = new Aluno();
+		aluno.setCpf("10190673494");
+		aluno.setEndereco("Rua s�o paulo, 666");
+		aluno.setMatricula("142083011");
+		aluno.setNaturalidade("Brasileiro");
+		aluno.setNome("Pablo Monteiro Santos");
+		aluno.setNomeDaMae("Cl�udia Monteiro Santos");
+		aluno.setRg("3775630");
+		aluno.setSenhaAcesso("admin");
+		
+		curso = new Curso();
+		curso.setArea("Exatas");
+		curso.setNome("Ci�ncia da Computa��o");
+		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
+		
+		cursoService.addItem(curso);
+		
+		aluno.setCurso(curso);
+		alunoService.addItem(aluno);
+		
 	}
 	
 //	@Autowired

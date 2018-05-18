@@ -11,10 +11,10 @@ import uepb.web.ufab.model.Aluno;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value = "/blank", method = RequestMethod.POST)
-	public ModelAndView loadBlank(){
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	public ModelAndView loadHome(){
 		ModelAndView m = new ModelAndView();
-		m.setViewName("blank");
+		m.setViewName("home");
 		return m;
 	}
 }

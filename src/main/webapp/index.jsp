@@ -32,17 +32,21 @@
 
 </head>
 
-<body>
+<body style="background-image: url('resources/images/gradient-login.png')">
 
     <div class="container">
         <div class="row">
+            <h1 class="mb-1">Biblioteca Central -UFAB</h1>
+            <h3 class="mb-5">
+                <em>Sua Biblioteca virtual</em>
+            </h3>
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Entrar</h3>
                     </div>
                     <div class="panel-body">
-                       <form role="form" action="blank" method="post">
+                       <form role="form" action="home" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="cpf" name="cpf" type="text" autofocus>
@@ -56,6 +60,7 @@
                                     </label>
                                 </div>
                                 <input type="submit" class="btn btn-lg btn-success btn-block" value = "Login">
+                                <button type="button" class="btn btn-lg btn-primary btn-block">Registrar-se</button>
                             </fieldset>
                         </form>
                     </div>
