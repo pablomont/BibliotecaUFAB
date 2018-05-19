@@ -69,6 +69,8 @@ public class AlunoController {
 		aluno.setCurso(curso);
 		//alunoService.addItem(aluno);
 		
+		
+		
 	}
 	
 //	@Autowired

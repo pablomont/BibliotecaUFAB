@@ -61,5 +61,17 @@
     </div>
     <!-- /#wrapper -->
     <%@include file="/resources/includes/jsFiles.html" %>
+      <script>
+    $(document).ready(function() {
+        $('#dataTables-alunos').DataTable({
+            responsive: true,
+            "columns": [
+                { "data": "Nome" },
+                { "data": "CPF" },
+                { "data": "Matricula" },
+            ]
+        });
+    });
+    </script>
 </body>
 </html>
