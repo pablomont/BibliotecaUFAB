@@ -1,4 +1,4 @@
-
+<%@include file="/resources/includes/taglibs.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -39,9 +39,9 @@
                                         <tbody>
                                             <c:forEach var="aluno" items="${alunos}">
                                                 <tr class="odd gradeX">
-                                                    <td>aluno.nome</td>
-                                                    <td>aluno.cpf</td>
-                                                    <td>aluno.matricula</td>
+                                                    <td>${aluno.nome}</td>
+                                                    <td>${aluno.cpf}</td>
+                                                    <td>${aluno.matricula}</td>
                                                 </tr>   
                                              </c:forEach>             
                                         </tbody>
