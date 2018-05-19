@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Alunos</h1>
+                            <h1 class="page-header">Funcionarios</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -24,7 +24,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-alunos">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-Funcionarios">
                                         <thead>
                                             <tr>
                                                 <th>Nome</th>
@@ -32,20 +32,20 @@
                                                 <th>RG</th>
                                                 <th>Naturalidade</th>                                                    
                                                 <th>Endereco</th>
-                                                <th>Matricula</th>
-                                                <th>Curso</th>
+                                                <th>Telefone</th>
+                                                <th>Email</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="aluno" items="${alunos}">
+                                            <c:forEach var="funcionario" items="${funcionarios}">
                                                 <tr class="odd gradeX">
-                                                    <td>${aluno.nome}</td>
-                                                    <td>${aluno.cpf}</td>
-                                                    <td>${aluno.rg}</td>
-                                                    <td>${aluno.naturalidade}</td>
-                                                    <td>${aluno.endereco}</td>
-                                                    <td>${aluno.matricula}</td>
-                                                    <td>${aluno.curso}</td>
+                                                    <td>${funcionario.nome}</td>
+                                                    <td>${funcionario.cpf}</td>
+                                                    <td>${funcionario.rg}</td>
+                                                    <td>${funcionario.naturalidade}</td>
+                                                    <td>${funcionario.endereco}</td>
+                                                    <td>${funcionario.telefone}</td>
+                                                    <td>${funcionario.email}</td>
                                                 </tr>   
                                              </c:forEach>             
                                         </tbody>
@@ -67,7 +67,7 @@
     <%@include file="/resources/includes/jsFiles.html" %>
       <script>
     $(document).ready(function() {
-        $('#dataTables-alunos').DataTable({
+        $('#dataTables-funcionarios').DataTable({
             responsive: true,
             "columns": [
                 { "data": "Nome" },
@@ -75,8 +75,8 @@
                 { "data": "RG" },
                 { "data": "Naturalidade" },
                 { "data": "Endereco" },
-                { "data": "Matricula" },
-                { "data": "Curso" }
+                { "data": "Telefone" },
+                { "data": "Email" }
             ]
         });
     });

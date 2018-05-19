@@ -32,11 +32,11 @@ public class AlunoController {
 	
 	List<Aluno> alunos = new ArrayList<Aluno>();
 
-//	@Autowired
-//	private IAlunoService alunoService;
-//	@Autowired
-//	private ICursoService cursoService;
-//	
+	@Autowired
+	private IAlunoService alunoService;
+	@Autowired
+	private ICursoService cursoService;
+	
 	@RequestMapping(value = "alunos", method = RequestMethod.GET)
 	public ModelAndView loadForm(@ModelAttribute("itemForm")Aluno aluno) throws ItemDuplicadoException{
 		generateAluno();
@@ -46,22 +46,32 @@ public class AlunoController {
 		return m;
 	}
 	
+	
+	@RequestMapping(value = "cadastrar_aluno", method = RequestMethod.GET)
+	public ModelAndView loadFormCadastro() throws ItemDuplicadoException{
+		
+		ModelAndView m = new ModelAndView();
+		m.setViewName("cadastrar_aluno");
+		return m;
+	}
+
+	
 	private void generateAluno() throws ItemDuplicadoException{
 		Aluno aluno;
 		Curso curso;
 		aluno = new Aluno();
 		aluno.setCpf("10190673494");
-		aluno.setEndereco("Rua sï¿½o paulo, 666");
+		aluno.setEndereco("Rua são paulo, 666");
 		aluno.setMatricula("142083011");
 		aluno.setNaturalidade("Brasileiro");
 		aluno.setNome("Pablo Monteiro Santos");
-		aluno.setNomeDaMae("Clï¿½udia Monteiro Santos");
+		aluno.setNomeDaMae("Claudia Monteiro Santos");
 		aluno.setRg("3775630");
 		aluno.setSenhaAcesso("admin");
 		
 		curso = new Curso();
 		curso.setArea("Exatas");
-		curso.setNome("Ciï¿½ncia da Computaï¿½ï¿½o");
+		curso.setNome("Ciência da Computação");
 		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
 		alunos.add(aluno);
 		//cursoService.addItem(curso);
