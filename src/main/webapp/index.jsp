@@ -32,13 +32,13 @@
 
 </head>
 
-<body style="background-image: url('resources/images/white-gradient-green-linear.jpg')">
+<body style="background-image: url('resources/images/background-degrade-white-gray.jpg')">
 
     <div class="container">
         <div class="row">
-            <h1 class="text-info mb-1" >Biblioteca Central</h1>
+            <h1 class="text-info mb-1" style="font-family:new century schoolbook;" >Biblioteca Central</h1>
             <h3 class="mb-5">
-                <em class="text-info">Universidade Federal Alto Bodocongo</em>
+                <em class="text-info" style="font-family:new century schoolbook;">Universidade Federal Alto Bodocongó</em>
             </h3>
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">

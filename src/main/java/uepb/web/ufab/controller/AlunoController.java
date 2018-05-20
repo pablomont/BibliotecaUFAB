@@ -47,11 +47,11 @@ public class AlunoController {
 	}
 	
 	
-	@RequestMapping(value = "cadastrar_aluno", method = RequestMethod.GET)
+	@RequestMapping(value = "aluno_cadastro", method = RequestMethod.GET)
 	public ModelAndView loadFormCadastro() throws ItemDuplicadoException{
 		
 		ModelAndView m = new ModelAndView();
-		m.setViewName("cadastrar_aluno");
+		m.setViewName("aluno_cadastro");
 		return m;
 	}
 
@@ -61,7 +61,7 @@ public class AlunoController {
 		Curso curso;
 		aluno = new Aluno();
 		aluno.setCpf("10190673494");
-		aluno.setEndereco("Rua são paulo, 666");
+		aluno.setEndereco("Rua sï¿½o paulo, 666");
 		aluno.setMatricula("142083011");
 		aluno.setNaturalidade("Brasileiro");
 		aluno.setNome("Pablo Monteiro Santos");
@@ -71,7 +71,7 @@ public class AlunoController {
 		
 		curso = new Curso();
 		curso.setArea("Exatas");
-		curso.setNome("Ciência da Computação");
+		curso.setNome("Ciï¿½ncia da Computaï¿½ï¿½o");
 		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
 		alunos.add(aluno);
 		//cursoService.addItem(curso);

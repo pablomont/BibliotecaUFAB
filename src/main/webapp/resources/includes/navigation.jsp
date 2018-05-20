@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home"><p class="text-info">Biblioteca Central - UFAB</p></a>
+            <a class="navbar-brand" href="home"><p class="text-info" style="font-family:new century schoolbook;">Biblioteca Central - UFAB</p></a>
         </div>
         <!-- /.navbar-header -->
 
@@ -135,31 +135,31 @@
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Cadastrar<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="cadastrar_aluno">Novo aluno</a>
+                                <a href="aluno_cadastro">Novo aluno</a>
                             </li>
                             <li>
-                                <a href="cadastrar_funcionario">Novo funcionario</a>
+                                <a href="funcionario_cadastro">Novo funcionario</a>
                             </li>
                             <li>
                                 <a href="#">Itens do acervo <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="cadastrar_livro">Novo livro</a>
+                                        <a href="livro_cadastro">Novo livro</a>
                                     </li>
                                     <li>
-                                        <a href="cadastrar_jornal">Novo jornal</a>
+                                        <a href="jornal_cadastro">Novo jornal</a>
                                     </li>
                                     <li>
-                                        <a href="cadastrar_cd">Novo CD</a>
+                                        <a href="cd_cadastro">Novo CD</a>
                                     </li>
                                     <li>
-                                        <a href="cadastrar_dvd">Novo DVD</a>
+                                        <a href="dvd_cadastro">Novo DVD</a>
                                     </li>
                                     <li>
-                                        <a href="cadastrar_tcc">Novo TCC</a>
+                                        <a href="tcc_cadastro">Novo TCC</a>
                                     </li>
                                     <li>
-                                        <a href="cadastrar_analdecongresso">Novo anal de congresso</a>
+                                        <a href="anal_de_congresso_cadastro">Novo anal de congresso</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-third-level -->

@@ -31,8 +31,8 @@
                                                 <th>CPF</th>
                                                 <th>RG</th>
                                                 <th>Naturalidade</th>                                                    
-                                                <th>Endereco</th>
-                                                <th>Matricula</th>
+                                                <th>Endereço</th>
+                                                <th>Matrícula</th>
                                                 <th>Curso</th>
                                             </tr>
                                         </thead>
@@ -74,8 +74,8 @@
                 { "data": "CPF" },
                 { "data": "RG" },
                 { "data": "Naturalidade" },
-                { "data": "Endereco" },
-                { "data": "Matricula" },
+                { "data": "Endereço" },
+                { "data": "Matrícula" },
                 { "data": "Curso" }
             ]
         });

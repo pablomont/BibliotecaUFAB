@@ -28,11 +28,11 @@ public class FuncionarioController {
 		return m;
 	}
 
-	@RequestMapping(value = "cadastrar_funcionario", method = RequestMethod.GET)
+	@RequestMapping(value = "funcionario_cadastro", method = RequestMethod.GET)
 	public ModelAndView loadFormCadastro() throws ItemDuplicadoException{
 		
 		ModelAndView m = new ModelAndView();
-		m.setViewName("funcionarioCadastro");
+		m.setViewName("funcionario_cadastro");
 		return m;
 	}
 
@@ -44,7 +44,7 @@ public class FuncionarioController {
 		funcionario = new Funcionario();
 		funcionario.setCpf("123456789");
 		funcionario.setEmail("pablo.santos@elife.com.br");
-		funcionario.setEndereco("Rua São Paulo, 666, Liberdade");
+		funcionario.setEndereco("Rua Sï¿½o Paulo, 666, Liberdade");
 		funcionario.setNaturalidade("Brasileiro");
 		funcionario.setNivelAcesso(Funcionario.NivelAcesso.ADMIN);
 		funcionario.setNome("Pablo Monteiro Santos");
