@@ -25,7 +25,6 @@ public class Livro extends ItemAcervo implements Serializable{
         name = "AUTOR_LIVRO",
         joinColumns=@JoinColumn(name = "id")      
     )
-	@Column(name="NOME_AUTOR")
 	private List<String> autores = new ArrayList<String>();
 	
 	@Column(name="EDITORA")

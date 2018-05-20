@@ -39,7 +39,7 @@ public class DBConfig {
 	}
 	
 	@Bean
-	/** Criação do SessionFactory alocando DataSource, PackagesToScan e HibernateProperties
+	/** Criaï¿½ï¿½o do SessionFactory alocando DataSource, PackagesToScan e HibernateProperties
 	 * 	@exception IOException
 	 *  @return SessionFactory   
 	 */
@@ -56,7 +56,7 @@ public class DBConfig {
 		return lsfb.getObject();
 	}
 	
-	/** Criação do DataSource alocando DriverClassName, Url, Username e Password da database 
+	/** Criaï¿½ï¿½o do DataSource alocando DriverClassName, Url, Username e Password da database 
 	 *  @return dataSource   
 	 */
 	@Bean
@@ -70,7 +70,7 @@ public class DBConfig {
 	    return dataSource;
 	}
 	
-	/** Criação do HibernateTransactionManager usando sessionFactory 
+	/** Criaï¿½ï¿½o do HibernateTransactionManager usando sessionFactory 
 	 *  @return HibernateTransactionManager   
 	 */
 	@Bean
@@ -78,7 +78,7 @@ public class DBConfig {
 		return new HibernateTransactionManager(sessionFactory());
 	}
 	
-	/** Criação das propriedades do hibernate
+	/** Criaï¿½ï¿½o das propriedades do hibernate
 	 *  @return properties   
 	 */
     private Properties hibernateProperties() {
@@ -86,6 +86,7 @@ public class DBConfig {
          properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
          properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
          properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+
            
          return properties;        
     }	

@@ -28,7 +28,6 @@ public class TrabalhoDeConclusao extends ItemAcervo implements Serializable{
         name = "AUTOR_TCC",
         joinColumns=@JoinColumn(name = "id")      
     )
-	@Column(name="NOME_AUTOR")
 	private List<String> autores = new ArrayList<String>();
 	
 	@ElementCollection
@@ -36,7 +35,6 @@ public class TrabalhoDeConclusao extends ItemAcervo implements Serializable{
         name = "ORIENTADOR_TCC",
         joinColumns=@JoinColumn(name = "id")      
     )
-	@Column(name="NOME_ORIENTADOR")
 	private List<String> orientadores = new ArrayList<String>();
 	
 	@Column(name="LOCAL")

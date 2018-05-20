@@ -18,16 +18,23 @@ public class ItemAcervo implements EntidadeBase {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="ID")
     protected int id;	
 	
-	@Column(name = "nomeItem")
-	protected String nomeItem;
+	@Column(name = "TITULO")
+	protected String titulo;
 	
 	@Temporal(TemporalType.DATE)
 	protected Date date;	
 	
-	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -37,11 +44,11 @@ public class ItemAcervo implements EntidadeBase {
 	}
 
 	public String getNomeItem() {
-		return nomeItem;
+		return titulo;
 	}
 
 	public void setNomeItem(String nomeItem) {
-		this.nomeItem = nomeItem;
+		this.titulo = nomeItem;
 	}
 
 	public Date getDate() {
@@ -52,4 +59,5 @@ public class ItemAcervo implements EntidadeBase {
 		this.date = date;
 	}
 
+	
 }

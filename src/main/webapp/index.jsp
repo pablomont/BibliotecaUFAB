@@ -3,7 +3,7 @@
 
 <head>
 
-    <meta charset="utf-8">
+    <meta charset="UFT-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -32,19 +32,19 @@
 
 </head>
 
-<body style="background-image: url('resources/images/gradient-login.png')">
+<body style="background-image: url('resources/images/background-degrade-white-gray.jpg')">
 
     <div class="container">
         <div class="row">
-            <h1 class="mb-1">Biblioteca Central -UFAB</h1>
+            <h1 class="text-info mb-1" style="font-family:new century schoolbook;" >Biblioteca Central</h1>
             <h3 class="mb-5">
-                <em>Sua Biblioteca virtual</em>
+                <em class="text-info" style="font-family:new century schoolbook;">Universidade Federal Alto Bodocongó</em>
             </h3>
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Entrar</h3>
-                    </div>
+<!--                 <div class="login-panel panel panel-default"> -->
+<!--                     <div class="panel-heading"> -->
+<!--                         <h3 class="panel-title text-info">Entrar</h3> -->
+<!--                     </div> -->
                     <div class="panel-body">
                        <form role="form" action="home" method="post">
                             <fieldset>

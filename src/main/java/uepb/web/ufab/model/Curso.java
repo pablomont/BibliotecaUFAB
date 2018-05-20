@@ -88,8 +88,7 @@ public class Curso implements Serializable,EntidadeBase  {
 
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", tipoCurso=" + tipoCurso + ", nomeCurso=" + nomeCurso + ", areaCurso=" + areaCurso
-				+ "]";
+		return this.getNome() + " - " +this.getTipoCurso().toString();
 	}
 	
 }

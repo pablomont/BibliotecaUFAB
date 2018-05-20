@@ -39,7 +39,6 @@ public class AnalDeCongresso extends ItemAcervo implements Serializable  {
         name = "AUTOR_ANAL",
         joinColumns=@JoinColumn(name = "id")      
     )
-	@Column(name="NOME_AUTOR")
 	private List<String> autores = new ArrayList<String>();
 	
 

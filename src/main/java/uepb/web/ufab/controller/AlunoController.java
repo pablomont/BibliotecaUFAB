@@ -1,72 +1,73 @@
 package uepb.web.ufab.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import uepb.web.ufab.exception.ItemDuplicadoException;
 import uepb.web.ufab.model.Aluno;
-import uepb.web.ufab.model.Curso;
 import uepb.web.ufab.service.inter.IAlunoService;
-import uepb.web.ufab.service.inter.ICursoService;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.servlet.ModelAndView;
 
 
-
-//import uepb.web.ufab.model.itemAcervo.ItemAcervo;
-//import uepb.web.ufab.service.IService;
 
 @Controller
 public class AlunoController {
-
+	
 	@Autowired
 	private IAlunoService alunoService;
-	@Autowired
-	private ICursoService cursoService;
+
 	
-	@RequestMapping(value = "alunos", method = RequestMethod.POST)
-	public List<Aluno> loadForm(@ModelAttribute("itemForm")Aluno aluno) throws ItemDuplicadoException{
-		generateAluno();
+	@RequestMapping(value = "alunos", method = RequestMethod.GET)
+	public ModelAndView loadForm(@ModelAttribute("itemForm")Aluno aluno) throws ItemDuplicadoException{
 		ModelAndView m = new ModelAndView();
 		m.setViewName("alunos");
 		m.addObject("alunos",alunoService.getAllItems());
-		return alunoService.getAllItems();
+		return m;
 	}
 	
-	private void generateAluno() throws ItemDuplicadoException{
-		Aluno aluno;
-		Curso curso;
-		aluno = new Aluno();
-		aluno.setCpf("10190673494");
-		aluno.setEndereco("Rua s�o paulo, 666");
-		aluno.setMatricula("142083011");
-		aluno.setNaturalidade("Brasileiro");
-		aluno.setNome("Pablo Monteiro Santos");
-		aluno.setNomeDaMae("Cl�udia Monteiro Santos");
-		aluno.setRg("3775630");
-		aluno.setSenhaAcesso("admin");
+
+	@RequestMapping(value = "aluno_cadastro", method = RequestMethod.GET)
+	public ModelAndView loadFormCadastro() throws ItemDuplicadoException{
 		
-		curso = new Curso();
-		curso.setArea("Exatas");
-		curso.setNome("Ci�ncia da Computa��o");
-		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
-		
-		cursoService.addItem(curso);
-		
-		aluno.setCurso(curso);
-		alunoService.addItem(aluno);
-		
+		ModelAndView m = new ModelAndView();
+		m.setViewName("aluno_cadastro");
+		return m;
 	}
+
 	
+
+//	private void generateAlunos() throws ItemDuplicadoException{
+//		Aluno aluno1;
+//		
+//		aluno1 = new Aluno();
+//		aluno1.setCpf("10190673494");
+//		aluno1.setEndereco("Rua paulo, 666");
+//		aluno1.setMatricula("142083011");
+//		aluno1.setNaturalidade("Brasileiro");
+//		aluno1.setNome("Pablo Monteiro Santos");
+//		aluno1.setNomeDaMae("Claudia Monteiro Santos");
+//		aluno1.setRg("3775630");
+//		aluno1.setSenhaAcesso("admin");
+//		
+//	
+//		Curso curso = new Curso();
+//		curso.setArea("Exatas");
+//		curso.setNome("Ciência da Computação");
+//		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
+//		
+//		cursoService.addItem(curso);
+//		
+//		aluno1.setCurso(curso);
+//	
+//		alunoService.addItem(aluno1);
+//	
+//		
+//
+//	}
+//	
 //	@Autowired
 //	private IService itemService;
 //	
@@ -84,8 +85,5 @@ public class AlunoController {
 //		itemService.addItemAcervo(item);
 //
 //    	return "redirect:/items";
-//    }
-	
-	
-	
+//    }	
 }
