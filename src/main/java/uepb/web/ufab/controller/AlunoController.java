@@ -1,6 +1,5 @@
 package uepb.web.ufab.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,33 +27,20 @@ import uepb.web.ufab.service.inter.ICursoService;
 
 @Controller
 public class AlunoController {
-	
-	
-	List<Aluno> alunos = new ArrayList<Aluno>();
 
 	@Autowired
 	private IAlunoService alunoService;
 	@Autowired
 	private ICursoService cursoService;
 	
-	@RequestMapping(value = "alunos", method = RequestMethod.GET)
-	public ModelAndView loadForm(@ModelAttribute("itemForm")Aluno aluno) throws ItemDuplicadoException{
+	@RequestMapping(value = "alunos", method = RequestMethod.POST)
+	public List<Aluno> loadForm(@ModelAttribute("itemForm")Aluno aluno) throws ItemDuplicadoException{
 		generateAluno();
 		ModelAndView m = new ModelAndView();
 		m.setViewName("alunos");
-		m.addObject("alunos",alunos);
-		return m;
+		m.addObject("alunos",alunoService.getAllItems());
+		return alunoService.getAllItems();
 	}
-	
-	
-	@RequestMapping(value = "aluno_cadastro", method = RequestMethod.GET)
-	public ModelAndView loadFormCadastro() throws ItemDuplicadoException{
-		
-		ModelAndView m = new ModelAndView();
-		m.setViewName("aluno_cadastro");
-		return m;
-	}
-
 	
 	private void generateAluno() throws ItemDuplicadoException{
 		Aluno aluno;
@@ -65,7 +51,7 @@ public class AlunoController {
 		aluno.setMatricula("142083011");
 		aluno.setNaturalidade("Brasileiro");
 		aluno.setNome("Pablo Monteiro Santos");
-		aluno.setNomeDaMae("Claudia Monteiro Santos");
+		aluno.setNomeDaMae("Cl�udia Monteiro Santos");
 		aluno.setRg("3775630");
 		aluno.setSenhaAcesso("admin");
 		
@@ -73,13 +59,11 @@ public class AlunoController {
 		curso.setArea("Exatas");
 		curso.setNome("Ci�ncia da Computa��o");
 		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
-		alunos.add(aluno);
-		//cursoService.addItem(curso);
+		
+		cursoService.addItem(curso);
 		
 		aluno.setCurso(curso);
-		//alunoService.addItem(aluno);
-		
-		
+		alunoService.addItem(aluno);
 		
 	}
 	

@@ -8,7 +8,7 @@
 
 <body>
     <div id="wrapper">
-        <%@include file="/resources/includes/navigation.jsp" %>
+        <%@include file="/resources/includes/navigation.html" %>
         <!-- Page Content -->
         <div id="page-wrapper">
             
