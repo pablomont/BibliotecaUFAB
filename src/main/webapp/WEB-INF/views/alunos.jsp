@@ -34,6 +34,7 @@
                                                 <th>Endereço</th>
                                                 <th>Matrícula</th>
                                                 <th>Curso</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -46,6 +47,7 @@
                                                     <td>${aluno.endereco}</td>
                                                     <td>${aluno.matricula}</td>
                                                     <td>${aluno.curso}</td>
+                                                    <td>${aluno.id}</td>
                                                 </tr>   
                                              </c:forEach>             
                                         </tbody>
@@ -66,20 +68,29 @@
     <!-- /#wrapper -->
     <%@include file="/resources/includes/jsFiles.html" %>
       <script>
-    $(document).ready(function() {
-        $('#dataTables-alunos').DataTable({
-            responsive: true,
-            "columns": [
-                { "data": "Nome" },
-                { "data": "CPF" },
-                { "data": "RG" },
-                { "data": "Naturalidade" },
-                { "data": "Endereço" },
-                { "data": "Matrícula" },
-                { "data": "Curso" }
-            ]
-        });
-    });
+		    $(document).ready(function() {
+		        $('#dataTables-alunos').DataTable({
+		            responsive: true,
+		            "columns": [
+		                { "data": "Nome" },
+		                { "data": "CPF" },
+		                { "data": "RG" },
+		                { "data": "Naturalidade" },
+		                { "data": "Endereço" },
+		                { "data": "Matrícula" },
+		                { "data": "Curso" },
+		                { 
+		                	"data": "id" ,
+		                	render: function ( data, type, row ) {
+		                    	data = '<a class="btn btn-danger btn" href="remove_aluno?id='+data+'">Remover</a>';
+		                    	return data;
+		                	}
+						 }
+		            ]
+		        });
+		    });
+		    
+		    
     </script>
 </body>
 </html>

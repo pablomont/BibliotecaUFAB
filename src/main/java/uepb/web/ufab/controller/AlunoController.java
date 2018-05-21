@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import uepb.web.ufab.exception.ItemDuplicadoException;
+import uepb.web.ufab.exception.ItemInexistenteException;
 import uepb.web.ufab.model.Aluno;
 import uepb.web.ufab.service.inter.IAlunoService;
 
@@ -30,10 +31,40 @@ public class AlunoController {
 	
 
 	@RequestMapping(value = "aluno_cadastro", method = RequestMethod.GET)
-	public ModelAndView loadFormCadastro() throws ItemDuplicadoException{
+	public ModelAndView loadFormCadastro(@ModelAttribute("alunoForm")Aluno aluno) throws ItemDuplicadoException{
 		
 		ModelAndView m = new ModelAndView();
 		m.setViewName("aluno_cadastro");
+		return m;
+	}
+	
+	@RequestMapping(value = "aluno_save", method = RequestMethod.POST)
+	public ModelAndView saveAluno(@ModelAttribute("alunoForm")Aluno aluno ){
+		try {
+			alunoService.addItem(aluno);
+		} catch (ItemDuplicadoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ModelAndView m = new ModelAndView();
+		m.setViewName("alunos");
+		m.addObject("alunos",alunoService.getAllItems());
+		return m;
+	}
+	
+	@RequestMapping(value = "remove_aluno",  method = RequestMethod.GET)
+	public ModelAndView removeAluno(int id) {
+		
+		try {
+			alunoService.deleteItem(id);
+		} catch (ItemInexistenteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ModelAndView m = new ModelAndView();
+		m.setViewName("alunos");
+		m.addObject("alunos",alunoService.getAllItems());
 		return m;
 	}
 

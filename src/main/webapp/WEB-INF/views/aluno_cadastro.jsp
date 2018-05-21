@@ -25,75 +25,44 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                	<form>
+                                	<form:form action="aluno_save" modelAttribute="alunoForm" method="post">
 										  <div class="form-row">
 										    <div class="form-group col-md-4">
 										      <label for="inputNomeCompleto">Nome</label>
-										      <input type="text" class="form-control" id="inputNomeCompleto" placeholder="Nome completo">
+										      <form:input path="nome" type="text" class="form-control" id="inputNomeCompleto" placeholder="Nome completo"/>
 										    </div>
 										    <div class="form-group col-md-4">
 										      <label for="inputSenhaAcesso">Senha de Acesso</label>
-										      <input type="password" class="form-control" id="inputSenhaAcesso" placeholder="Password">
+										      <form:input path="senhaAcesso" type="password" class="form-control" id="inputSenhaAcesso" placeholder="Password"/>
 										    </div>
 										    <div class="form-group col-md-4">
 										      <label for="inputNomeDaMae">Nome da mãe</label>
-										      <input type="password" class="form-control" id="inputNomeDaMae" placeholder="Nome completo da mãe">
+										      <form:input path="nomeDaMae" type="password" class="form-control" id="inputNomeDaMae" placeholder="Nome completo da mãe"/>
 										    </div>
 										  </div>
 										  
 										  <div class="form-group">
 										    <label for="inputEndereço">Endereço</label>
-										    <input type="text" class="form-control" id="inputEndereço" placeholder="Rua São Paulo, 055, liberdade, Campina Grande, PB">
+										    <form:input path="endereco" type="text" class="form-control" id="inputEndereço" placeholder="Rua São Paulo, 055, liberdade, Campina Grande, PB"/>
 										  </div>
 				
 										  <div class="form-row">
 										    <div class="form-group col-md-4">
 										      <label for="inputCPF">CPF</label>
-										      <input type="text" class="form-control" id="inputCPF">
+										      <form:input path="cpf" type="text" class="form-control" id="inputCPF"/>
 										    </div>
 										    <div class="form-group col-md-4">
 										       	<label for="inputRG">RG</label>
-										    	<input type="text" class="form-control" id="inputRG">
+										    	<form:input path="rg" type="text" class="form-control"  id="inputRG"/>
 										    </div>
 										    <div class="form-group col-md-4">
 										      <label for="inputNaturalidade">Naturalidade:</label>
-										      <input type="text" class="form-control" id="inputNaturalidade" placeholder="Brasileiro">
+										      <form:input path="naturalidade" type="text" class="form-control" id="inputNaturalidade" placeholder="Brasileiro"/>
 										    </div>
 										  </div>
-										  
-										  <div class="form-row">
-										  	 <div class="form-group col-md-6">
-                                            	<label>Cursos de Graduação</label>
-                                            	<select class="form-control">
-                                                	<option>Administração</option>
-                                                	<option>Ciência da Computação</option>
-                                                	<option>Direito</option>
-                                                	<option>Engenaria Elétrica</option>
-                                                	<option>Engenharia Espacial</option>
-													<option>Engenharia Mecatrônica</option>
-													<option>Matemática</option>
-													<option>Medicina</option>
-													<option>Nutrição</option>
-													<option>Odontologia</option>
-													<option>Psicologia</option>
-													<option>Veterinária</option>
-                                            	</select>
-                                        	</div>
-											<div class="form-group col-md-6">
-                                            	<label>Cursos de Pós-Graduação</label>
-                                            	<select class="form-control">
-                                            		<option>Nenhum</option>
-                                                	<option>Ciência da Computação</option>
-                                                	<option>Engenaria Elétrica</option>
-                                                	<option>Engenharia Espacial</option>
-													<option>Engenharia Mecatrônica</option>
-													<option>Psicologia</option>
-                                            	</select>
-	                                         </div>
-	                                      </div>						
-										 
+										  					
 										  	<button type="submit" class="btn btn-primary">Cadastrar</button>
-										</form>
+										</form:form>
                                 </div>                                
                             </div>
                             <!-- /.row (nested) -->
@@ -110,5 +79,6 @@
     </div>
     <!-- /#wrapper -->
     <%@include file="/resources/includes/jsFiles.html" %>
+
 </body>
 </html>

@@ -21,7 +21,7 @@ public class TrabalhoDeConclusao extends ItemAcervo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public enum TipoTrabalho {MONOGRAFIA, TESTE, DISSERTACAO};
+	public enum TipoTrabalho {MONOGRAFIA, TESE, DISSERTACAO};
 
 	@ElementCollection
     @CollectionTable(
