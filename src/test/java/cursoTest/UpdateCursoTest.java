@@ -29,8 +29,8 @@ public class UpdateCursoTest {
 	public void setUp() throws Exception {
 		curso = new Curso();
 		curso.setArea("Exatas");
-		curso.setNome("Ciência da Computação");
-		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
+		curso.setNome("Ciï¿½ncia da Computaï¿½ï¿½o");
+		curso.setTipoCurso(Curso.Tipo.GRA);
 		
 		cursoService.addItem(curso);
 

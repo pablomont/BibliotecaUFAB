@@ -83,7 +83,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="index"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -126,6 +126,11 @@
                     <li>
                         <a href="funcionarios"><i class="fa fa-users fa-fw"></i> Funcionarios</a>
                     </li>
+                    
+                    <li>
+                        <a href="cursos"><i class="fa fa-university fa-fw"></i> Cursos</a>
+                    </li>
+                
                 
                    
                     <li>
@@ -137,6 +142,12 @@
                             <li>
                                 <a href="funcionario_cadastro">Novo funcionario</a>
                             </li>
+                              <li>
+                                <a href="curso_cadastro">Novo Curso</a>
+                            </li>
+                            
+                            
+                            
                             <li>
                                 <a href="#">Itens do acervo <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">

@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Alunos</h1>
+                            <h1 class="page-header">Cursos</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -24,30 +24,24 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-alunos">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTable-cursos">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
-                                                <th>CPF</th>
-                                                <th>RG</th>
-                                                <th>Naturalidade</th>                                                    
-                                                <th>Endereço</th>
-                                                <th>Matrícula</th>
-                                                <th>Curso</th>
-                                                <th></th>
+                                                <th>Nome do curso</th>
+                                                <th>Codigo do curso</th>
+                                                <th>Tipo do curso</th>
+                                                <th>Area do curso</th> 
+                                                <th></th>                                                                           
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="aluno" items="${alunos}">
+                                            <c:forEach var="curso" items="${cursos}">
                                                 <tr class="odd gradeX">
-                                                    <td>${aluno.nome}</td>
-                                                    <td>${aluno.cpf}</td>
-                                                    <td>${aluno.rg}</td>
-                                                    <td>${aluno.naturalidade}</td>
-                                                    <td>${aluno.endereco}</td>
-                                                    <td>${aluno.matricula}</td>
-                                                    <td>${aluno.curso}</td>
-                                                    <td>${aluno.id}</td>
+                                                    <td>${curso.nomeCurso}</td>
+                                                    <td>${curso.codCurSo}</td>
+                                                    <td>${curso.tipoCurso}</td>
+                                                    <td>${curso.areaCurso}</td>    
+                                                    <td>${curso.id}</td> 
                                                 </tr>   
                                              </c:forEach>             
                                         </tbody>
@@ -69,16 +63,13 @@
     <%@include file="/resources/includes/jsFiles.html" %>
       <script>
 		    $(document).ready(function() {
-		        $('#dataTables-alunos').DataTable({
+		        $('#dataTable-cursos').DataTable({
 		            responsive: true,
 		            "columns": [
-		                { "data": "Nome" },
-		                { "data": "CPF" },
-		                { "data": "RG" },
-		                { "data": "Naturalidade" },
-		                { "data": "Endereço" },
-		                { "data": "Matricula" },
-		                { "data": "Curso" },
+		                { "data": "Nome do curso" },
+		                { "data": "Codigo do curso" },
+		                { "data": "Tipo do curso" },
+		                { "data": "Area do curso" },
 		                { 
 		                	"data": "id" ,
 		                	render: function ( data, type, row ) {

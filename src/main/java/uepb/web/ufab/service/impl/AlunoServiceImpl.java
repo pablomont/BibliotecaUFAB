@@ -16,7 +16,7 @@ import uepb.web.ufab.service.inter.IAlunoService;
 
 	/**
 	* <h1>AlunoServiceImpl</h1>
-	* AlunoServiceImpl Implementa todos os serviços dos Alunos
+	* AlunoServiceImpl Implementa todos os serviï¿½os dos Alunos
 	*
 	* @author  Samuel Rufino e Pablo Monteiro
 	* @version 1.0
@@ -52,7 +52,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
     @Transactional
 	public void deleteAlunoByMatricula(String matricula) throws ItemInexistenteException {
 		if(!alunoDao.alunoExists(matricula))
-			throw new ItemInexistenteException("Aluno não existe");
+			throw new ItemInexistenteException("Aluno nï¿½o existe");
 		
 		alunoDao.deleteAlunoByMatricula(matricula);
 		
@@ -61,7 +61,7 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
     @Transactional
 	public void updateAluno(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException {
 		if(!alunoDao.alunoExists(aluno.getMatricula()))
-			throw new ItemInexistenteException("Aluno não existe");
+			throw new ItemInexistenteException("Aluno nï¿½o existe");
 		
 		else {
 			Aluno alunoAux = getAlunoByMatricula(aluno.getMatricula());
@@ -71,9 +71,27 @@ public class AlunoServiceImpl extends GenericServiceImpl<Aluno> implements IAlun
 			}
 			
 			else {
-				throw new ItemDuplicadoException("Já existe um aluno com essa matrícula");
+				throw new ItemDuplicadoException("Jï¿½ existe um aluno com essa matrï¿½cula");
 			}	
 		}
 		
-	}	
+	}
+
+	public void saveAluno(Aluno aluno) throws ItemDuplicadoException {
+		aluno.setMatricula(geraMatricula(aluno));
+		super.addItem(aluno);
+		
+	}
+
+	public String geraMatricula(Aluno aluno) {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(aluno.getCurso().getTipoCurso().toString().charAt(0));
+		stringBuilder.append(aluno.getCurso().getCodCurso()+"-");
+		stringBuilder.append(aluno.getAnoIngresso());
+		stringBuilder.append(aluno.getPeriodoIngresso());
+		stringBuilder.append(aluno.getRg().substring(0, 3));
+		return stringBuilder.toString();
+	}
+
+
 }

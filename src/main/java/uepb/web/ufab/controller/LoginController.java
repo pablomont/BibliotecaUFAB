@@ -10,6 +10,20 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	public ModelAndView loginSucces(){
+		ModelAndView m = new ModelAndView();
+		m.setViewName("home");
+		return m;
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public ModelAndView logout(){
+		ModelAndView m = new ModelAndView();
+		m.setViewName("index");
+		return m;
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView loadHome(){
 		ModelAndView m = new ModelAndView();
 		m.setViewName("home");

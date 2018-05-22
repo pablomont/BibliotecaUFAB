@@ -37,18 +37,18 @@ public class CreateDeleteAlunoTest {
 	public void setUp() throws Exception {
 		aluno = new Aluno();
 		aluno.setCpf("10190673494");
-		aluno.setEndereco("Rua são paulo, 666");
+		aluno.setEndereco("Rua sï¿½o paulo, 666");
 		aluno.setMatricula("142083011");
 		aluno.setNaturalidade("Brasileiro");
 		aluno.setNome("Pablo Monteiro Santos");
-		aluno.setNomeDaMae("Cláudia Monteiro Santos");
+		aluno.setNomeDaMae("Clï¿½udia Monteiro Santos");
 		aluno.setRg("3775630");
 		aluno.setSenhaAcesso("admin");
 		
 		curso = new Curso();
 		curso.setArea("Exatas");
-		curso.setNome("Ciência da Computação");
-		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
+		curso.setNome("Ciï¿½ncia da Computaï¿½ï¿½o");
+		curso.setTipoCurso(Curso.Tipo.GRA);
 		cursoService.addItem(curso);
 		
 		aluno.setCurso(curso);

@@ -25,7 +25,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                	<form>
+                                	<form:form action="funcionario_save" modelAttribute="funcionarioForm" method="post">
 										  <div class="form-row">
 										    <div class="form-group col-md-4">
 										      <label for="inputNomeCompleto">Nome</label>
@@ -89,7 +89,7 @@
 				
 	                                      </div>						
 										  	<button type="submit" class="btn btn-primary">Cadastrar</button>
-										</form>
+										</form:form>
                                 </div>                                
                             </div>
                             <!-- /.row (nested) -->

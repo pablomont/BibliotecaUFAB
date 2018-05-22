@@ -23,7 +23,7 @@ public class Curso implements Serializable,EntidadeBase  {
 	@Column(name="id")
     private int id;	
 	
-	public enum Tipo{GRADUACAO, POS}
+	public enum Tipo{GRA, POS}
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="TIPO_CURSO")
@@ -35,13 +35,40 @@ public class Curso implements Serializable,EntidadeBase  {
 	private String areaCurso;
 
 	
+	public String getCodCurSo() {
+		return codCurSo;
+	}
+
+	private String codCurSo;
+	
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
+	}
+
+	public String getAreaCurso() {
+		return areaCurso;
+	}
+
+	public String getNomeCurso() {
+		return nomeCurso;
+	}
+
+	public void setAreaCurso(String areaCurso) {
+		this.areaCurso = areaCurso;
+	}
+
+	public String getCodCurso() {
+		return codCurSo;
+	}
+
+	public void setCodCurSo(String codCurSo) {
+		this.codCurSo = codCurSo;
+	}
+
 	public int getId() {
 		return id;
 	}
 	
-	public String getNome() {
-		return nomeCurso;
-	}
 
 	public void setNome(String nome) {
 		this.nomeCurso = nome;
@@ -88,7 +115,9 @@ public class Curso implements Serializable,EntidadeBase  {
 
 	@Override
 	public String toString() {
-		return this.getNome() + " - " +this.getTipoCurso().toString();
+		return this.getNomeCurso() + "-"+this.getCodCurSo()+"."+this.getTipoCurso().toString();
 	}
+
+	
 	
 }

@@ -37,7 +37,7 @@
 										    </div>
 										    <div class="form-group col-md-4">
 										      <label for="inputNomeDaMae">Nome da mãe</label>
-										      <form:input path="nomeDaMae" type="password" class="form-control" id="inputNomeDaMae" placeholder="Nome completo da mãe"/>
+										      <form:input path="nomeDaMae" type="text" class="form-control" id="inputNomeDaMae" placeholder="Nome completo da mãe"/>
 										    </div>
 										  </div>
 										  
@@ -47,20 +47,37 @@
 										  </div>
 				
 										  <div class="form-row">
-										    <div class="form-group col-md-4">
+										    <div class="form-group col-md-3">
 										      <label for="inputCPF">CPF</label>
 										      <form:input path="cpf" type="text" class="form-control" id="inputCPF"/>
 										    </div>
-										    <div class="form-group col-md-4">
+										    <div class="form-group col-md-3">
 										       	<label for="inputRG">RG</label>
 										    	<form:input path="rg" type="text" class="form-control"  id="inputRG"/>
 										    </div>
-										    <div class="form-group col-md-4">
+										    <div class="form-group col-md-3">
 										      <label for="inputNaturalidade">Naturalidade:</label>
 										      <form:input path="naturalidade" type="text" class="form-control" id="inputNaturalidade" placeholder="Brasileiro"/>
 										    </div>
+										    
+										    <div class="form-group col-md-3">
+	                                            <label>Período de ingresso</label>
+	                                            <div class="radio">                              
+	                                                <label>
+	                                                   <form:radiobutton  path="periodoIngresso"  name="optionsRadios" id="optionsRadios1" value="S1"/>1° Período
+	                                                </label>
+	                                            </div>
+	                                            <div class="radio">
+	                                                <label>
+	                                                    <form:radiobutton path="periodoIngresso" name="optionsRadios" id="optionsRadios2" value="S2"/>2° Período
+	                                                </label>
+	                                            </div>
+                                   		     </div>	
+                                   	
+                                   		     </div>	
 										  </div>
-										  					
+
+				
 										  	<button type="submit" class="btn btn-primary">Cadastrar</button>
 										</form:form>
                                 </div>                                

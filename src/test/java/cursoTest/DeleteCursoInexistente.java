@@ -25,8 +25,8 @@ public class DeleteCursoInexistente {
 	public void deleteCursoInexistente() throws ItemInexistenteException {
 		curso = new Curso();
 		curso.setArea("EXATAS");
-		curso.setNome("COMPUTAÇÃO");
-		curso.setTipoCurso(Curso.Tipo.GRADUACAO);
+		curso.setNome("COMPUTAï¿½ï¿½O");
+		curso.setTipoCurso(Curso.Tipo.GRA);
 		
 		cursoService.deleteItem(curso.getId());
 	}

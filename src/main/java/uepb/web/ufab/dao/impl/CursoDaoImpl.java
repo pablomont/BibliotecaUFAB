@@ -8,7 +8,7 @@ import uepb.web.ufab.model.Curso;
 
 	/**
 	* <h1>CursosDao</h1>
-	* CursosDao é uma caracteristica especifica de um ou mais Alunos
+	* CursosDao ï¿½ uma caracteristica especifica de um ou mais Alunos
 	*
 	* @author  Samuel Rufino e Pablo Monteiro
 	* @version 1.0
@@ -22,7 +22,7 @@ public class CursoDaoImpl extends GenericDaoImpl<Curso> implements ICursoDao {
 
 		
 		cursoAux.setArea(curso.getArea());
-		cursoAux.setNome(curso.getNome());
+		cursoAux.setNome(curso.getNomeCurso());
 		cursoAux.setTipoCurso(curso.getTipoCurso());
 		
 		super.updateItem(cursoAux);

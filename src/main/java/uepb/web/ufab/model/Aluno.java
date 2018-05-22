@@ -2,18 +2,47 @@ package uepb.web.ufab.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity 
 @Table(name= "ALUNO")
 public class Aluno extends Pessoa{
 	
+	
+	public enum PeriodoIngresso {S1, S2};
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="PERIODO_INGRESSO")
+	private PeriodoIngresso periodoIngresso;
+
+	
+	public PeriodoIngresso getPeriodoIngresso() {
+		return periodoIngresso;
+	}
+
+	public void setPeriodoIngresso(PeriodoIngresso periodoIngresso) {
+		this.periodoIngresso = periodoIngresso;
+	}
+
+	public String getAnoIngresso() {
+		return anoIngresso;
+	}
+
+	public void setAnoIngresso(String anoIngresso) {
+		this.anoIngresso = anoIngresso;
+	}
+
 	@ManyToOne
     @JoinColumn(name = "CURSO_ID")
 	private Curso curso;
 	
+	@Column(name = "ANO_INGRESSO")
+	private String anoIngresso;
 	
 	@Column(unique=true,name = "MATRICULA")
 	private String matricula;

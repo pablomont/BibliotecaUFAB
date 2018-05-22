@@ -9,5 +9,7 @@ public interface IAlunoService extends IGenericService<Aluno> {
 	Aluno getAlunoByMatricula(String matricula) throws ItemInexistenteException;
 	void deleteAlunoByMatricula(String matricula) throws ItemInexistenteException;
 	void updateAluno(Aluno aluno) throws ItemDuplicadoException, ItemInexistenteException;
+	void saveAluno(Aluno aluno)throws ItemDuplicadoException;
+	String geraMatricula(Aluno aluno);
 
 }
